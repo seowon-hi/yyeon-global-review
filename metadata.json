@@ -1,0 +1,6 @@
+{
+  "name": "데이터 취합 완료 버전",
+  "description": "K-뷰티 브랜드 비마이연의 해외 시장 진출을 위한 데이터 기반 신뢰도 구축 및 다국어 리뷰 앱 프로토타입",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,72 @@
+{
+  "entities": {
+    "User": {
+      "title": "Customer User Profile",
+      "description": "User profile for customers",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "dob": { "type": "string" },
+        "role": { "type": "string", "enum": ["customer"] }
+      },
+      "required": ["uid", "name", "email"]
+    },
+    "Feedback": {
+      "title": "App Feedback",
+      "description": "User feedback and rating for the app",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "rating": { "type": "number" },
+        "comment": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["rating", "comment", "timestamp"]
+    },
+    "Brand": {
+      "title": "Brand Account",
+      "description": "Brand manager account",
+      "type": "object",
+      "properties": {
+        "brandId": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string", "enum": ["brand"] }
+      },
+      "required": ["brandId", "name"]
+    },
+    "ProductRequest": {
+      "title": "Product Request",
+      "description": "Customer requests for new products",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "text": { "type": "string" },
+        "images": { "type": "array", "items": { "type": "string" } },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["text", "timestamp"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "Stored user profiles"
+    },
+    "feedbacks/{feedbackId}": {
+      "schema": "Feedback",
+      "description": "App satisfaction feedbacks"
+    },
+    "brands/{brandId}": {
+      "schema": "Brand",
+      "description": "Brand manager accounts"
+    },
+    "product_requests/{requestId}": {
+      "schema": "ProductRequest",
+      "description": "Customer product suggestions"
+    }
+  }
+}
