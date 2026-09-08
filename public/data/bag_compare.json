@@ -1,0 +1,546 @@
+{
+  "bags": [
+    {
+      "id": "blooming",
+      "name": {
+        "KO": "Blooming bag",
+        "JA": "Blooming bag",
+        "EN": "Blooming bag"
+      },
+      "type": {
+        "KO": "미니백",
+        "JA": "ミニバッグ",
+        "EN": "Mini Bag"
+      },
+      "colors": {
+        "KO": [
+          "실버",
+          "블랙",
+          "뮤트 핑크",
+          "베이비 블루",
+          "빈티지 브라운",
+          "크림 아이보리",
+          "버터 옐로우"
+        ],
+        "JA": [
+          "シルバー",
+          "ブラック",
+          "ミュートピンク",
+          "ベビーブルー",
+          "ヴィンテージブラウン",
+          "クリームアイボリー",
+          "バターイエロー"
+        ],
+        "EN": [
+          "Silver",
+          "Black",
+          "Mute Pink",
+          "Baby Blue",
+          "Vintage Brown",
+          "Cream Ivory",
+          "Butter Yellow"
+        ]
+      },
+      "weight": "450g",
+      "material": {
+        "KO": "은은한 광택감, 크랙 텍스처",
+        "JA": "上品な光沢、クラックテクスチャー",
+        "EN": "Subtle sheen, crack texture"
+      },
+      "lock": {
+        "KO": "스냅 버튼",
+        "JA": "スナップボタン",
+        "EN": "Snap button"
+      },
+      "feature": {
+        "KO": "반듯한 쉐잎에 사첼 핸들 디자인",
+        "JA": "端正なシェイプのサッチェルハンドルデザイン",
+        "EN": "Structured shape with satchel handle design"
+      },
+      "images": {
+        "detail": "/images/bags/blooming/blooming_detail.jpg",
+        "interior": "/images/bags/blooming/blooming_interior.jpg",
+        "style": [
+          {
+            "label": {
+              "KO": "토트 연출",
+              "JA": "トート",
+              "EN": "Tote"
+            },
+            "url": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/upload/NNEditor/20250115/46dd84c10f9e787d8c60558d946eb436.jpg"
+          },
+          {
+            "label": {
+              "KO": "베이직 스트랩",
+              "JA": "ベーシックストラップ",
+              "EN": "Basic Strap"
+            },
+            "url": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/upload/NNEditor/20250115/09d0806472e3ea84f050f75faa410f24.jpg"
+          },
+          {
+            "label": {
+              "KO": "체인 스트랩",
+              "JA": "チェーンストラップ",
+              "EN": "Chain Strap"
+            },
+            "url": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/upload/NNEditor/20250110/06a257064d2229c41d122d2cf63c3d6d.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mellow",
+      "name": {
+        "KO": "Mellow bag",
+        "JA": "Mellow bag",
+        "EN": "Mellow bag"
+      },
+      "type": {
+        "KO": "미니백",
+        "JA": "ミニバッグ",
+        "EN": "Mini Bag"
+      },
+      "colors": {
+        "KO": ["블랙", "빈티지 레드", "월넛 브라운", "버터 베이지"],
+        "JA": [
+          "ブラック",
+          "ヴィンテージレッド",
+          "ウォルナットブラウン",
+          "バターベージュ"
+        ],
+        "EN": ["Black", "Vintage Red", "Walnut Brown", "Butter Beige"]
+      },
+      "weight": "380g",
+      "material": {
+        "KO": "은은한 광택감, 크랙 텍스처",
+        "JA": "上品な光沢、クラックテクスチャー",
+        "EN": "Subtle sheen, crack texture"
+      },
+      "lock": {
+        "KO": "턴락",
+        "JA": "ターンロック",
+        "EN": "Turn lock"
+      },
+      "feature": {
+        "KO": "아코디언 내부 확장 가능",
+        "JA": "アコーディオン式で内部を拡張可能",
+        "EN": "Expandable accordion-style interior"
+      },
+      "images": {
+        "detail": "/images/bags/mellow/mellow_detail.jpg",
+        "interior": "/images/bags/mellow/mellow_interior.jpg",
+        "style": [
+          {
+            "label": {
+              "KO": "토트 연출",
+              "JA": "トート",
+              "EN": "Tote"
+            },
+            "url": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/upload/NNEditor/20250501/ca46866fa6a21969f898f305a4f7893e.jpg"
+          },
+          {
+            "label": {
+              "KO": "베이직 스트랩",
+              "JA": "ベーシックストラップ",
+              "EN": "Basic Strap"
+            },
+            "url": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/upload/NNEditor/20250501/513b428991b0074d3893aa9813725495.jpg"
+          },
+          {
+            "label": {
+              "KO": "숏 체인 스트랩",
+              "JA": "ショートチェーン",
+              "EN": "Short Chain"
+            },
+            "url": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/upload/NNEditor/20250501/a6fbb9321ecbe7e51f04087cbaeb9222.jpg"
+          },
+          {
+            "label": {
+              "KO": "롱 체인 스트랩",
+              "JA": "ロングチェーン",
+              "EN": "Long Chain"
+            },
+            "url": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/upload/NNEditor/20250110/2f6c51ec86bc1b10719565bb7728c3c3.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "henne_mini",
+      "name": {
+        "KO": "Henne Mini",
+        "JA": "Henne Mini",
+        "EN": "Henne Mini"
+      },
+      "type": {
+        "KO": "미니 토트백",
+        "JA": "ミニトートバッグ",
+        "EN": "Mini Tote Bag"
+      },
+      "colors": {
+        "KO": [
+          "더스티 블루",
+          "올리브",
+          "바닐라",
+          "소프트 블랙",
+          "카라멜 브라운"
+        ],
+        "JA": [
+          "ダスティブルー",
+          "オリーブ",
+          "バニラ",
+          "ソフトブラック",
+          "キャラメルブラウン"
+        ],
+        "EN": ["Dusty Blue", "Olive", "Vanilla", "Soft Black", "Caramel Brown"]
+      },
+      "weight": "약 300g",
+      "material": {
+        "KO": "오플 엠보 텍스처",
+        "JA": "オープルエンボステクスチャー",
+        "EN": "Opple embossed texture"
+      },
+      "lock": {
+        "KO": "스트랩 락",
+        "JA": "ストラップロック",
+        "EN": "Strap lock"
+      },
+      "feature": {
+        "KO": "앞 뒤 리버시블 디자인",
+        "JA": "前後どちらも使えるリバーシブルデザイン",
+        "EN": "Reversible design, wearable front or back"
+      },
+      "images": {
+        "detail": "/images/bags/henne_mini/henne_mini_detail.jpg",
+        "interior": "/images/bags/henne_mini/henne_mini_interior.jpg",
+        "style": [
+          {
+            "label": {
+              "KO": "토트 연출",
+              "JA": "トート",
+              "EN": "Tote"
+            },
+            "url": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/upload/NNEditor/20260116/dc7a18c3c5cc044e199fc2a95b13ff1f.jpg"
+          },
+          {
+            "label": {
+              "KO": "베이직 스트랩",
+              "JA": "ベーシックストラップ",
+              "EN": "Basic Strap"
+            },
+            "url": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/upload/NNEditor/20260116/7becc5177b2e7d3904663548f533988f.jpg"
+          },
+          {
+            "label": {
+              "KO": "체인 스트랩",
+              "JA": "チェーンストラップ",
+              "EN": "Chain Strap"
+            },
+            "url": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/upload/NNEditor/20260116/d2f6e0864d904aef1cbcaf70ec7a6402.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "henne_medium",
+      "name": {
+        "KO": "Henne Medium",
+        "JA": "Henne Medium",
+        "EN": "Henne Medium"
+      },
+      "type": {
+        "KO": "미디움 토트백",
+        "JA": "ミディアムトートバッグ",
+        "EN": "Medium Tote Bag"
+      },
+      "colors": {
+        "KO": ["버터", "카라멜 브라운", "토프 모카", "소프트 블랙"],
+        "JA": ["バター", "キャラメルブラウン", "トープモカ", "ソフトブラック"],
+        "EN": ["Butter", "Caramel Brown", "Taupe Mocha", "Soft Black"]
+      },
+      "weight": "약 630g",
+      "material": {
+        "KO": "오플 엠보 텍스처",
+        "JA": "オープルエンボステクスチャー",
+        "EN": "Opple embossed texture"
+      },
+      "lock": {
+        "KO": "스트랩 락",
+        "JA": "ストラップロック",
+        "EN": "Strap lock"
+      },
+      "feature": {
+        "KO": "앞 뒤 리버시블 디자인",
+        "JA": "前後どちらも使えるリバーシブルデザイン",
+        "EN": "Reversible design, wearable front or back"
+      },
+      "images": {
+        "detail": "/images/bags/henne_medium/henne_medium_detail.jpg",
+        "interior": "/images/bags/henne_medium/henne_medium_interior.jpg",
+        "style": [
+          {
+            "label": {
+              "KO": "토트 연출",
+              "JA": "トート",
+              "EN": "Tote"
+            },
+            "url": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/upload/NNEditor/20250705/a085849391b0647b0b5d248ab024a46d.jpg"
+          },
+          {
+            "label": {
+              "KO": "베이직 스트랩",
+              "JA": "ベーシックストラップ",
+              "EN": "Basic Strap"
+            },
+            "url": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/upload/NNEditor/20250705/b68c135b7d70dc9b40378faba944b84b.jpg"
+          },
+          {
+            "label": {
+              "KO": "체인 스트랩",
+              "JA": "チェーンストラップ",
+              "EN": "Chain Strap"
+            },
+            "url": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/upload/NNEditor/20250705/0ecb5c0d730de58cd0cb51e01018d7db.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "henne_large",
+      "name": {
+        "KO": "Henne Large",
+        "JA": "Henne Large",
+        "EN": "Henne Large"
+      },
+      "type": {
+        "KO": "라지 토트백",
+        "JA": "ラージトートバッグ",
+        "EN": "Large Tote Bag"
+      },
+      "colors": {
+        "KO": ["바닐라", "소프트 블랙", "딥 브라운", "카라멜 브라운"],
+        "JA": [
+          "バニラ",
+          "ソフトブラック",
+          "ディープブラウン",
+          "キャラメルブラウン"
+        ],
+        "EN": ["Vanilla", "Soft Black", "Deep Brown", "Caramel Brown"]
+      },
+      "weight": "900g대",
+      "material": {
+        "KO": "오플 엠보 텍스처",
+        "JA": "オープルエンボステクスチャー",
+        "EN": "Opple embossed texture"
+      },
+      "lock": {
+        "KO": "스트랩 락",
+        "JA": "ストラップロック",
+        "EN": "Strap lock"
+      },
+      "feature": {
+        "KO": "앞 뒤 리버시블 디자인",
+        "JA": "前後どちらも使えるリバーシブルデザイン",
+        "EN": "Reversible design, wearable front or back"
+      },
+      "images": {
+        "detail": "/images/bags/henne_large/henne_large_detail.jpg",
+        "interior": "/images/bags/henne_large/henne_large_interior.jpg",
+        "style": [
+          {
+            "label": {
+              "KO": "토트 연출 1",
+              "JA": "トート 1",
+              "EN": "Tote 1"
+            },
+            "url": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/upload/NNEditor/20250501/4fcd13dc555f47d4010bc1f1c635f8f0.jpg"
+          },
+          {
+            "label": {
+              "KO": "토트 연출 2",
+              "JA": "トート 2",
+              "EN": "Tote 2"
+            },
+            "url": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/upload/NNEditor/20250110/edd8de450de74ba6ff6ebd0772938772.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "aro",
+      "name": {
+        "KO": "Aro bag",
+        "JA": "Aro bag",
+        "EN": "Aro bag"
+      },
+      "type": {
+        "KO": "미니 백팩",
+        "JA": "ミニバックパック",
+        "EN": "Mini Backpack"
+      },
+      "colors": {
+        "KO": ["바닐라", "소프트 블랙", "카라멜 브라운"],
+        "JA": ["バニラ", "ソフトブラック", "キャラメルブラウン"],
+        "EN": ["Vanilla", "Soft Black", "Caramel Brown"]
+      },
+      "weight": "약 540g",
+      "material": {
+        "KO": "오플 엠보 텍스처",
+        "JA": "オープルエンボステクスチャー",
+        "EN": "Opple embossed texture"
+      },
+      "lock": {
+        "KO": "턴락",
+        "JA": "ターンロック",
+        "EN": "Turn lock"
+      },
+      "feature": {
+        "KO": "곡선을 살린 플랩 쉐입, 무게감을 최소화한 균형적 설계",
+        "JA": "曲線を活かしたフラップシェイプで、軽さとバランスを追求した設計",
+        "EN": "Curved flap shape with balanced weight distribution"
+      },
+      "images": {
+        "detail": "/images/bags/aro/aro_detail.jpg",
+        "interior": "/images/bags/aro/aro_interior.jpg",
+        "style": [
+          {
+            "label": {
+              "KO": "토트 연출",
+              "JA": "トート",
+              "EN": "Tote"
+            },
+            "url": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/upload/NNEditor/20251115/4978fb460c9d7f181689dffb8336b93e.jpg"
+          },
+          {
+            "label": {
+              "KO": "베이직 스트랩",
+              "JA": "ベーシックストラップ",
+              "EN": "Basic Strap"
+            },
+            "url": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/upload/NNEditor/20251115/c54a731638e8c4000c336864cb33e20d.jpg"
+          },
+          {
+            "label": {
+              "KO": "체인 스트랩",
+              "JA": "チェーンストラップ",
+              "EN": "Chain Strap"
+            },
+            "url": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/upload/NNEditor/20251115/b8d9a5a2eebf859e660555e7760be02f.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "aube_medium",
+      "name": {
+        "KO": "Aube Bag Medium",
+        "JA": "Aube Bag Medium",
+        "EN": "Aube Bag Medium"
+      },
+      "type": {
+        "KO": "미디움 토트백",
+        "JA": "ミディアムトートバッグ",
+        "EN": "Medium Tote Bag"
+      },
+      "colors": {
+        "KO": ["바닐라", "카라멜 브라운", "소프트 블랙"],
+        "JA": ["バニラ", "キャラメルブラウン", "ソフトブラック"],
+        "EN": ["Vanilla", "Caramel Brown", "Soft Black"]
+      },
+      "weight": "약 720g",
+      "material": {
+        "KO": "오플 엠보 텍스처",
+        "JA": "オープルエンボステクスチャー",
+        "EN": "Opple embossed texture"
+      },
+      "lock": {
+        "KO": "지퍼",
+        "JA": "ジッパー",
+        "EN": "Zipper"
+      },
+      "feature": {
+        "KO": "간결하지만 고급스러운 디자인",
+        "JA": "シンプルながら高級感のあるデザイン",
+        "EN": "Simple yet luxurious design"
+      },
+      "images": {
+        "detail": "/images/bags/aube_medium/aube_medium_detail.jpg",
+        "interior": "/images/bags/aube_medium/aube_medium_interior.jpg",
+        "style": [
+          {
+            "label": {
+              "KO": "토트 연출",
+              "JA": "トート",
+              "EN": "Tote"
+            },
+            "url": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/upload/NNEditor/20260527/b6c74e0cfc5b1cbf45671e6fa59a2e0d.jpg"
+          },
+          {
+            "label": {
+              "KO": "숄더 스트랩",
+              "JA": "ショルダーストラップ",
+              "EN": "Shoulder Strap"
+            },
+            "url": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/upload/NNEditor/20260522/78a2d0130d34f4dab9c607d6a47c3e10.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "aube_large",
+      "name": {
+        "KO": "Aube Bag Large",
+        "JA": "Aube Bag Large",
+        "EN": "Aube Bag Large"
+      },
+      "type": {
+        "KO": "라지 토트백",
+        "JA": "ラージトートバッグ",
+        "EN": "Large Tote Bag"
+      },
+      "colors": {
+        "KO": ["딥 브라운", "소프트 블랙", "바닐라"],
+        "JA": ["ディープブラウン", "ソフトブラック", "バニラ"],
+        "EN": ["Deep Brown", "Soft Black", "Vanilla"]
+      },
+      "weight": "약 880g",
+      "material": {
+        "KO": "오플 엠보 텍스처",
+        "JA": "オープルエンボステクスチャー",
+        "EN": "Opple embossed texture"
+      },
+      "lock": {
+        "KO": "지퍼",
+        "JA": "ジッパー",
+        "EN": "Zipper"
+      },
+      "feature": {
+        "KO": "간결하지만 고급스러운 디자인",
+        "JA": "シンプルながら高級感のあるデザイン",
+        "EN": "Simple yet luxurious design"
+      },
+      "images": {
+        "detail": "/images/bags/aube_large/aube_large_detail.jpg",
+        "interior": "/images/bags/aube_large/aube_large_interior.jpg",
+        "style": [
+          {
+            "label": {
+              "KO": "토트 연출",
+              "JA": "トート",
+              "EN": "Tote"
+            },
+            "url": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/upload/NNEditor/20260831/c7c41da712565945fea1b9dbdda80a25.jpg"
+          },
+          {
+            "label": {
+              "KO": "숄더 스트랩",
+              "JA": "ショルダーストラップ",
+              "EN": "Shoulder Strap"
+            },
+            "url": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/upload/NNEditor/20260527/3b6a9976e7be59d142ca305dbd1c8728.jpg"
+          }
+        ]
+      }
+    }
+  ]
+}

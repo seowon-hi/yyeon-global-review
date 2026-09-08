@@ -113,7 +113,7 @@ export function CompareTwoProducts({ currentLang, onNavigateToStorageTable }: Co
       try {
         setLoading(true);
         setError(null);
-        const response = await fetch('https://raw.githubusercontent.com/seowon-hi/yyeon-reviews/refs/heads/main/bag_compare.json');
+        const response = await fetch('/data/bag_compare.json');
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }
