@@ -355,6 +355,26 @@ const BAG_DATA: BagItem[] = [
 
 const COMPARE_TABLE_DATA = [
   {
+    name: 'Aube Large',
+    specs: {
+      notebook: true,
+      ipad: true,
+      tumbler: true,
+      books: true,
+      lipstick: true,
+    },
+  },
+  {
+    name: 'Aube Medium',
+    specs: {
+      notebook: false,
+      ipad: true,
+      tumbler: true,
+      books: true,
+      lipstick: true,
+    },
+  },
+  {
     name: 'Henne Large',
     specs: {
       notebook: true,
@@ -676,7 +696,7 @@ export function BagComparison({ reviews = [], onBagClick, currentLang = 'KO' }: 
                                 <td className="py-4.5 px-4 font-black text-gray-900 pl-5">
                                   <div>{row.name}</div>
                                   <span className="text-[8px] text-gray-400 font-extrabold uppercase tracking-widest block mt-0.5">
-                                    {row.name.includes('Henne') ? 'Henne bag' : row.name.toLowerCase().includes('mellow') ? 'Mellow bag' : row.name.toLowerCase().includes('aro') ? 'Aro bag' : 'Blooming bag'}
+                                    {row.name.includes('Henne') ? 'Henne bag' : row.name.toLowerCase().includes('mellow') ? 'Mellow bag' : row.name.toLowerCase().includes('aro') ? 'Aro bag' : row.name.toLowerCase().includes('aube') ? 'Aube Bag' : 'Blooming bag'}
                                   </span>
                                 </td>
                                 <td className="py-4.5 px-3 text-center">

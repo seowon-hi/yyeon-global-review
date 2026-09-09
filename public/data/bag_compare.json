@@ -464,8 +464,8 @@
         "EN": "Simple yet luxurious design"
       },
       "images": {
-        "detail": "/images/bags/aube_medium/aube_medium_detail.jpg",
-        "interior": "/images/bags/aube_medium/aube_medium_interior.jpg",
+        "detail": "/images/bags/aube_medium/aube_detail.jpg",
+        "interior": "/images/bags/aube_medium/aube_interior.jpg",
         "style": [
           {
             "label": {
@@ -520,8 +520,8 @@
         "EN": "Simple yet luxurious design"
       },
       "images": {
-        "detail": "/images/bags/aube_large/aube_large_detail.jpg",
-        "interior": "/images/bags/aube_large/aube_large_interior.jpg",
+        "detail": "/images/bags/aube_large/aube_detail.jpg",
+        "interior": "/images/bags/aube_large/aube_interior.jpg",
         "style": [
           {
             "label": {
