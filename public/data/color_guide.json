@@ -1,0 +1,531 @@
+{
+  "categories": [
+    {
+      "id": "포인트",
+      "KO": "포인트",
+      "JA": "ポイント",
+      "EN": "Point"
+    },
+    {
+      "id": "부드러움·따뜻함",
+      "KO": "부드러움·따뜻함",
+      "JA": "やわらかさ·温かみ",
+      "EN": "Soft·Warm"
+    },
+    {
+      "id": "고급·시크",
+      "KO": "고급·시크",
+      "JA": "高級·シック",
+      "EN": "Luxury·Chic"
+    },
+    {
+      "id": "빈티지",
+      "KO": "빈티지",
+      "JA": "ヴィンテージ",
+      "EN": "Vintage"
+    },
+    {
+      "id": "클래식",
+      "KO": "클래식",
+      "JA": "クラシック",
+      "EN": "Classic"
+    }
+  ],
+  "colors": [
+    {
+      "name": {
+        "KO": "Blooming 실버",
+        "JA": "Blooming シルバー",
+        "EN": "Blooming Silver"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20240920/24b49a6c19157e2af2c90708113ddd61.jpg",
+      "description": {
+        "KO": "청량한 포인트 컬러",
+        "JA": "爽やかなポイントカラー",
+        "EN": "A refreshing point color"
+      },
+      "categories": ["포인트"],
+      "bag": "Blooming bag"
+    },
+    {
+      "name": {
+        "KO": "Blooming 블랙",
+        "JA": "Blooming ブラック",
+        "EN": "Blooming Black"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20241101/0a2efe0cf813ae471201df4bb51ad2d6.jpg",
+      "description": {
+        "KO": "베이직하고 시크한 컬러",
+        "JA": "ベーシックでシックなカラー",
+        "EN": "A basic and chic color"
+      },
+      "categories": ["고급·시크"],
+      "bag": "Blooming bag"
+    },
+    {
+      "name": {
+        "KO": "Blooming 뮤트 핑크",
+        "JA": "Blooming ミュートピンク",
+        "EN": "Blooming Mute Pink"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20241101/60601b03b466bcd5654a995399657be5.jpg",
+      "description": {
+        "KO": "빈티지 감성의 사랑스러운 컬러",
+        "JA": "ヴィンテージ感のある愛らしいカラー",
+        "EN": "A lovely color with vintage sensibility"
+      },
+      "categories": ["빈티지"],
+      "bag": "Blooming bag"
+    },
+    {
+      "name": {
+        "KO": "Blooming 베이비 블루",
+        "JA": "Blooming ベビーブルー",
+        "EN": "Blooming Baby Blue"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20241105/4339f7a8d302cb21380931d5a85fc705.jpg",
+      "description": {
+        "KO": "살짝 톤다운된 은은한 포인트",
+        "JA": "少しトーンダウンした上品なポイント",
+        "EN": "A subtly toned-down, soft point color"
+      },
+      "categories": ["포인트"],
+      "bag": "Blooming bag"
+    },
+    {
+      "name": {
+        "KO": "Blooming 빈티지 브라운",
+        "JA": "Blooming ヴィンテージブラウン",
+        "EN": "Blooming Vintage Brown"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20240920/bf5d7024ced04e649850c340cf1fe992.jpg",
+      "description": {
+        "KO": "엔틱하고 클래식한 고급스러움",
+        "JA": "アンティークでクラシックな高級感",
+        "EN": "Antique and classic luxury"
+      },
+      "categories": ["클래식"],
+      "bag": "Blooming bag"
+    },
+    {
+      "name": {
+        "KO": "Blooming 크림 아이보리",
+        "JA": "Blooming クリームアイボリー",
+        "EN": "Blooming Cream Ivory"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20241105/2987f2369608a19e929cb489d5d0387d.jpg",
+      "description": {
+        "KO": "부드럽고 따뜻한 컬러감의 크림 아이보리",
+        "JA": "柔らかく温かみのあるクリームアイボリー",
+        "EN": "Soft and warm cream ivory"
+      },
+      "categories": ["부드러움·따뜻함"],
+      "bag": "Blooming bag"
+    },
+    {
+      "name": {
+        "KO": "Blooming 버터 옐로우",
+        "JA": "Blooming バターイエロー",
+        "EN": "Blooming Butter Yellow"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20241105/9b5bcb1ab05598edf0342720f39de9b0.jpg",
+      "description": {
+        "KO": "흔하지 않은 포인트 컬러",
+        "JA": "珍しいポイントカラー",
+        "EN": "A rare and unique point color"
+      },
+      "categories": ["포인트"],
+      "bag": "Blooming bag"
+    },
+    {
+      "name": {
+        "KO": "Mellow 블랙",
+        "JA": "Mellow ブラック",
+        "EN": "Mellow Black"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20241118/8342b6ff22ed47f5a1825cb9775ac8e9.jpg",
+      "description": {
+        "KO": "크렉 광택감으로 완성된 고급스러운 블랙",
+        "JA": "クラック光沢で仕上げた高級感あるブラック",
+        "EN": "Luxurious black finished with crack texture"
+      },
+      "categories": ["빈티지"],
+      "bag": "Mellow bag"
+    },
+    {
+      "name": {
+        "KO": "Mellow 빈티지 레드",
+        "JA": "Mellow ヴィンテージレッド",
+        "EN": "Mellow Vintage Red"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20241118/5e34cb5cc93f04861618b490f62ad495.jpg",
+      "description": {
+        "KO": "특별한 날, 포인트 컬러가 되어줄 빈티지 레드",
+        "JA": "特別な日のポイントカラーになるヴィンテージレッド",
+        "EN": "Vintage red for special occasions"
+      },
+      "categories": ["포인트", "빈티지"],
+      "bag": "Mellow bag"
+    },
+    {
+      "name": {
+        "KO": "Mellow 월넛 브라운",
+        "JA": "Mellow ウォルナットブラウン",
+        "EN": "Mellow Walnut Brown"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20241118/acdaf201ce4ddf53201ef5f650743589.jpg",
+      "description": {
+        "KO": "아몬드처럼 포근하고 클래식한 컬러",
+        "JA": "アーモンドのように温かくクラシックなカラー",
+        "EN": "Warm and classic like almonds"
+      },
+      "categories": ["빈티지"],
+      "bag": "Mellow bag"
+    },
+    {
+      "name": {
+        "KO": "Mellow 버터 베이지",
+        "JA": "Mellow バターベージュ",
+        "EN": "Mellow Butter Beige"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20241118/7e4ce2fca85910e6f08f3f784f318dc4.jpg",
+      "description": {
+        "KO": "yyeon의 시그니처 컬러",
+        "JA": "yyeonのシグネチャーカラー",
+        "EN": "yyeon's signature color"
+      },
+      "categories": ["빈티지"],
+      "bag": "Mellow bag"
+    },
+    {
+      "name": {
+        "KO": "Henne Mini 더스티 블루",
+        "JA": "Henne Mini ダスティブルー",
+        "EN": "Henne Mini Dusty Blue"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260220/dafe3a8fa22a23d75e67f02e5c30892d.jpg",
+      "description": {
+        "KO": "쿨해보이지만 따뜻한 감성",
+        "JA": "クールに見えるけど温かみのある感性",
+        "EN": "Looks cool but has a warm sensibility"
+      },
+      "categories": ["부드러움·따뜻함"],
+      "bag": "Henne bag"
+    },
+    {
+      "name": {
+        "KO": "Henne Mini 올리브",
+        "JA": "Henne Mini オリーブ",
+        "EN": "Henne Mini Olive"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260220/0b13b5669258cd4e75133061bb51bb1e.jpg",
+      "description": {
+        "KO": "빈티지하면서도 포인트가 되는 컬러",
+        "JA": "ヴィンテージでありながらポイントになるカラー",
+        "EN": "A vintage yet stand-out color"
+      },
+      "categories": ["포인트", "빈티지"],
+      "bag": "Henne bag"
+    },
+    {
+      "name": {
+        "KO": "Henne Mini 바닐라",
+        "JA": "Henne Mini バニラ",
+        "EN": "Henne Mini Vanilla"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260220/92b539d1dc9f8ebbd11802ee5c7dce72.jpg",
+      "description": {
+        "KO": "한 스쿱의 크림같은 부드러운 컬러감",
+        "JA": "一スクープのクリームのような柔らかな色合い",
+        "EN": "Soft and creamy like a scoop of vanilla"
+      },
+      "categories": ["부드러움·따뜻함"],
+      "bag": "Henne bag"
+    },
+    {
+      "name": {
+        "KO": "Henne Mini 소프트 블랙",
+        "JA": "Henne Mini ソフトブラック",
+        "EN": "Henne Mini Soft Black"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260220/0cad83e7c62fe4437ebc845e706e50d9.jpg",
+      "description": {
+        "KO": "무겁지 않고 부드러운 존재감",
+        "JA": "重くなく柔らかな存在感",
+        "EN": "A soft presence without feeling heavy"
+      },
+      "categories": ["부드러움·따뜻함", "고급·시크"],
+      "bag": "Henne bag"
+    },
+    {
+      "name": {
+        "KO": "Henne Mini 카라멜 브라운",
+        "JA": "Henne Mini キャラメルブラウン",
+        "EN": "Henne Mini Caramel Brown"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260220/0942bb313a1802790acbe577b2f60274.jpg",
+      "description": {
+        "KO": "클래식한 무드의 스테디 컬러",
+        "JA": "クラシックなムードの定番カラー",
+        "EN": "A steady color with a classic mood"
+      },
+      "categories": ["클래식"],
+      "bag": "Henne bag"
+    },
+    {
+      "name": {
+        "KO": "Henne Medium 버터",
+        "JA": "Henne Medium バター",
+        "EN": "Henne Medium Butter"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20250717/348b0856e00c5898e7d75829d1573c6f.jpg",
+      "description": {
+        "KO": "계속 보고만 싶어지는 소프트한 컬러",
+        "JA": "ずっと見ていたくなるソフトなカラー",
+        "EN": "A soft color you can't stop looking at"
+      },
+      "categories": ["부드러움·따뜻함", "클래식"],
+      "bag": "Henne bag"
+    },
+    {
+      "name": {
+        "KO": "Henne Medium 카라멜 브라운",
+        "JA": "Henne Medium キャラメルブラウン",
+        "EN": "Henne Medium Caramel Brown"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20250717/7e2e9b6edd25f679a5be510f6daf87b4.jpg",
+      "description": {
+        "KO": "클래식한 무드의 스테디 컬러",
+        "JA": "クラシックなムードの定番カラー",
+        "EN": "A steady color with a classic mood"
+      },
+      "categories": ["클래식"],
+      "bag": "Henne bag"
+    },
+    {
+      "name": {
+        "KO": "Henne Medium 토프 모카",
+        "JA": "Henne Medium トープモカ",
+        "EN": "Henne Medium Taupe Mocha"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20250717/9394c9821ea7d416544a5382e797db74.jpg",
+      "description": {
+        "KO": "세련되고 은은한 중성적 뉴트럴 컬러",
+        "JA": "洗練された上品なニュートラルカラー",
+        "EN": "A sophisticated and subtle neutral color"
+      },
+      "categories": ["고급·시크"],
+      "bag": "Henne bag"
+    },
+    {
+      "name": {
+        "KO": "Henne Medium 소프트 블랙",
+        "JA": "Henne Medium ソフトブラック",
+        "EN": "Henne Medium Soft Black"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20250717/ea8ae12489afbfe2c25190a70153090b.jpg",
+      "description": {
+        "KO": "부드러운 존재감, 소프트 블랙",
+        "JA": "柔らかな存在感のソフトブラック",
+        "EN": "Soft black with a gentle presence"
+      },
+      "categories": ["고급·시크", "부드러움·따뜻함"],
+      "bag": "Henne bag"
+    },
+    {
+      "name": {
+        "KO": "Henne Large 바닐라",
+        "JA": "Henne Large バニラ",
+        "EN": "Henne Large Vanilla"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260107/e48e492eb384ddb52d027da0032d7b95.jpg",
+      "description": {
+        "KO": "웜톤 쿨톤 그 어딘가",
+        "JA": "ウォームトーンとクールトーンの間",
+        "EN": "Somewhere between warm and cool tone"
+      },
+      "categories": ["부드러움·따뜻함"],
+      "bag": "Henne bag"
+    },
+    {
+      "name": {
+        "KO": "Henne Large 소프트 블랙",
+        "JA": "Henne Large ソフトブラック",
+        "EN": "Henne Large Soft Black"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20250110/243a01de622c75c4dae01ce7c4ef5833.jpg",
+      "description": {
+        "KO": "가장 기본적이지만 무겁지 않은 컬러",
+        "JA": "最もベーシックだけど重くないカラー",
+        "EN": "The most basic yet lightweight color"
+      },
+      "categories": ["고급·시크", "부드러움·따뜻함"],
+      "bag": "Henne bag"
+    },
+    {
+      "name": {
+        "KO": "Henne Large 딥 브라운",
+        "JA": "Henne Large ディープブラウン",
+        "EN": "Henne Large Deep Brown"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20250113/27a62bdbcdda7914bc651c4e72c0ed61.jpg",
+      "description": {
+        "KO": "모카빈처럼 딥하면서 빈티지한 매력",
+        "JA": "モカビーンのようにディープでヴィンテージな魅力",
+        "EN": "Deep and vintage charm like mocha beans"
+      },
+      "categories": ["고급·시크", "빈티지"],
+      "bag": "Henne bag"
+    },
+    {
+      "name": {
+        "KO": "Henne Large 카라멜 브라운",
+        "JA": "Henne Large キャラメルブラウン",
+        "EN": "Henne Large Caramel Brown"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20250110/56327fb6bd76372d0898703273731c16.jpg",
+      "description": {
+        "KO": "클래식한 무드",
+        "JA": "クラシックなムード",
+        "EN": "Classic mood"
+      },
+      "categories": ["클래식"],
+      "bag": "Henne bag"
+    },
+    {
+      "name": {
+        "KO": "Aro bag 바닐라",
+        "JA": "Aro bag バニラ",
+        "EN": "Aro bag Vanilla"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260108/8a342a826f78e58114c30d45585d48d5.jpg",
+      "description": {
+        "KO": "깔끔하면서도 부드러운 컬러",
+        "JA": "すっきりしながら柔らかなカラー",
+        "EN": "Clean yet soft color"
+      },
+      "categories": ["부드러움·따뜻함"],
+      "bag": "Aro bag"
+    },
+    {
+      "name": {
+        "KO": "Aro bag 소프트 블랙",
+        "JA": "Aro bag ソフトブラック",
+        "EN": "Aro bag Soft Black"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260108/624abcfbb7f642cd936f7a2064a8e57f.jpg",
+      "description": {
+        "KO": "클래식한 무드의 스테디 컬러",
+        "JA": "クラシックなムードの定番カラー",
+        "EN": "A steady color with a classic mood"
+      },
+      "categories": ["고급·시크"],
+      "bag": "Aro bag"
+    },
+    {
+      "name": {
+        "KO": "Aro bag 카라멜 브라운",
+        "JA": "Aro bag キャラメルブラウン",
+        "EN": "Aro bag Caramel Brown"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260108/434344dd70f977be3a0966f27a65f7fe.jpg",
+      "description": {
+        "KO": "가장 기본이면서 세련된 컬러",
+        "JA": "最もベーシックでありながら洗練されたカラー",
+        "EN": "The most basic yet refined color"
+      },
+      "categories": ["클래식"],
+      "bag": "Aro bag"
+    },
+    {
+      "name": {
+        "KO": "Aube Medium 바닐라",
+        "JA": "Aube Medium バニラ",
+        "EN": "Aube Medium Vanilla"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260518/49a8b74e01d469f919701d142803f923.jpg",
+      "description": {
+        "KO": "은은하게 퍼지는 부드러운 바닐라빛",
+        "JA": "ほのかに広がる柔らかなバニラ色",
+        "EN": "A soft vanilla hue that spreads gently"
+      },
+      "categories": ["부드러움·따뜻함"],
+      "bag": "Aube bag"
+    },
+    {
+      "name": {
+        "KO": "Aube Large 바닐라",
+        "JA": "Aube Large バニラ",
+        "EN": "Aube Large Vanilla"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260820/7b50e2d0c382daf31588bb3a340fc392.jpg",
+      "description": {
+        "KO": "포근함이 감도는 부드러운 바닐라",
+        "JA": "温もりただよう柔らかなバニラ",
+        "EN": "Soft vanilla wrapped in warmth"
+      },
+      "categories": ["부드러움·따뜻함"],
+      "bag": "Aube bag"
+    },
+    {
+      "name": {
+        "KO": "Aube Medium 소프트 블랙",
+        "JA": "Aube Medium ソフトブラック",
+        "EN": "Aube Medium Soft Black"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260518/630c94c21bbd554381554ab439e9c155.jpg",
+      "description": {
+        "KO": "무겁지 않게 완성한 시크함",
+        "JA": "重くなく仕上げたシックな魅力",
+        "EN": "Chic without feeling heavy"
+      },
+      "categories": ["고급·시크"],
+      "bag": "Aube bag"
+    },
+    {
+      "name": {
+        "KO": "Aube Large 딥브라운",
+        "JA": "Aube Large ディープブラウン",
+        "EN": "Aube Large Deep Brown"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260518/32dc05eddfb3d4e2f07259f6c2e507c4.jpg",
+      "description": {
+        "KO": "깊이감 있는 고급스러운 브라운",
+        "JA": "深みのある高級感漂うブラウン",
+        "EN": "A deep, luxurious brown"
+      },
+      "categories": ["고급·시크"],
+      "bag": "Aube bag"
+    },
+    {
+      "name": {
+        "KO": "Aube Large 소프트 블랙",
+        "JA": "Aube Large ソフトブラック",
+        "EN": "Aube Large Soft Black"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260518/6fad83dfe644b14a82f7d08d378c8444.jpg",
+      "description": {
+        "KO": "어디에나 어울리는 세련된 블랙",
+        "JA": "どこにでも似合う洗練されたブラック",
+        "EN": "A refined black that goes with anything"
+      },
+      "categories": ["고급·시크"],
+      "bag": "Aube bag"
+    },
+    {
+      "name": {
+        "KO": "Aube Medium 카라멜 브라운",
+        "JA": "Aube Medium キャラメルブラウン",
+        "EN": "Aube Medium Caramel Brown"
+      },
+      "image": "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260518/c986865e15fc8b51e56de1a4b5b11019.jpg",
+      "description": {
+        "KO": "따뜻한 무드를 더하는 클래식 브라운",
+        "JA": "温かなムードを添えるクラシックブラウン",
+        "EN": "A classic brown that adds warmth"
+      },
+      "categories": ["클래식"],
+      "bag": "Aube bag"
+    }
+  ]
+}
