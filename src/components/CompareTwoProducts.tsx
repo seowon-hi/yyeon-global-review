@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, Maximize2, X, AlertCircle, Loader2 } from 'lucide-react';
 import { Language } from '../types';
+import { COLOR_HEX_MAP } from '../data/colorHexMap';
+import { COMPARE_LABELS } from '../i18n/compareTwoProducts';
 
 interface StyleItem {
   label: Record<Language, string>;
@@ -28,56 +30,6 @@ interface CompareTwoProductsProps {
   currentLang: Language;
   onNavigateToStorageTable: () => void;
 }
-
-// Color hex mapping helper to render nice color badge/circles
-const COLOR_HEX_MAP: Record<string, string> = {
-  // English
-  'silver': '#E5E7EB',
-  'black': '#111827',
-  'mute pink': '#E8A2A9',
-  'baby blue': '#ACD0EE',
-  'vintage brown': '#8B5A2B',
-  'cream ivory': '#ECE6D8',
-  'butter yellow': '#FBE795',
-  'vintage red': '#A62B2B',
-  'walnut brown': '#6F4E37',
-  'butter beige': '#E6D7C3',
-  'taupe gray': '#A09A95',
-  'caramel tan': '#C68E5C',
-  'cameo pink': '#E1C4C7',
-  'choco brown': '#5A3825',
-  'milk tea': '#DEC9B5',
-  'peach': '#F7C59F',
-  'olive green': '#7D8462',
-  'brick brown': '#9E4F39',
-
-  // Korean
-  '실버': '#E5E7EB',
-  '블랙': '#111827',
-  '뮤트 핑크': '#E8A2A9',
-  '베이비 블루': '#ACD0EE',
-  '빈티지 브라운': '#8B5A2B',
-  '크림 아이보리': '#ECE6D8',
-  '버터 옐로우': '#FBE795',
-  '빈티지 레드': '#A62B2B',
-  '월넛 브라운': '#6F4E37',
-  '버터 베이지': '#E6D7C3',
-  '토프 그레이': '#A09A95',
-  '카라멜 탠': '#C68E5C',
-
-  // Japanese
-  'シルバー': '#E5E7EB',
-  'ブラック': '#111827',
-  'ミュートピンク': '#E8A2A9',
-  'ベビーブルー': '#ACD0EE',
-  'ヴィンテージブラウン': '#8B5A2B',
-  'クリームアイボリー': '#ECE6D8',
-  'バターイエロー': '#FBE795',
-  'ヴィンテージレッド': '#A62B2B',
-  'ウォルナットブラウン': '#6F4E37',
-  'バターベージュ': '#E6D7C3',
-  'トープグレー': '#A09A95',
-};
 
 function getColorHex(colorName: string): string {
   const norm = colorName.trim().toLowerCase();
@@ -134,59 +86,7 @@ export function CompareTwoProducts({ currentLang, onNavigateToStorageTable }: Co
     fetchBagCompareData();
   }, []);
 
-  const t = {
-    KO: {
-      weight: '중량',
-      material: '소재',
-      lock: '잠금장치',
-      feature: '핵심 특징',
-      colors: '제공 색상',
-      style: '스타일링 연출',
-      viewStorageBtn: '📊 소지품 수납 가능 표 보기',
-      placeholder: '가방 선택',
-      loading: '비교 정보를 불러오고 있습니다...',
-      error: '가방 정보를 가져오는 중에 오류가 발생했습니다.',
-      specTitle: '제품 스펙 세부 정보',
-    },
-    JA: {
-      weight: '重量',
-      material: '素材',
-      lock: '留め具',
-      feature: '特長',
-      colors: '展開カラー',
-      style: 'スタイリング着用例',
-      viewStorageBtn: '📊 収納力目安・構造表を見る',
-      placeholder: 'バッグを選択',
-      loading: '比較情報を読み込んでいます...',
-      error: 'バッグ情報の読み込みに失敗しました。',
-      specTitle: 'スペック詳細情報',
-    },
-    EN: {
-      weight: 'Weight',
-      material: 'Material',
-      lock: 'Lock Mechanism',
-      feature: 'Key Feature',
-      colors: 'Available Colors',
-      style: 'Styling Gallery',
-      viewStorageBtn: '📊 View Packing Capability Grid',
-      placeholder: 'Select Bag',
-      loading: 'Loading comparison data...',
-      error: 'Failed to load bag specifications data.',
-      specTitle: 'Specifications & Details',
-    }
-  }[currentLang] || {
-    weight: 'Weight',
-    material: 'Material',
-    lock: 'Lock Mechanism',
-    feature: 'Key Feature',
-    colors: 'Available Colors',
-    style: 'Styling Gallery',
-    viewStorageBtn: '📊 View Packing Capability Grid',
-    placeholder: 'Select Bag',
-    loading: 'Loading comparison data...',
-    error: 'Failed to load bag specifications data.',
-    specTitle: 'Specifications & Details',
-  };
+  const t = COMPARE_LABELS[currentLang] || COMPARE_LABELS.EN;
 
   // Reset indices if bag count changes or selection gets out of bounds
   useEffect(() => {
