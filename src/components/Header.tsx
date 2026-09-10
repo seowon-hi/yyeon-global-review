@@ -92,7 +92,7 @@ export function OfficialSiteBanner() {
         <div className="flex items-center space-x-4">
           <div className="w-12 h-12 rounded-2xl overflow-hidden border border-gray-100 flex-shrink-0">
             <img
-              src="https://raw.githubusercontent.com/seowon-hi/yyeon-reviews/refs/heads/main/352887658_648098816807218_152363254225589778_n.jpg"
+              src="/images/logo/yyeon_logo.jpg"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />
