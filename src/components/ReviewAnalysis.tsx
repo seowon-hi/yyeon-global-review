@@ -52,7 +52,7 @@ export function ReviewAnalysis({ currentLang }: ReviewAnalysisProps) {
       try {
         setLoading(true);
         setError(null);
-        const response = await fetch('https://raw.githubusercontent.com/seowon-hi/yyeon-reviews/refs/heads/main/review_analysis.json');
+        const response = await fetch('/data/review_analysis.json');
         if (!response.ok) {
           throw new Error('Failed to load review analysis data');
         }
