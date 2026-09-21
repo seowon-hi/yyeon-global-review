@@ -19,7 +19,6 @@ export interface BagItem {
     possible: boolean;
     detail: LocalizedText;
   }[];
-  promotion: LocalizedText;
   personas: string[];
 }
 
@@ -78,11 +77,6 @@ export const BAG_DATA: BagItem[] = [
         detail: { KO: '내부 전용 포켓에 편리하게 수납', JA: '専用ポケットに便利に収納', EN: 'Easy storage in dedicated inner pocket' },
       },
     ],
-    promotion: {
-      KO: '🎁 리얼 레더 미니 파우치 무료 증정',
-      JA: '🎁 リアルレザーミニポーチ無料プレゼント',
-      EN: '🎁 Complimentary Real Leather Mini Pouch',
-    },
     personas: ['출퇴근 직장인', '미팅/비즈니스', '엄마/육아', '여행/나들이'],
   },
   {
@@ -136,11 +130,6 @@ export const BAG_DATA: BagItem[] = [
         detail: { KO: '지퍼 달린 이너포켓 내부 수납', JA: 'ジッパー付きインナーポケット内蔵', EN: 'Secure zipped inner pocket storage' },
       },
     ],
-    promotion: {
-      KO: '🎁 오피스 스타일링 슬림 타이 스카프 증정',
-      JA: '🎁 オフィススタイリング・スカーフプレゼント',
-      EN: '🎁 Complimentary Styling Slim Tie Scarf',
-    },
     personas: ['출퇴근 직장인', '미팅/비즈니스', '주말 데일리'],
   },
   {
@@ -188,11 +177,6 @@ export const BAG_DATA: BagItem[] = [
         detail: { KO: '앞면 퀵 포켓에 바로 수납 가능', JA: 'フロントクイックポケットに即収納可能', EN: 'Instant access front pocket storage' },
       },
     ],
-    promotion: {
-      KO: '🎁 일러스트 참 로고 키링 에디션 포함',
-      JA: '🎁 イラストチャーム・ロゴキーリング付き',
-      EN: '🎁 Includes Special Illustration Charm Keyring',
-    },
     personas: ['학생/캠퍼스', '주말 데일리', '여행/나들이'],
   },
   {
@@ -240,11 +224,6 @@ export const BAG_DATA: BagItem[] = [
         detail: { KO: '립 매직 전용 오거나이저 내장', JA: '専用ビューティーオーガナイザー内蔵', EN: 'Built-in beauty product organizer' },
       },
     ],
-    promotion: {
-      KO: '🎁 실버 체인 링크 스트랩 추가 패키지',
-      JA: '🎁 シルバーチェーンストラップ追加パッケージ付き',
-      EN: '🎁 Includes Additional Silver Chain Strap',
-    },
     personas: ['주말 데일리', '여행/나들이', '엄마/육아'],
   },
   {
@@ -298,12 +277,105 @@ export const BAG_DATA: BagItem[] = [
         detail: { KO: '지퍼 사이드 보이지 않는 포켓 수납', JA: '目立たないサイド隠しポケット収納', EN: 'Storage in invisible side zipped pocket' },
       },
     ],
-    promotion: {
-      KO: '🎁 가죽 참 태슬 키링 제공',
-      JA: '🎁 レザーチャームタッセルキーリング付き',
-      EN: '🎁 Complimentary Leather Tassel Keyring',
-    },
     personas: ['주말 데일리', '미팅/비즈니스', '학생/캠퍼스'],
+  },
+  {
+    id: 'Aube bag',
+    name: 'Aube Medium',
+    subTitle: {
+      KO: '노트북과 서류만 가볍게 챙기는 출근길 백',
+      JA: 'ノートPCと書類だけを身軽に持ち歩く通勤バッグ',
+      EN: 'A light commuter bag for just your laptop and documents',
+    },
+    badge: {
+      text: { KO: 'MEDIUM / 실용적', JA: 'MEDIUM / 実用的', EN: 'MEDIUM / Practical' },
+      bgColor: 'bg-emerald-50',
+      textColor: 'text-emerald-700',
+    },
+    checklist: [
+      {
+        item: { KO: '노트북(14인치)', JA: 'ノートPC(14インチ)', EN: 'Laptop (14")' },
+        icon: '💻',
+        possible: true,
+        detail: { KO: '여유롭게 수납 가능', JA: '余裕で収納可能', EN: 'Fits comfortably with room to spare' },
+      },
+      {
+        item: { KO: 'A4 서류', JA: 'A4書類', EN: 'A4 Documents' },
+        icon: '📑',
+        possible: true,
+        detail: { KO: '구김 없이 반듯하게 수납', JA: '折れ曲がらず綺麗に収まる', EN: 'Fits perfectly flat without folding' },
+      },
+      {
+        item: { KO: '텀블러', JA: 'タンブラー', EN: 'Tumbler' },
+        icon: '📦',
+        possible: false,
+        detail: { KO: '가로로 눕혀서만 가능', JA: '横に寝かせてのみ可能', EN: 'Horizontal alignment only' },
+      },
+      {
+        item: { KO: '책 (1권)', JA: '本 (1冊)', EN: 'Books (1)' },
+        icon: '📚',
+        possible: true,
+        detail: { KO: '일반 소설책 1~2권 여유 수납', JA: '一般小説1〜2冊の余裕収納', EN: 'Fits 1-2 standard novels easily' },
+      },
+      {
+        item: { KO: '립스틱', JA: 'リップ/小物', EN: 'Lipstick' },
+        icon: '💄',
+        possible: true,
+        detail: { KO: '내부 전용 포켓에 편리하게 수납', JA: '内側の専用ポケットに便利に収納', EN: 'Easy storage in dedicated inner pocket' },
+      },
+    ],
+    personas: ['출퇴근 직장인', '미팅/비즈니스', '주말 데일리'],
+  },
+  {
+    id: 'Aube bag',
+    name: 'Aube Large',
+    subTitle: {
+      KO: '큰 노트북도 서류도 한 번에 담는 여유로운 데일리 백',
+      JA: '大きめのノートPCも書類もまとめて収納できるゆとりのあるデイリーバッグ',
+      EN: 'A roomy everyday bag for a big laptop and documents in one go',
+    },
+    badge: {
+      text: { KO: 'MAXI / 대용량', JA: 'MAXI / 大容量', EN: 'MAXI / Large' },
+      bgColor: 'bg-blue-50',
+      textColor: 'text-blue-700',
+    },
+    checklist: [
+      {
+        item: { KO: '노트북(15-16인치)', JA: 'ノートPC(15-16インチ)', EN: 'Laptop (15-16")' },
+        icon: '💻',
+        possible: true,
+        detail: {
+          KO: '전체 수납 공간에 17인치 노트북까지 수납 가능',
+          JA: 'メインの収納スペースには17インチのノートPCまで入ります',
+          EN: 'Main storage space fits up to a 17" laptop',
+        },
+      },
+      {
+        item: { KO: 'A4 서류', JA: 'A4書類', EN: 'A4 Documents' },
+        icon: '📑',
+        possible: true,
+        detail: { KO: '구김 없이 반듯하게 수납', JA: '折れ曲がらず綺麗に収まる', EN: 'Fits perfectly flat without folding' },
+      },
+      {
+        item: { KO: '텀블러', JA: 'タンブラー', EN: 'Tumbler' },
+        icon: '📦',
+        possible: false,
+        detail: { KO: '가로로 눕혀서만 가능', JA: '横に寝かせてのみ可能', EN: 'Horizontal alignment only' },
+      },
+      {
+        item: { KO: '책 (1권)', JA: '本 (1冊)', EN: 'Books (1)' },
+        icon: '📚',
+        possible: true,
+        detail: { KO: '일반 소설책 1~2권 여유 수납', JA: '一般小説1〜2冊の余裕収納', EN: 'Fits 1-2 standard novels easily' },
+      },
+      {
+        item: { KO: '립스틱', JA: 'リップ/小物', EN: 'Lipstick' },
+        icon: '💄',
+        possible: true,
+        detail: { KO: '내부 전용 포켓에 편리하게 수납', JA: '内側の専用ポケットに便利に収納', EN: 'Easy storage in dedicated inner pocket' },
+      },
+    ],
+    personas: ['출퇴근 직장인', '미팅/비즈니스', '주말 데일리'],
   },
 ];
 
