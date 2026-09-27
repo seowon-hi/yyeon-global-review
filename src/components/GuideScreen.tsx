@@ -76,7 +76,7 @@ export function GuideScreen({
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="flex flex-col h-full bg-white pb-20 overflow-hidden"
+      className="flex flex-col h-full bg-white overflow-hidden"
     >
       <header className="px-5 pt-10 pb-6 border-b border-gray-100 shrink-0 bg-white sticky top-0 z-40 shadow-sm mb-4">
         <div className="flex items-center space-x-3 mb-2">

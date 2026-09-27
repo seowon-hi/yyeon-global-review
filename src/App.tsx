@@ -249,7 +249,7 @@ export default function App() {
               </div>
             )}
             {activeTab === "guide" && (
-              <div className="h-full overflow-y-auto pb-[calc(5rem+env(safe-area-inset-bottom))] pt-16">
+              <div className="h-full pb-[calc(5rem+env(safe-area-inset-bottom))]">
                 <GuideScreen key="guide" t={t} currentLang={currentLang} />
               </div>
             )}
