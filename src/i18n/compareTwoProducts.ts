@@ -10,6 +10,8 @@ export const COMPARE_LABELS = {
     loading: '비교 정보를 불러오고 있습니다...',
     error: '가방 정보를 가져오는 중에 오류가 발생했습니다.',
     specTitle: '제품 스펙 세부 정보',
+    detailPhotoLabel: '외관',
+    interiorPhotoLabel: '내부',
   },
   JA: {
     weight: '重量',
@@ -22,6 +24,8 @@ export const COMPARE_LABELS = {
     loading: '比較情報を読み込んでいます...',
     error: 'バッグ情報の読み込みに失敗しました。',
     specTitle: 'スペック詳細情報',
+    detailPhotoLabel: '外観',
+    interiorPhotoLabel: '内部',
   },
   EN: {
     weight: 'Weight',
@@ -34,5 +38,7 @@ export const COMPARE_LABELS = {
     loading: 'Loading comparison data...',
     error: 'Failed to load bag specifications data.',
     specTitle: 'Specifications & Details',
+    detailPhotoLabel: 'Exterior',
+    interiorPhotoLabel: 'Interior',
   },
 };

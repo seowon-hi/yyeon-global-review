@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronLeft, ChevronRight, Maximize2, X, AlertCircle, Loader2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, AlertCircle, Loader2 } from 'lucide-react';
 import { Language } from '../types';
 import { COLOR_HEX_MAP } from '../data/colorHexMap';
 import { COMPARE_LABELS } from '../i18n/compareTwoProducts';
@@ -59,6 +59,10 @@ export function CompareTwoProducts({ currentLang }: CompareTwoProductsProps) {
   const [leftStyleIdx, setLeftStyleIdx] = useState<number>(0);
   const [rightStyleIdx, setRightStyleIdx] = useState<number>(0);
 
+  // Detail/interior photo sliders (exterior + interior shots, same pattern as the style slider)
+  const [leftDetailIdx, setLeftDetailIdx] = useState<number>(0);
+  const [rightDetailIdx, setRightDetailIdx] = useState<number>(0);
+
   useEffect(() => {
     const fetchBagCompareData = async () => {
       try {
@@ -112,6 +116,16 @@ export function CompareTwoProducts({ currentLang }: CompareTwoProductsProps) {
     }
   };
 
+  // Same pattern as slideStyle, for the exterior/interior detail photo slider
+  const slideDetail = (side: 'left' | 'right', direction: 'prev' | 'next', total: number) => {
+    const setIdx = side === 'left' ? setLeftDetailIdx : setRightDetailIdx;
+    if (direction === 'prev') {
+      setIdx(prev => (prev === 0 ? total - 1 : prev - 1));
+    } else {
+      setIdx(prev => (prev === total - 1 ? 0 : prev + 1));
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center p-16 space-y-3">
@@ -147,6 +161,7 @@ export function CompareTwoProducts({ currentLang }: CompareTwoProductsProps) {
               onChange={(e) => {
                 setLeftIndex(Number(e.target.value));
                 setLeftStyleIdx(0);
+                setLeftDetailIdx(0);
               }}
               className="w-full bg-gray-50/70 border border-gray-200/80 rounded-xl px-3 py-2.5 text-xs font-bold text-gray-800 focus:outline-none focus:border-black appearance-none cursor-pointer"
             >
@@ -169,6 +184,7 @@ export function CompareTwoProducts({ currentLang }: CompareTwoProductsProps) {
               onChange={(e) => {
                 setRightIndex(Number(e.target.value));
                 setRightStyleIdx(0);
+                setRightDetailIdx(0);
               }}
               className="w-full bg-gray-50/70 border border-gray-200/80 rounded-xl px-3 py-2.5 text-xs font-bold text-gray-800 focus:outline-none focus:border-black appearance-none cursor-pointer"
             >
@@ -202,21 +218,48 @@ export function CompareTwoProducts({ currentLang }: CompareTwoProductsProps) {
                 </span>
               </div>
 
-              {/* Detail Click to Zoom */}
-              <div
-                onClick={() => setZoomImage(leftBag.images.detail)}
-                className="w-full h-36 bg-gray-50 border border-gray-150 rounded-xl relative overflow-hidden group cursor-pointer flex items-center justify-center shadow-inner"
-              >
-                <img
-                  src={leftBag.images.detail}
-                  alt={leftBag.name['KO']}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute bottom-2 right-2 bg-black/60 p-1.5 rounded-full text-white backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Maximize2 size={12} />
-                </div>
-              </div>
+              {/* Detail/Interior photo slider (same pattern as the style slider below) */}
+              {(() => {
+                const leftDetailPhotos = [
+                  { url: leftBag.images.detail, label: t.detailPhotoLabel },
+                  { url: leftBag.images.interior, label: t.interiorPhotoLabel },
+                ].filter((p) => p.url);
+                if (leftDetailPhotos.length === 0) return null;
+                const current = leftDetailPhotos[leftDetailIdx] || leftDetailPhotos[0];
+                return (
+                  <div className="relative w-full h-36 bg-gray-50 border border-gray-150 rounded-xl overflow-hidden group flex items-center justify-center shadow-inner">
+                    <img
+                      src={current.url}
+                      alt={leftBag.name['KO']}
+                      className="w-full h-full object-cover cursor-zoom-in transition-transform duration-300 group-hover:scale-105"
+                      onClick={() => setZoomImage(current.url)}
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute bottom-2 left-2 bg-black/60 text-white text-[9px] px-2 py-1 rounded font-bold backdrop-blur-md">
+                      {current.label}
+                    </div>
+                    {leftDetailPhotos.length > 1 && (
+                      <>
+                        <div className="absolute top-2 right-2 bg-black/60 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full">
+                          {leftDetailIdx + 1}/{leftDetailPhotos.length}
+                        </div>
+                        <button
+                          onClick={() => slideDetail('left', 'prev', leftDetailPhotos.length)}
+                          className="absolute left-1.5 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-white/70 border border-gray-200 flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-white transition-opacity cursor-pointer text-gray-800"
+                        >
+                          <ChevronLeft size={14} />
+                        </button>
+                        <button
+                          onClick={() => slideDetail('left', 'next', leftDetailPhotos.length)}
+                          className="absolute right-1.5 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-white/70 border border-gray-200 flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-white transition-opacity cursor-pointer text-gray-800"
+                        >
+                          <ChevronRight size={14} />
+                        </button>
+                      </>
+                    )}
+                  </div>
+                );
+              })()}
             </div>
 
             {/* Specs Table */}
@@ -333,21 +376,48 @@ export function CompareTwoProducts({ currentLang }: CompareTwoProductsProps) {
                 </span>
               </div>
 
-              {/* Detail Click to Zoom */}
-              <div
-                onClick={() => setZoomImage(rightBag.images.detail)}
-                className="w-full h-36 bg-gray-50 border border-gray-155 rounded-xl relative overflow-hidden group cursor-pointer flex items-center justify-center shadow-inner"
-              >
-                <img
-                  src={rightBag.images.detail}
-                  alt={rightBag.name['KO']}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute bottom-2 right-2 bg-black/60 p-1.5 rounded-full text-white backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Maximize2 size={12} />
-                </div>
-              </div>
+              {/* Detail/Interior photo slider (same pattern as the style slider below) */}
+              {(() => {
+                const rightDetailPhotos = [
+                  { url: rightBag.images.detail, label: t.detailPhotoLabel },
+                  { url: rightBag.images.interior, label: t.interiorPhotoLabel },
+                ].filter((p) => p.url);
+                if (rightDetailPhotos.length === 0) return null;
+                const current = rightDetailPhotos[rightDetailIdx] || rightDetailPhotos[0];
+                return (
+                  <div className="relative w-full h-36 bg-gray-50 border border-gray-155 rounded-xl overflow-hidden group flex items-center justify-center shadow-inner">
+                    <img
+                      src={current.url}
+                      alt={rightBag.name['KO']}
+                      className="w-full h-full object-cover cursor-zoom-in transition-transform duration-300 group-hover:scale-105"
+                      onClick={() => setZoomImage(current.url)}
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute bottom-2 left-2 bg-black/60 text-white text-[9px] px-2 py-1 rounded font-bold backdrop-blur-md">
+                      {current.label}
+                    </div>
+                    {rightDetailPhotos.length > 1 && (
+                      <>
+                        <div className="absolute top-2 right-2 bg-black/60 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full">
+                          {rightDetailIdx + 1}/{rightDetailPhotos.length}
+                        </div>
+                        <button
+                          onClick={() => slideDetail('right', 'prev', rightDetailPhotos.length)}
+                          className="absolute left-1.5 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-white/70 border border-gray-200 flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-white transition-opacity cursor-pointer text-gray-800"
+                        >
+                          <ChevronLeft size={14} />
+                        </button>
+                        <button
+                          onClick={() => slideDetail('right', 'next', rightDetailPhotos.length)}
+                          className="absolute right-1.5 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-white/70 border border-gray-200 flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-white transition-opacity cursor-pointer text-gray-800"
+                        >
+                          <ChevronRight size={14} />
+                        </button>
+                      </>
+                    )}
+                  </div>
+                );
+              })()}
             </div>
 
             {/* Specs Table */}
