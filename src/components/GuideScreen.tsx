@@ -78,7 +78,7 @@ export function GuideScreen({
       animate={{ opacity: 1 }}
       className="flex flex-col h-full bg-white pb-20 overflow-hidden"
     >
-      <header className="px-6 pt-10 pb-6 border-b border-gray-100 shrink-0 bg-white sticky top-0 z-40 shadow-sm mb-4">
+      <header className="px-5 pt-10 pb-6 border-b border-gray-100 shrink-0 bg-white sticky top-0 z-40 shadow-sm mb-4">
         <div className="flex items-center space-x-3 mb-2">
           <div className="w-10 h-10 rounded-2xl bg-gray-900 flex items-center justify-center text-white shrink-0 shadow-lg shadow-gray-200">
             <Sparkles size={16} />
@@ -97,7 +97,7 @@ export function GuideScreen({
       {/* Message Area */}
       <div
         ref={scrollRef}
-        className="flex-1 overflow-y-auto p-6 space-y-6 no-scrollbar bg-[#FAF9F6]/50"
+        className="flex-1 overflow-y-auto px-5 py-6 space-y-6 no-scrollbar bg-[#FAF9F6]/50"
       >
         {messages.map((msg, idx) => (
           <motion.div
@@ -107,7 +107,7 @@ export function GuideScreen({
             className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
           >
             <div
-              className={`max-w-[85%] px-5 py-3.5 rounded-[1.8rem] text-[12px] leading-relaxed shadow-sm whitespace-pre-line ${
+              className={`max-w-[90%] px-5 py-3.5 rounded-[1.8rem] text-[12px] leading-relaxed shadow-sm whitespace-pre-line ${
                 msg.role === "user"
                   ? "bg-gray-900 text-white font-medium rounded-br-none"
                   : "bg-white text-gray-800 font-medium border border-gray-100 rounded-bl-none"
@@ -123,7 +123,7 @@ export function GuideScreen({
             animate={{ y: 0, opacity: 1 }}
             className="flex justify-start"
           >
-            <div className="max-w-[85%] px-5 py-3.5 rounded-[1.8rem] rounded-bl-none text-[12px] leading-relaxed shadow-sm bg-white text-gray-400 font-medium border border-gray-100 flex items-center space-x-2">
+            <div className="max-w-[90%] px-5 py-3.5 rounded-[1.8rem] rounded-bl-none text-[12px] leading-relaxed shadow-sm bg-white text-gray-400 font-medium border border-gray-100 flex items-center space-x-2">
               <Loader2 size={12} className="animate-spin" />
               <span>{t.guide.thinking}</span>
             </div>
@@ -132,7 +132,7 @@ export function GuideScreen({
       </div>
 
       {/* Fixed Options Area */}
-      <div className="p-4 bg-white border-t border-gray-100 shrink-0">
+      <div className="px-5 py-4 bg-white border-t border-gray-100 shrink-0">
         <div className="mb-3 flex items-center space-x-2">
           <input
             type="text"
