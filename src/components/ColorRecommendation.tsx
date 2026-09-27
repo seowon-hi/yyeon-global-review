@@ -28,6 +28,8 @@ interface ColorRecommendationProps {
   currentLang: Language;
 }
 
+const STYLE_REQUEST_FORM_URL = "https://forms.gle/uZwXLmGAc2jhJbKGA";
+
 export function ColorRecommendation({ currentLang }: ColorRecommendationProps) {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -111,6 +113,14 @@ export function ColorRecommendation({ currentLang }: ColorRecommendationProps) {
               </button>
             );
           })}
+          <a
+            href={STYLE_REQUEST_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center text-center px-1.5 py-3 rounded-xl text-[10px] sm:text-[11px] font-black border transition-all cursor-pointer leading-tight bg-white text-gray-500 border-gray-200 hover:text-gray-800 hover:bg-neutral-50"
+          >
+            {t.requestStyleChip}
+          </a>
         </div>
       </div>
 
