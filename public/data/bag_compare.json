@@ -41,7 +41,7 @@
           "Butter Yellow"
         ]
       },
-      "weight": "450g",
+      "weight": { "KO": "450g", "JA": "450g", "EN": "450g" },
       "material": {
         "KO": "은은한 광택감, 크랙 텍스처",
         "JA": "上品な光沢、クラックテクスチャー",
@@ -110,7 +110,7 @@
         ],
         "EN": ["Black", "Vintage Red", "Walnut Brown", "Butter Beige"]
       },
-      "weight": "380g",
+      "weight": { "KO": "380g", "JA": "380g", "EN": "380g" },
       "material": {
         "KO": "은은한 광택감, 크랙 텍스처",
         "JA": "上品な光沢、クラックテクスチャー",
@@ -194,7 +194,7 @@
         ],
         "EN": ["Dusty Blue", "Olive", "Vanilla", "Soft Black", "Caramel Brown"]
       },
-      "weight": "약 300g",
+      "weight": { "KO": "약 300g", "JA": "約300g", "EN": "About 300g" },
       "material": {
         "KO": "오플 엠보 텍스처",
         "JA": "オープルエンボステクスチャー",
@@ -258,7 +258,7 @@
         "JA": ["バター", "キャラメルブラウン", "トープモカ", "ソフトブラック"],
         "EN": ["Butter", "Caramel Brown", "Taupe Mocha", "Soft Black"]
       },
-      "weight": "약 630g",
+      "weight": { "KO": "약 630g", "JA": "約630g", "EN": "About 630g" },
       "material": {
         "KO": "오플 엠보 텍스처",
         "JA": "オープルエンボステクスチャー",
@@ -327,7 +327,7 @@
         ],
         "EN": ["Vanilla", "Soft Black", "Deep Brown", "Caramel Brown"]
       },
-      "weight": "900g대",
+      "weight": { "KO": "900g대", "JA": "900g前後", "EN": "Around 900g" },
       "material": {
         "KO": "오플 엠보 텍스처",
         "JA": "オープルエンボステクスチャー",
@@ -383,7 +383,7 @@
         "JA": ["バニラ", "ソフトブラック", "キャラメルブラウン"],
         "EN": ["Vanilla", "Soft Black", "Caramel Brown"]
       },
-      "weight": "약 540g",
+      "weight": { "KO": "약 540g", "JA": "約540g", "EN": "About 540g" },
       "material": {
         "KO": "오플 엠보 텍스처",
         "JA": "オープルエンボステクスチャー",
@@ -447,7 +447,7 @@
         "JA": ["バニラ", "キャラメルブラウン", "ソフトブラック"],
         "EN": ["Vanilla", "Caramel Brown", "Soft Black"]
       },
-      "weight": "약 720g",
+      "weight": { "KO": "약 720g", "JA": "約720g", "EN": "About 720g" },
       "material": {
         "KO": "오플 엠보 텍스처",
         "JA": "オープルエンボステクスチャー",
@@ -503,7 +503,7 @@
         "JA": ["ディープブラウン", "ソフトブラック", "バニラ"],
         "EN": ["Deep Brown", "Soft Black", "Vanilla"]
       },
-      "weight": "약 880g",
+      "weight": { "KO": "약 880g", "JA": "約880g", "EN": "About 880g" },
       "material": {
         "KO": "오플 엠보 텍스처",
         "JA": "オープルエンボステクスチャー",

@@ -15,7 +15,7 @@ interface BagDetail {
   name: Record<Language, string>;
   type: Record<Language, string>;
   colors: Record<Language, string[]>;
-  weight: string;
+  weight: Record<Language, string>;
   material: Record<Language, string>;
   lock: Record<Language, string>;
   feature: Record<Language, string>;
@@ -270,7 +270,7 @@ export function CompareTwoProducts({ currentLang }: CompareTwoProductsProps) {
                 {/* Weight */}
                 <div>
                   <span className="text-[9px] font-black tracking-wider text-gray-400 uppercase block">{t.weight}</span>
-                  <span className="font-bold text-gray-800 block mt-0.5">{leftBag.weight}</span>
+                  <span className="font-bold text-gray-800 block mt-0.5">{leftBag.weight[currentLang] || leftBag.weight['KO']}</span>
                 </div>
 
                 {/* Material */}
@@ -428,7 +428,7 @@ export function CompareTwoProducts({ currentLang }: CompareTwoProductsProps) {
                 {/* Weight */}
                 <div>
                   <span className="text-[9px] font-black tracking-wider text-gray-400 uppercase block">{t.weight}</span>
-                  <span className="font-bold text-gray-800 block mt-0.5">{rightBag.weight}</span>
+                  <span className="font-bold text-gray-800 block mt-0.5">{rightBag.weight[currentLang] || rightBag.weight['KO']}</span>
                 </div>
 
                 {/* Material */}

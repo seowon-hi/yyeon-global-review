@@ -18,7 +18,7 @@ interface BagCompareEntry {
   name: { KO: string; JA: string; EN: string };
   type: { KO: string; JA: string; EN: string };
   colors: { KO: string[]; JA: string[]; EN: string[] };
-  weight: string;
+  weight: { KO: string; JA: string; EN: string };
   material: { KO: string; JA: string; EN: string };
   lock: { KO: string; JA: string; EN: string };
   feature: { KO: string; JA: string; EN: string };
@@ -188,7 +188,7 @@ export function buildChatContext(
     parts.push(`\n[SPECS]`);
     for (const s of specs) {
       parts.push(
-        `- ${s.name[lang]}: weight=${s.weight}, material=${s.material[lang]}, lock=${s.lock[lang]}, feature=${s.feature[lang]}, colors=${s.colors[lang]?.join(", ")}`,
+        `- ${s.name[lang]}: weight=${s.weight[lang]}, material=${s.material[lang]}, lock=${s.lock[lang]}, feature=${s.feature[lang]}, colors=${s.colors[lang]?.join(", ")}`,
       );
     }
   } else {
