@@ -33,9 +33,9 @@ IMPORTANT — grounding rules:
 }
 
 const NO_CONTEXT_FALLBACK: Record<ChatLang, string> = {
-  KO: "안녕하세요! 리뷰와 가방 데이터를 기반으로 답변해드리고 있어요. 궁금하신 제품명이나 특징을 말씀해주시면 답변해드릴게요.",
-  JA: "こんにちは！レビューとバッグのデータをもとにお答えしています。気になる製品名や特徴を教えていただければお答えします。",
-  EN: "Hi! I answer based on our review and bag data. Let me know which product or feature you're curious about, and I'll help from there.",
+  KO: "죄송해요, 그 부분은 제가 답변드리기 어려워요. 궁금하신 제품명이나 특징을 말씀해주시면 도와드릴게요! 더 자세한 문의는 비마이연 채널톡으로 남겨주세요.",
+  JA: "申し訳ございません、その内容にはお答えできません。気になる製品名や特徴を教えていただければお手伝いします！詳しいお問い合わせはビーマイヨン チャンネルトークまでお願いいたします。",
+  EN: "Sorry, that's not something I can help with. Let me know which product or feature you're curious about, and I'll do my best to help! For more detailed questions, please reach out via yyeon Channel Talk.",
 };
 
 export interface ChatRequestBody {
