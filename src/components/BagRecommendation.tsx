@@ -8,6 +8,8 @@ import {
   RECOM_LABELS,
 } from "../i18n/bagRecommendation";
 
+const STYLE_REQUEST_FORM_URL = "https://forms.gle/uZwXLmGAc2jhJbKGA";
+
 interface BagRecommendationProps {
   currentLang?: "KO" | "JA" | "EN";
 }
@@ -61,6 +63,14 @@ export function BagRecommendation({
               </button>
             );
           })}
+          <a
+            href={STYLE_REQUEST_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-3 py-2 rounded-full text-[10px] font-bold tracking-tight border transition-all cursor-pointer bg-white text-gray-500 border-gray-200 hover:bg-gray-50 hover:text-gray-700"
+          >
+            {t("request_style_chip")}
+          </a>
         </div>
 
         {/* Product Cards Grid: 4 columns on desktop, 3 on tablet, 2 on mobile */}

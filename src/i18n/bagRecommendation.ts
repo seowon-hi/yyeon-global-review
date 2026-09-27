@@ -65,4 +65,9 @@ export const RECOM_LABELS: Record<string, Record<string, string>> = {
     JA: "お好みに合わせたバッグのおすすめ",
     EN: "Custom Recommendation for Your Taste",
   },
+  request_style_chip: {
+    KO: "❤️ 더 보고싶은 스타일 있어요",
+    JA: "❤️ もっと見たいスタイルがあります",
+    EN: "❤️ I'd love to see more styles",
+  },
 };
