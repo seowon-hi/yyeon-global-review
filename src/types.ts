@@ -32,6 +32,8 @@ export interface TranslationSet {
     view_reviews: string;
     show_more: string;
     show_less: string;
+    show_full_review: string;
+    hide_full_review: string;
     more_keywords: string;
     gallery_title: string;
     ai_summary: string;
@@ -70,6 +72,12 @@ export interface TranslationSet {
     instagram: string;
     kakaotalk: string;
     human_consult_prompt: string;
+    chat_placeholder: string;
+    chat_send: string;
+    chat_error: string;
+    chat_rate_limited: string;
+    chat_kakao_notice: string;
+    chat_compare_and_kakao_notice: string;
   };
   nav: {
     home: string;
@@ -103,9 +111,8 @@ export interface TranslationSet {
   wishlist: {
     title: string;
     description: string;
-    placeholder: string;
-    submit: string;
-    success: string;
+    gift_note: string;
+    cta: string;
   };
   dashboard: {
     insights_title: string;

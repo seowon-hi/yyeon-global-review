@@ -28,7 +28,6 @@ interface BagDetail {
 
 interface CompareTwoProductsProps {
   currentLang: Language;
-  onNavigateToStorageTable: () => void;
 }
 
 function getColorHex(colorName: string): string {
@@ -44,7 +43,7 @@ function getColorHex(colorName: string): string {
   return '#D1D5DB'; // Default grey
 }
 
-export function CompareTwoProducts({ currentLang, onNavigateToStorageTable }: CompareTwoProductsProps) {
+export function CompareTwoProducts({ currentLang }: CompareTwoProductsProps) {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [bags, setBags] = useState<BagDetail[]>([]);
@@ -448,14 +447,6 @@ export function CompareTwoProducts({ currentLang, onNavigateToStorageTable }: Co
           </motion.div>
         )}
       </div>
-
-      {/* Navigation Redirect Button to packed items table */}
-      <button
-        onClick={onNavigateToStorageTable}
-        className="w-full bg-[#1A253C] hover:bg-[#273552] text-white py-3.5.5 rounded-xl font-bold text-xs transition-colors flex justify-center items-center shadow-sm cursor-pointer border border-[#2E3C56] mt-4"
-      >
-        <span>{t.viewStorageBtn}</span>
-      </button>
 
       {/* Lightbox Modal overlay for clickable zoom */}
       <AnimatePresence>

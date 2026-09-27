@@ -25,56 +25,76 @@ export const CATEGORIES: CategoryDef[] = [
   {
     id: "blooming",
     fullName: "Blooming bag",
-    matchKeywords: ["blooming"],
+    // "ブルーミング" is how JA reviews actually refer to this bag
+    // (verified against yyeon_reviews_final.json).
+    matchKeywords: ["blooming", "ブルーミング", "ブルーミングバッグ"],
     icon: "🌸",
     desc: "Floral & Chic",
     cateNo: "27",
-    names: { KO: "블루밍백", JA: "Blooming bag", EN: "Blooming bag" },
+    names: { KO: "블루밍백", JA: "ブルーミングバッグ", EN: "Blooming bag" },
   },
   {
     id: "henne",
     fullName: "Henne bag",
-    matchKeywords: ["henne"],
+    matchKeywords: ["henne", "ヘンヌ", "ヘンヌバッグ"],
     icon: "👜",
     desc: "Classic & Clean",
     cateNo: "25",
-    names: { KO: "헨느백", JA: "Henne bag", EN: "Henne bag" },
+    names: { KO: "헨느백", JA: "ヘンヌバッグ", EN: "Henne bag" },
   },
   {
     id: "aro",
     fullName: "Aro bag",
-    matchKeywords: ["aro", "are"],
+    // "are" and bare "アロ" were removed from here: both are common words
+    // in their language ("what ARE your hours", "アロマ"/aroma) and matched
+    // on exact-substring alone — the fuzzy fallback in chatContext.ts now
+    // handles legitimate typos of "aro"/"アロバッグ" without needing them.
+    matchKeywords: ["aro", "アロバッグ"],
     icon: "🎒",
     desc: "Daily & Mini",
     cateNo: "46",
-    names: { KO: "아로백", JA: "Aro bag", EN: "Aro bag" },
+    names: { KO: "아로백", JA: "アロバッグ", EN: "Aro bag" },
   },
   {
     id: "mellow",
     fullName: "Mellow bag",
-    matchKeywords: ["mellow"],
+    matchKeywords: ["mellow", "メロウ", "メロウバッグ"],
     icon: "☁️",
     desc: "Supple & Soft",
     cateNo: "28",
-    names: { KO: "멜로우백", JA: "Mellow bag", EN: "Mellow bag" },
+    names: { KO: "멜로우백", JA: "メロウバッグ", EN: "Mellow bag" },
   },
   {
     id: "aube",
     fullName: "Aube bag",
-    matchKeywords: ["aube"],
+    // "オーブ" / "オーブバッグ" / "オーブラージ" (= Aube Large) are the
+    // forms actually used in JA reviews.
+    matchKeywords: ["aube", "オーブ", "オーブバッグ", "オーブラージ"],
     icon: "✨",
     desc: "New & Refined",
     cateNo: "47",
-    names: { KO: "오브백", JA: "Aube bag", EN: "Aube bag" },
+    names: { KO: "오브백", JA: "オーブバッグ", EN: "Aube bag" },
   },
   {
     id: "accessories",
     fullName: "Accessories",
-    matchKeywords: ["heart holder", "accessory", "accessories"],
+    // Reviews almost never say "アクセサリー" for this product — they call
+    // it "ハートホルダー" (heart holder) or "ハート型", so those are the
+    // keywords that actually match real questions. Bare "ハート"/"ホルダー"
+    // are excluded: they show up constantly in unrelated bag reviews too
+    // (general praise, or a bag's card/drink holder pocket).
+    matchKeywords: [
+      "heart holder",
+      "accessory",
+      "accessories",
+      "ハートホルダー",
+      "ハート型",
+      "アクセサリー",
+    ],
     icon: "👛",
     desc: "Charms & Extras",
     cateNo: "45",
-    names: { KO: "액세서리", JA: "Accessories", EN: "Accessories" },
+    names: { KO: "액세서리", JA: "アクセサリー", EN: "Accessories" },
   },
 ];
 

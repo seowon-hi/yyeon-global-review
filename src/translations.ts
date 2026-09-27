@@ -144,6 +144,38 @@ export const BAG_CATALOG: Record<string, { name: string; image: string }[]> = {
         "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260108/434344dd70f977be3a0966f27a65f7fe.jpg",
     },
   ],
+  aube: [
+    {
+      name: "medium caramel brown",
+      image:
+        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260518/c986865e15fc8b51e56de1a4b5b11019.jpg",
+    },
+    {
+      name: "medium soft black",
+      image:
+        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260518/630c94c21bbd554381554ab439e9c155.jpg",
+    },
+    {
+      name: "medium vanilla",
+      image:
+        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260518/49a8b74e01d469f919701d142803f923.jpg",
+    },
+    {
+      name: "large deep brown",
+      image:
+        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260518/32dc05eddfb3d4e2f07259f6c2e507c4.jpg",
+    },
+    {
+      name: "large soft black",
+      image:
+        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260518/6fad83dfe644b14a82f7d08d378c8444.jpg",
+    },
+    {
+      name: "large vanilla",
+      image:
+        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260820/7b50e2d0c382daf31588bb3a340fc392.jpg",
+    },
+  ],
 };
 
 export const translations: Record<Language, TranslationSet> = {
@@ -179,6 +211,8 @@ export const translations: Record<Language, TranslationSet> = {
       view_reviews: "전체 리뷰 보러가기",
       show_more: "키워드 더보기",
       show_less: "키워드 접기",
+      show_full_review: "리뷰 전문 보기",
+      hide_full_review: "접기",
       more_keywords: "키워드 더보기",
       gallery_title: "제품 사진보기",
       ai_summary: "리뷰 3초 요약",
@@ -238,6 +272,14 @@ export const translations: Record<Language, TranslationSet> = {
       kakaotalk: "비마이연 채널톡",
       human_consult_prompt:
         "더 궁금한 점이 있으신가요? 1:1 브랜드 상담으로 연결해 드립니다.",
+      chat_placeholder: "궁금한 점을 물어보세요...",
+      chat_send: "전송",
+      chat_error: "일시적인 오류가 발생했습니다. 잠시 후 다시 시도해주세요.",
+      chat_rate_limited: "지금 요청이 많아서 잠시 후 다시 시도해주세요.",
+      chat_kakao_notice:
+        "\n\n더 자세한 내용은 카카오톡 채널(https://pf.kakao.com/_xaKkVG)로 문의해주세요.",
+      chat_compare_and_kakao_notice:
+        "\n\n비교 탭에서 더 자세히 볼 수 있어요. 추가 문의는 카카오톡 채널(https://pf.kakao.com/_xaKkVG)로 남겨주세요.",
     },
     nav: {
       home: "홈",
@@ -251,13 +293,11 @@ export const translations: Record<Language, TranslationSet> = {
       recommend: "추천",
     },
     wishlist: {
-      title: "원하는 제품 제안하기",
+      title: "의견을 들려주세요",
       description:
-        "비마이연에서 만나보고 싶은 제품이나 색상이 있다면 알려주세요. 여러분의 소중한 의견이 새로운 컬렉션의 시작이 됩니다.",
-      placeholder:
-        "예: 헨느백 실버 컬러가 나왔으면 좋겠어요! / 더 가벼운 미니백이 필요해요.",
-      submit: "의견 보내기",
-      success: "소중한 의견 감사합니다! 적극적으로 검토하겠습니다.",
+        "「be my yyeon」의 「yeon」은 한국어로 '인연(緣)'을 뜻해요.\n일본에서 선보일 신제품에 여러분의 의견을 담고 싶어요.\n잠시만 시간을 내어 설문에 참여해주세요.",
+      gift_note: "끝까지 답변해주신 분께는 작은 선물을 드려요.",
+      cta: "설문 참여하기",
     },
     dashboard: {
       insights_title: "고객 인사이트 대시보드",
@@ -308,6 +348,8 @@ export const translations: Record<Language, TranslationSet> = {
       view_reviews: "全レビューを見る",
       show_more: "もっと見る",
       show_less: "閉じる",
+      show_full_review: "レビュー全文を見る",
+      hide_full_review: "閉じる",
       more_keywords: "キーワードをもっと見る",
       gallery_title: "製品写真",
       ai_summary: "AI要約",
@@ -367,6 +409,14 @@ export const translations: Record<Language, TranslationSet> = {
       kakaotalk: "カカオトーク相談",
       human_consult_prompt:
         "さらに気になることはありますか？1:1ブランド相談をご案内します。",
+      chat_placeholder: "気になることを聞いてみてください...",
+      chat_send: "送信",
+      chat_error: "一時的なエラーが発生しました。しばらくしてから再度お試しください。",
+      chat_rate_limited: "現在アクセスが集中しています。しばらくしてから再度お試しください。",
+      chat_kakao_notice:
+        "\n\n詳細はカカオトークチャンネル（https://pf.kakao.com/_xaKkVG）までお問い合わせください。",
+      chat_compare_and_kakao_notice:
+        "\n\n詳しくは比較タブでご確認いただけます。追加のお問い合わせはカカオトークチャンネル（https://pf.kakao.com/_xaKkVG）までお願いいたします。",
     },
     nav: {
       home: "ホーム",
@@ -380,14 +430,11 @@ export const translations: Record<Language, TranslationSet> = {
       recommend: "おすすめ",
     },
     wishlist: {
-      title: "あなたの理想を聞かせてください。",
+      title: "ご意見をお聞かせください",
       description:
-        "yyeonで出会いたい製品やカラーはありますか？皆様の何気ない一言から、新しいコレクションが生まれます。あなたの声をお待ちしています。",
-      placeholder:
-        "例：Henne Bagのシルバーカラーが欲しい！ / もっと軽くて使いやすいバッグが理想です。",
-      submit: "リクエストを送る",
-      success:
-        "貴重なご意見ありがとうございます！皆様の声を大切に検討させていただきます。",
+        "「be my yyeon」の「yeon」は、韓国語で「縁（ヨン）」を意味します。\n日本で発売する新商品に、皆さまのお声を反映したいと考えています。\n少しだけお時間をいただけますと幸いです。",
+      gift_note: "最後までご回答いただいた方には、ささやかなプレゼントをご用意しております。",
+      cta: "アンケートに回答する",
     },
     dashboard: {
       insights_title: "顧客インサイトダッシュボード",
@@ -438,6 +485,8 @@ export const translations: Record<Language, TranslationSet> = {
       view_reviews: "View All Reviews",
       show_more: "Show More",
       show_less: "Show Less",
+      show_full_review: "Read full review",
+      hide_full_review: "Show less",
       more_keywords: "More Keywords",
       gallery_title: "Product Photos",
       ai_summary: "3s AI Summary",
@@ -497,6 +546,14 @@ export const translations: Record<Language, TranslationSet> = {
       kakaotalk: "KakaoTalk Channel",
       human_consult_prompt:
         "Have more questions? Connect with our 1:1 brand consultant.",
+      chat_placeholder: "Ask us anything...",
+      chat_send: "Send",
+      chat_error: "Something went wrong. Please try again in a moment.",
+      chat_rate_limited: "We're getting a lot of requests right now — please try again in a moment.",
+      chat_kakao_notice:
+        "\n\nFor more details, please reach out via our KakaoTalk channel (https://pf.kakao.com/_xaKkVG).",
+      chat_compare_and_kakao_notice:
+        "\n\nYou can see more details in the Compare tab. For further questions, please reach out via our KakaoTalk channel (https://pf.kakao.com/_xaKkVG).",
     },
     nav: {
       home: "Home",
@@ -510,13 +567,11 @@ export const translations: Record<Language, TranslationSet> = {
       recommend: "Recommend",
     },
     wishlist: {
-      title: "Request a Product",
+      title: "Share your thoughts",
       description:
-        "Let us know if there's a product or color you'd like to see from yyeon. Your valuable feedback starts our next collection.",
-      placeholder:
-        "e.g., I'd love to see the Henne Bag in Silver! / I need a lighter mini bag.",
-      submit: "Send Feedback",
-      success: "Thank you for your feedback! We'll review it carefully.",
+        'The "yeon" in "be my yyeon" means "connection (緣)" in Korean.\nWe\'d love to reflect your voice in the new products we launch in Japan.\nPlease take a moment to answer our short survey.',
+      gift_note: "Everyone who completes it will receive a small gift.",
+      cta: "Take the survey",
     },
     dashboard: {
       insights_title: "Customer Insight Dashboard",

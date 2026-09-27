@@ -159,8 +159,8 @@ export default function App() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-brand-editorial-bg flex justify-center items-center font-sans tracking-tight p-4 md:p-10">
-        <div className="w-full max-w-[375px] h-[780px] bg-white rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.2)] border-[8px] border-brand-dark relative overflow-hidden flex flex-col items-center justify-center">
+      <div className="min-h-[100dvh] bg-brand-editorial-bg flex justify-center items-center font-sans tracking-tight md:p-6">
+        <div className="w-full h-[100dvh] md:max-w-md bg-white relative overflow-hidden flex flex-col items-center justify-center">
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
@@ -196,8 +196,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-brand-editorial-bg flex justify-center items-center font-sans tracking-tight p-4 md:p-10">
-      <div className="w-full max-w-[375px] h-[780px] bg-white rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.2)] border-[8px] border-brand-dark relative overflow-hidden flex flex-col">
+    <div className="min-h-[100dvh] bg-brand-editorial-bg flex justify-center items-center font-sans tracking-tight md:p-6">
+      <div className="w-full h-[100dvh] md:max-w-md md:h-[100dvh] bg-white relative overflow-hidden flex flex-col md:shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
         {/* Main Content Area */}
         <main className="flex-1 overflow-hidden relative">
           <AnimatePresence mode="wait">
@@ -219,7 +219,7 @@ export default function App() {
               />
             )}
             {activeTab === "data" && (
-              <div className="h-full overflow-y-auto pb-20 pt-16">
+              <div className="h-full overflow-y-auto pb-[calc(5rem+env(safe-area-inset-bottom))] pt-16">
                 <DataScreen
                   key="data"
                   t={t}
@@ -230,7 +230,7 @@ export default function App() {
               </div>
             )}
             {activeTab === "compare" && (
-              <div className="h-full overflow-y-auto pb-20">
+              <div className="h-full overflow-y-auto pb-[calc(5rem+env(safe-area-inset-bottom))]">
                 <BagComparison
                   reviews={reviews}
                   onBagClick={openBagProductPage}
@@ -239,22 +239,22 @@ export default function App() {
               </div>
             )}
             {activeTab === "recommend" && (
-              <div className="h-full overflow-y-auto pb-20">
+              <div className="h-full overflow-y-auto pb-[calc(5rem+env(safe-area-inset-bottom))]">
                 <BagRecommendation currentLang={currentLang} />
               </div>
             )}
             {activeTab === "wishlist" && (
-              <div className="h-full overflow-y-auto pb-20 pt-16">
-                <WishlistScreen key="wishlist" t={t} />
+              <div className="h-full overflow-y-auto pb-[calc(5rem+env(safe-area-inset-bottom))] pt-16">
+                <WishlistScreen key="wishlist" t={t} lang={currentLang} />
               </div>
             )}
             {activeTab === "guide" && (
-              <div className="h-full overflow-y-auto pb-20 pt-16">
+              <div className="h-full overflow-y-auto pb-[calc(5rem+env(safe-area-inset-bottom))] pt-16">
                 <GuideScreen key="guide" t={t} currentLang={currentLang} />
               </div>
             )}
             {activeTab === "profile" && (
-              <div className="h-full overflow-y-auto pb-20">
+              <div className="h-full overflow-y-auto pb-[calc(5rem+env(safe-area-inset-bottom))]">
                 <ProfileScreen
                   key="profile"
                   t={t}

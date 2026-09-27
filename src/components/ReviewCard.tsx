@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useLayoutEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Star,
@@ -57,6 +57,162 @@ export function HighlightedText({
   );
 }
 
+const JA_TERMINATORS = "。！？";
+const LATIN_TERMINATORS = ".!?~";
+const REPEAT_TERMINATORS = "ㅠㅜㅋㅎ";
+const LIST_MARKER_RE = /^([0-9]{1,2})([.)])(?!\d)/;
+const CIRCLED_NUMBER_RE = /^[①-⑳]/;
+const EMOJI_CLASS = "\\p{Extended_Pictographic}\\uFE0F?";
+const SUBTITLE_RE = new RegExp(
+  `${EMOJI_CLASS}\\s*[\\p{L}\\p{N}/]{1,14}\\s*${EMOJI_CLASS}\\s*:`,
+  "gu",
+);
+const HASHTAG_RE = /#[^\s#]+/g;
+const LIST_HEADING_WORDS = ["아쉬운 점", "좋은 점", "장점", "단점", "총평", "한줄평"];
+const LIST_HEADING_RE = new RegExp(`(${LIST_HEADING_WORDS.join("|")})`, "g");
+
+export type ReviewTextRun = { text: string; bold: boolean };
+
+// Strips **bold** markers, tracking which characters were bold.
+function extractBold(text: string): { plain: string; bold: boolean[] } {
+  let plain = "";
+  const bold: boolean[] = [];
+  let isBold = false;
+  let i = 0;
+  while (i < text.length) {
+    if (text[i] === "*" && text[i + 1] === "*") {
+      isBold = !isBold;
+      i += 2;
+      continue;
+    }
+    plain += text[i];
+    bold.push(isBold);
+    i++;
+  }
+  return { plain, bold };
+}
+
+// Splits review body text into paragraphs (sentences + forced breaks before
+// emoji-wrapped subtitles and hashtags), preserving **bold** spans as runs.
+export function buildReviewParagraphs(text: string): ReviewTextRun[][] {
+  const { plain, bold } = extractBold(text);
+  const n = plain.length;
+
+  const forcedBreaks = new Set<number>();
+  for (const m of plain.matchAll(SUBTITLE_RE)) {
+    forcedBreaks.add(m.index!);
+  }
+  for (const m of plain.matchAll(HASHTAG_RE)) {
+    forcedBreaks.add(m.index!);
+  }
+  for (const m of plain.matchAll(LIST_HEADING_RE)) {
+    const start = m.index!;
+    const end = start + m[0].length;
+    const afterWs = plain.slice(end).match(/^\s*/)![0].length;
+    const afterText = plain.slice(end + afterWs);
+    if (LIST_MARKER_RE.test(afterText) || CIRCLED_NUMBER_RE.test(afterText)) {
+      forcedBreaks.add(start);
+    }
+  }
+
+  const paragraphs: ReviewTextRun[][] = [];
+  let segStart = 0;
+
+  const flush = (end: number) => {
+    let s = segStart;
+    let e = end;
+    while (s < e && /\s/.test(plain[s])) s++;
+    while (e > s && /\s/.test(plain[e - 1])) e--;
+    if (e > s) {
+      const runs: ReviewTextRun[] = [];
+      let runStart = s;
+      for (let k = s + 1; k <= e; k++) {
+        if (k === e || bold[k] !== bold[runStart]) {
+          runs.push({ text: plain.slice(runStart, k), bold: bold[runStart] });
+          runStart = k;
+        }
+      }
+      paragraphs.push(runs);
+    }
+    segStart = end;
+  };
+
+  let i = 0;
+  while (i < n) {
+    if (forcedBreaks.has(i) && i > segStart) {
+      flush(i);
+    }
+
+    const rest = plain.slice(i);
+    const digitMarker = rest.match(LIST_MARKER_RE);
+    const isDigitMarker = digitMarker && (i === 0 || !/\d/.test(plain[i - 1]));
+    const isCircledMarker = CIRCLED_NUMBER_RE.test(rest);
+
+    if (isDigitMarker || isCircledMarker) {
+      if (i > segStart) flush(i);
+      const markerLen = isDigitMarker ? digitMarker![0].length : 1;
+      segStart = i;
+      i += markerLen;
+      continue;
+    }
+
+    const ch = plain[i];
+
+    if (ch === ".") {
+      const prev = plain[i - 1];
+      const next = plain[i + 1];
+      if (prev && /\d/.test(prev) && next && /\d/.test(next)) {
+        i++;
+        continue;
+      }
+    }
+
+    if (JA_TERMINATORS.includes(ch)) {
+      let j = i + 1;
+      while (j < n && (JA_TERMINATORS.includes(plain[j]) || "!?".includes(plain[j]))) {
+        j++;
+      }
+      flush(j);
+      i = j;
+      continue;
+    }
+
+    if (LATIN_TERMINATORS.includes(ch)) {
+      let j = i + 1;
+      while (j < n && LATIN_TERMINATORS.includes(plain[j])) {
+        j++;
+      }
+      if (j >= n || /\s/.test(plain[j])) {
+        flush(j);
+        i = j;
+        continue;
+      }
+      i = j;
+      continue;
+    }
+
+    if (REPEAT_TERMINATORS.includes(ch)) {
+      let j = i + 1;
+      while (j < n && plain[j] === ch) {
+        j++;
+      }
+      if (j >= n || /\s/.test(plain[j])) {
+        flush(j);
+        i = j;
+        continue;
+      }
+      i = j;
+      continue;
+    }
+
+    i++;
+  }
+
+  if (n > segStart) flush(n);
+
+  return paragraphs;
+}
+
 export function ReviewCard({
   review,
   lang,
@@ -79,6 +235,20 @@ export function ReviewCard({
 }) {
   const [showOriginal, setShowOriginal] = useState(false);
   const [isTagsExpanded, setIsTagsExpanded] = useState(false);
+  const [isBodyExpanded, setIsBodyExpanded] = useState(false);
+  const [isBodyClamped, setIsBodyClamped] = useState(false);
+  const bodyTextRef = useRef<HTMLParagraphElement>(null);
+
+  useLayoutEffect(() => {
+    const el = bodyTextRef.current;
+    if (!el) return;
+    setIsBodyClamped(el.scrollHeight > el.clientHeight + 1);
+  }, [review.text, lang]);
+
+  const bodyParagraphs = React.useMemo(
+    () => buildReviewParagraphs(review.text[lang] || ""),
+    [review.text, lang],
+  );
 
   const TAG_LIMIT = 6;
   const tags = review.tags[lang] || [];
@@ -154,19 +324,45 @@ export function ReviewCard({
       </div>
 
       <div className="relative mb-6 group-hover:scale-[1.02] transition-transform duration-700">
-        <div className="absolute -left-4 top-0 text-brand-primary opacity-20">
+        <div className="absolute -left-3 -top-3 text-brand-primary opacity-20 pointer-events-none">
           <Sparkles size={24} />
         </div>
-        <p className="text-[14px] text-gray-800 leading-[1.7] font-medium tracking-tight px-2">
-          {lang === "KO" ? (
-            <HighlightedText
-              text={review.text[lang]}
-              activeKeywords={activeKeywords}
+        <div
+          ref={bodyTextRef}
+          className={`space-y-1 px-2 pt-1 ${isBodyExpanded ? "" : "line-clamp-6"}`}
+        >
+          {bodyParagraphs.map((runs, idx) => (
+            <p key={idx} className="text-[14px] leading-6 text-slate-700 font-medium tracking-tight">
+              {runs.map((run, ridx) => {
+                const content =
+                  lang === "KO" ? (
+                    <HighlightedText text={run.text} activeKeywords={activeKeywords} />
+                  ) : (
+                    run.text
+                  );
+                return run.bold ? (
+                  <strong key={ridx} className="font-black text-slate-900">
+                    {content}
+                  </strong>
+                ) : (
+                  <React.Fragment key={ridx}>{content}</React.Fragment>
+                );
+              })}
+            </p>
+          ))}
+        </div>
+        {isBodyClamped && (
+          <button
+            onClick={() => setIsBodyExpanded(!isBodyExpanded)}
+            className="mt-2 ml-2 flex items-center space-x-1 text-[11px] font-black text-brand-primary uppercase tracking-widest hover:opacity-70 transition-opacity"
+          >
+            <span>{isBodyExpanded ? t.home.hide_full_review : t.home.show_full_review}</span>
+            <ChevronDown
+              size={12}
+              className={`transition-transform ${isBodyExpanded ? "rotate-180" : ""}`}
             />
-          ) : (
-            review.text[lang]
-          )}
-        </p>
+          </button>
+        )}
       </div>
 
       {/* Product Highlight */}

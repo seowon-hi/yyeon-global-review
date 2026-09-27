@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import { Sparkles, Instagram, MessageCircle } from "lucide-react";
+import { Sparkles, Instagram, MessageCircle, Send, Loader2 } from "lucide-react";
 import { faqs } from "../translations";
 import { Language, FAQ } from "../types";
 
@@ -15,13 +15,15 @@ export function GuideScreen({
   const [messages, setMessages] = useState<
     { role: "user" | "bot"; text: string }[]
   >([{ role: "bot", text: t.guide.greeting }]);
+  const [input, setInput] = useState("");
+  const [isSending, setIsSending] = useState(false);
   const scrollRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
-  }, [messages]);
+  }, [messages, isSending]);
 
   const handleFaqClick = (faq: FAQ) => {
     setMessages((prev) => [
@@ -29,6 +31,45 @@ export function GuideScreen({
       { role: "user", text: faq.question[currentLang] },
       { role: "bot", text: faq.answer[currentLang] },
     ]);
+  };
+
+  const handleSend = async () => {
+    const question = input.trim();
+    if (!question || isSending) return;
+
+    // messages[0] is always the bot's canned greeting, never something the
+    // model actually generated — drop any leading bot turns before converting
+    // to OpenAI-style {role, content} history.
+    const firstUserIdx = messages.findIndex((m) => m.role === "user");
+    const historySource = firstUserIdx === -1 ? [] : messages.slice(firstUserIdx);
+    const history = historySource.map((m) => ({
+      role: m.role === "user" ? "user" : "assistant",
+      content: m.text,
+    }));
+
+    setMessages((prev) => [...prev, { role: "user", text: question }]);
+    setInput("");
+    setIsSending(true);
+
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: question, history, lang: currentLang }),
+      });
+      if (res.status === 429) {
+        setMessages((prev) => [...prev, { role: "bot", text: t.guide.chat_rate_limited }]);
+        return;
+      }
+      if (!res.ok) throw new Error("chat request failed");
+      const data = await res.json();
+      setMessages((prev) => [...prev, { role: "bot", text: data.text }]);
+    } catch (error) {
+      console.error("Chat request failed:", error);
+      setMessages((prev) => [...prev, { role: "bot", text: t.guide.chat_error }]);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -66,7 +107,7 @@ export function GuideScreen({
             className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
           >
             <div
-              className={`max-w-[85%] px-5 py-3.5 rounded-[1.8rem] text-[12px] leading-relaxed shadow-sm ${
+              className={`max-w-[85%] px-5 py-3.5 rounded-[1.8rem] text-[12px] leading-relaxed shadow-sm whitespace-pre-line ${
                 msg.role === "user"
                   ? "bg-gray-900 text-white font-medium rounded-br-none"
                   : "bg-white text-gray-800 font-medium border border-gray-100 rounded-bl-none"
@@ -76,10 +117,47 @@ export function GuideScreen({
             </div>
           </motion.div>
         ))}
+        {isSending && (
+          <motion.div
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            className="flex justify-start"
+          >
+            <div className="max-w-[85%] px-5 py-3.5 rounded-[1.8rem] rounded-bl-none text-[12px] leading-relaxed shadow-sm bg-white text-gray-400 font-medium border border-gray-100 flex items-center space-x-2">
+              <Loader2 size={12} className="animate-spin" />
+              <span>{t.guide.thinking}</span>
+            </div>
+          </motion.div>
+        )}
       </div>
 
       {/* Fixed Options Area */}
       <div className="p-4 bg-white border-t border-gray-100 shrink-0">
+        <div className="mb-3 flex items-center space-x-2">
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                handleSend();
+              }
+            }}
+            placeholder={t.guide.chat_placeholder}
+            disabled={isSending}
+            className="flex-1 px-4 py-3 bg-[#FAF9F6] border border-gray-200 rounded-full text-[12px] text-gray-800 focus:outline-none focus:border-brand-primary placeholder:text-gray-300 disabled:opacity-60"
+          />
+          <button
+            onClick={handleSend}
+            disabled={isSending || !input.trim()}
+            className="w-11 h-11 shrink-0 rounded-full bg-gray-900 text-white flex items-center justify-center disabled:opacity-40 active:scale-95 transition-all"
+            aria-label={t.guide.chat_send}
+          >
+            <Send size={14} />
+          </button>
+        </div>
+
         <div className="mb-4 overflow-x-auto no-scrollbar flex space-x-2 pb-1">
           {faqs.map((faq) => (
             <button

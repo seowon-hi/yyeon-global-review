@@ -1,10 +1,17 @@
 import express from "express";
 import path from "path";
+import fs from "fs";
 import { createServer as createViteServer } from "vite";
-import { GoogleGenerativeAI } from "@google/generative-ai";
 import dotenv from "dotenv";
+import { createGroqClient, handleChatRequest } from "./src/lib/chatHandler";
+import { ReviewLike } from "./src/lib/chatContext";
 
 dotenv.config();
+
+function loadJson<T>(relativePath: string): T {
+  const filePath = path.join(process.cwd(), "public", "data", relativePath);
+  return JSON.parse(fs.readFileSync(filePath, "utf-8"));
+}
 
 async function startServer() {
   const app = express();
@@ -12,33 +19,15 @@ async function startServer() {
 
   app.use(express.json());
 
-  // Gemini API Setup
-  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
-  const model = genAI.getGenerativeModel({ 
-    model: "gemini-2.0-flash-exp",
-    systemInstruction: `You are 'yyeon's AI Brand Assistant'.
-    yyeon is a premium lifestyle brand that designs products 'by humans, for humans'.
-    Your tone is professional, sophisticated, yet warm and helpful.
-    Key product: 'Lightweight Vegan Leather Bag' (Fits 16-inch MacBook, ergonomic design).
-    You help users with product inquiries, review interpretations, and brand story.
-    Keep answers concise and helpful. Respond in the language the user uses (Korean, Japanese, or English).`
-  });
+  // Review + spec data loaded once at startup; used to ground chat answers.
+  const reviews = loadJson<ReviewLike[]>("yyeon_reviews_final.json");
+  const bagCompare = loadJson<{ bags: any[] }>("bag_compare.json");
+  const groq = createGroqClient();
 
   // API Routes
   app.post("/api/chat", async (req, res) => {
-    try {
-      const { message, history } = req.body;
-      const chat = model.startChat({
-        history: history || [],
-      });
-
-      const result = await chat.sendMessage(message);
-      const response = await result.response;
-      res.json({ text: response.text() });
-    } catch (error) {
-      console.error("Chat Error:", error);
-      res.status(500).json({ error: "Failed to get AI response" });
-    }
+    const result = await handleChatRequest(groq, reviews, bagCompare, req.body);
+    res.status(result.status).json(result.body);
   });
 
   // Vite middleware for development

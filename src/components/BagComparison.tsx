@@ -240,10 +240,7 @@ export function BagComparison({ reviews = [], onBagClick, currentLang = 'KO' }: 
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.12 }}
                   >
-                    <CompareTwoProducts
-                      currentLang={lang}
-                      onNavigateToStorageTable={() => setCompareSubTab('table')}
-                    />
+                    <CompareTwoProducts currentLang={lang} />
                   </motion.div>
                 ) : (
                   <motion.div
