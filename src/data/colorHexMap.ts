@@ -18,6 +18,14 @@ export const COLOR_HEX_MAP: Record<string, string> = {
   'peach': '#F7C59F',
   'olive green': '#7D8462',
   'brick brown': '#9E4F39',
+  'caramel brown': '#C08552',
+  'deep brown': '#4B2E1D',
+  'dusty blue': '#8CA0B3',
+  'vanilla': '#EFE2C3',
+  'taupe mocha': '#8B7765',
+  'olive': '#7D8462',
+  'soft black': '#26262B',
+  'butter': '#F6DE8C',
 
   // Korean
   '실버': '#E5E7EB',
@@ -32,6 +40,14 @@ export const COLOR_HEX_MAP: Record<string, string> = {
   '버터 베이지': '#E6D7C3',
   '토프 그레이': '#A09A95',
   '카라멜 탠': '#C68E5C',
+  '카라멜 브라운': '#C08552',
+  '딥 브라운': '#4B2E1D',
+  '더스티 블루': '#8CA0B3',
+  '바닐라': '#EFE2C3',
+  '토프 모카': '#8B7765',
+  '올리브': '#7D8462',
+  '소프트 블랙': '#26262B',
+  '버터': '#F6DE8C',
 
   // Japanese
   'シルバー': '#E5E7EB',
@@ -45,4 +61,12 @@ export const COLOR_HEX_MAP: Record<string, string> = {
   'ウォルナットブラウン': '#6F4E37',
   'バターベージュ': '#E6D7C3',
   'トープグレー': '#A09A95',
+  'キャラメルブラウン': '#C08552',
+  'ディープブラウン': '#4B2E1D',
+  'ダスティブルー': '#8CA0B3',
+  'バニラ': '#EFE2C3',
+  'トープモカ': '#8B7765',
+  'オリーブ': '#7D8462',
+  'ソフトブラック': '#26262B',
+  'バター': '#F6DE8C',
 };
