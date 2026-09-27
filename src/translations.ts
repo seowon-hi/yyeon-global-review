@@ -19,7 +19,8 @@ export const BAG_CATALOG: Record<string, { name: string; image: string }[]> = {
     },
     {
       name: "Mute pink",
-      image:"https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20241101/60601b03b466bcd5654a995399657be5.jpg"
+      image:
+        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20241101/60601b03b466bcd5654a995399657be5.jpg",
     },
     {
       name: "Vintage Brown",
@@ -276,10 +277,9 @@ export const translations: Record<Language, TranslationSet> = {
       chat_send: "전송",
       chat_error: "일시적인 오류가 발생했습니다. 잠시 후 다시 시도해주세요.",
       chat_rate_limited: "지금 요청이 많아서 잠시 후 다시 시도해주세요.",
-      chat_kakao_notice:
-        "\n\n더 자세한 내용은 카카오톡 채널(https://pf.kakao.com/_xaKkVG)로 문의해주세요.",
+      chat_kakao_notice: "\n\n더 자세한 내용은 카카오톡 채널로 문의해주세요.",
       chat_compare_and_kakao_notice:
-        "\n\n비교 탭에서 더 자세히 볼 수 있어요. 추가 문의는 카카오톡 채널(https://pf.kakao.com/_xaKkVG)로 남겨주세요.",
+        "\n\n비교 탭에서 더 자세히 볼 수 있어요. 추가 문의는 카카오톡 채널로 남겨주세요.",
     },
     nav: {
       home: "홈",
@@ -411,12 +411,14 @@ export const translations: Record<Language, TranslationSet> = {
         "さらに気になることはありますか？1:1ブランド相談をご案内します。",
       chat_placeholder: "気になることを聞いてみてください...",
       chat_send: "送信",
-      chat_error: "一時的なエラーが発生しました。しばらくしてから再度お試しください。",
-      chat_rate_limited: "現在アクセスが集中しています。しばらくしてから再度お試しください。",
+      chat_error:
+        "一時的なエラーが発生しました。しばらくしてから再度お試しください。",
+      chat_rate_limited:
+        "現在アクセスが集中しています。しばらくしてから再度お試しください。",
       chat_kakao_notice:
-        "\n\n詳細はカカオトークチャンネル（https://pf.kakao.com/_xaKkVG）までお問い合わせください。",
+        "\n\n詳細はカカオトークチャンネルまでお問い合わせください。",
       chat_compare_and_kakao_notice:
-        "\n\n詳しくは比較タブでご確認いただけます。追加のお問い合わせはカカオトークチャンネル（https://pf.kakao.com/_xaKkVG）までお願いいたします。",
+        "\n\n詳しくは比較タブでご確認いただけます。追加のお問い合わせはカカオトークチャンネルまでお願いいたします。",
     },
     nav: {
       home: "ホーム",
@@ -433,7 +435,8 @@ export const translations: Record<Language, TranslationSet> = {
       title: "ご意見をお聞かせください",
       description:
         "「be my yyeon」の「yeon」は、韓国語で「縁（ヨン）」を意味します。\n日本で発売する新商品に、皆さまのお声を反映したいと考えています。\n少しだけお時間をいただけますと幸いです。",
-      gift_note: "最後までご回答いただいた方には、ささやかなプレゼントをご用意しております。",
+      gift_note:
+        "最後までご回答いただいた方には、ささやかなプレゼントをご用意しております。",
       cta: "アンケートに回答する",
     },
     dashboard: {
@@ -549,11 +552,12 @@ export const translations: Record<Language, TranslationSet> = {
       chat_placeholder: "Ask us anything...",
       chat_send: "Send",
       chat_error: "Something went wrong. Please try again in a moment.",
-      chat_rate_limited: "We're getting a lot of requests right now — please try again in a moment.",
+      chat_rate_limited:
+        "We're getting a lot of requests right now — please try again in a moment.",
       chat_kakao_notice:
-        "\n\nFor more details, please reach out via our KakaoTalk channel (https://pf.kakao.com/_xaKkVG).",
+        "\n\nFor more details, please reach out via our KakaoTalk channel.",
       chat_compare_and_kakao_notice:
-        "\n\nYou can see more details in the Compare tab. For further questions, please reach out via our KakaoTalk channel (https://pf.kakao.com/_xaKkVG).",
+        "\n\nYou can see more details in the Compare tab. For further questions, please reach out via our KakaoTalk channel.",
     },
     nav: {
       home: "Home",
@@ -607,9 +611,15 @@ export function transformRawReviews(rawData: any[]): Review[] {
       color: r.color || "Standard",
       productImage: r.productImage || "",
       author: {
-        KO: typeof r.author === "string" ? r.author : (r.author?.KO || ""),
-        JA: typeof r.author === "string" ? r.author : (r.author?.JA || r.author?.KO || ""),
-        EN: typeof r.author === "string" ? r.author : (r.author?.EN || r.author?.KO || ""),
+        KO: typeof r.author === "string" ? r.author : r.author?.KO || "",
+        JA:
+          typeof r.author === "string"
+            ? r.author
+            : r.author?.JA || r.author?.KO || "",
+        EN:
+          typeof r.author === "string"
+            ? r.author
+            : r.author?.EN || r.author?.KO || "",
       },
       city: {
         KO: "한국",
