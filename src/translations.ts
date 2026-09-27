@@ -277,9 +277,9 @@ export const translations: Record<Language, TranslationSet> = {
       chat_send: "전송",
       chat_error: "일시적인 오류가 발생했습니다. 잠시 후 다시 시도해주세요.",
       chat_rate_limited: "지금 요청이 많아서 잠시 후 다시 시도해주세요.",
-      chat_kakao_notice: "\n\n더 자세한 내용은 카카오톡 채널로 문의해주세요.",
+      chat_kakao_notice: "\n\n더 자세한 내용은 비마이연 채널톡으로 문의해주세요.",
       chat_compare_and_kakao_notice:
-        "\n\n비교 탭에서 더 자세히 볼 수 있어요. 추가 문의는 카카오톡 채널로 남겨주세요.",
+        "\n\n비교 탭에서 더 자세히 볼 수 있어요. 추가 문의는 비마이연 채널톡으로 남겨주세요.",
     },
     nav: {
       home: "홈",
@@ -406,7 +406,7 @@ export const translations: Record<Language, TranslationSet> = {
       show_more: "もっと見る",
       show_less: "閉じる",
       instagram: "インスタグラム (公式)",
-      kakaotalk: "カカオトーク相談",
+      kakaotalk: "ビーマイヨン チャンネルトーク",
       human_consult_prompt:
         "さらに気になることはありますか？1:1ブランド相談をご案内します。",
       chat_placeholder: "気になることを聞いてみてください...",
@@ -416,9 +416,9 @@ export const translations: Record<Language, TranslationSet> = {
       chat_rate_limited:
         "現在アクセスが集中しています。しばらくしてから再度お試しください。",
       chat_kakao_notice:
-        "\n\n詳細はカカオトークチャンネルまでお問い合わせください。",
+        "\n\n詳細はビーマイヨン チャンネルトークまでお問い合わせください。",
       chat_compare_and_kakao_notice:
-        "\n\n詳しくは比較タブでご確認いただけます。追加のお問い合わせはカカオトークチャンネルまでお願いいたします。",
+        "\n\n詳しくは比較タブでご確認いただけます。追加のお問い合わせはビーマイヨン チャンネルトークまでお願いいたします。",
     },
     nav: {
       home: "ホーム",
@@ -546,7 +546,7 @@ export const translations: Record<Language, TranslationSet> = {
       show_more: "Show More",
       show_less: "Show Less",
       instagram: "Instagram (Official)",
-      kakaotalk: "KakaoTalk Channel",
+      kakaotalk: "yyeon Channel Talk",
       human_consult_prompt:
         "Have more questions? Connect with our 1:1 brand consultant.",
       chat_placeholder: "Ask us anything...",
@@ -555,9 +555,9 @@ export const translations: Record<Language, TranslationSet> = {
       chat_rate_limited:
         "We're getting a lot of requests right now — please try again in a moment.",
       chat_kakao_notice:
-        "\n\nFor more details, please reach out via our KakaoTalk channel.",
+        "\n\nFor more details, please reach out via yyeon Channel Talk.",
       chat_compare_and_kakao_notice:
-        "\n\nYou can see more details in the Compare tab. For further questions, please reach out via our KakaoTalk channel.",
+        "\n\nYou can see more details in the Compare tab. For further questions, please reach out via yyeon Channel Talk.",
     },
     nav: {
       home: "Home",
