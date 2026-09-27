@@ -1,4 +1,4 @@
-import { Language, TranslationSet, Review, FAQ } from "./types";
+import { Language, TranslationSet, Review, FAQ } from "./types.js";
 
 export const BAG_CATALOG: Record<string, { name: string; image: string }[]> = {
   blooming: [

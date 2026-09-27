@@ -2,8 +2,8 @@
 // the Gemini chat route for a given user question, so the model only has
 // to answer from data we actually hand it (see server.ts systemInstruction).
 import Fuse from "fuse.js";
-import { CATEGORIES, CategoryDef, normalizeProduct } from "./categories";
-import { BAG_DATA, COMPARE_TABLE_DATA } from "../data/bagComparison";
+import { CATEGORIES, CategoryDef, normalizeProduct } from "./categories.js";
+import { BAG_DATA, COMPARE_TABLE_DATA } from "../data/bagComparison.js";
 
 export interface ReviewLike {
   id: number;

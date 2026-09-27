@@ -2,8 +2,8 @@
 // (server.ts) and the Vercel serverless function (api/chat.ts). Keeping this
 // here means the two request/response adapters never drift apart.
 import OpenAI from "openai";
-import { buildChatContext, ReviewLike } from "./chatContext";
-import { translations } from "../translations";
+import { buildChatContext, ReviewLike } from "./chatContext.js";
+import { translations } from "../translations.js";
 
 export const SUPPORTED_LANGS = ["KO", "JA", "EN"] as const;
 export type ChatLang = (typeof SUPPORTED_LANGS)[number];

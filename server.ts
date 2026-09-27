@@ -3,8 +3,8 @@ import path from "path";
 import fs from "fs";
 import { createServer as createViteServer } from "vite";
 import dotenv from "dotenv";
-import { createGroqClient, handleChatRequest } from "./src/lib/chatHandler";
-import { ReviewLike } from "./src/lib/chatContext";
+import { createGroqClient, handleChatRequest } from "./src/lib/chatHandler.js";
+import { ReviewLike } from "./src/lib/chatContext.js";
 
 dotenv.config();
 

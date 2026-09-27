@@ -1,8 +1,13 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { createGroqClient, handleChatRequest } from "../src/lib/chatHandler";
-import { ReviewLike } from "../src/lib/chatContext";
-import reviewsData from "../public/data/yyeon_reviews_final.json";
-import bagCompareData from "../public/data/bag_compare.json";
+import { createGroqClient, handleChatRequest } from "../src/lib/chatHandler.js";
+import { ReviewLike } from "../src/lib/chatContext.js";
+// Node's native ESM resolver (used when Vercel transpiles instead of
+// bundling) requires explicit file extensions on relative imports, and
+// JSON imports need an import attribute — omitting either produced
+// "Cannot find module" at runtime in production even though local `tsx`
+// and Vite resolve them fine without either.
+import reviewsData from "../public/data/yyeon_reviews_final.json" with { type: "json" };
+import bagCompareData from "../public/data/bag_compare.json" with { type: "json" };
 
 // Imported (not fs.readFileSync'd from public/) so the data is bundled into
 // the function at build time. Vercel functions are stateless per cold
