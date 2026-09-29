@@ -150,7 +150,7 @@ export const BAG_DATA: BagItem[] = [
         item: { KO: '노트북(15인치)', JA: 'ノートPC(15インチ)', EN: 'Laptop (15")' },
         icon: '💻',
         possible: false,
-        detail: { KO: '13인치 슬림북까지만 가능', JA: '13インチスリムPCまで可能', EN: 'Fits up to 13-inch slim laptops' },
+        detail: { KO: '수납 불가', JA: '収納不可', EN: 'Does not fit' },
       },
       {
         item: { KO: 'A4 서류', JA: 'A4書類', EN: 'A4 Documents' },
