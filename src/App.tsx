@@ -295,7 +295,7 @@ export default function App() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setActiveTab("guide")}
-            className="absolute bottom-20 right-5 z-[60] w-14 h-14 bg-gray-900 text-white rounded-full flex flex-col items-center justify-center shadow-[0_15px_30px_rgba(0,0,0,0.3)] group active:bg-brand-primary transition-colors"
+            className="absolute bottom-36 right-5 z-[60] w-14 h-14 bg-gray-900 text-white rounded-full flex flex-col items-center justify-center shadow-[0_15px_30px_rgba(0,0,0,0.3)] group active:bg-brand-primary transition-colors"
           >
             <MessageCircle size={20} className="mb-0.5" />
             <span className="text-[7px] font-black uppercase tracking-tighter opacity-60 group-hover:opacity-100">

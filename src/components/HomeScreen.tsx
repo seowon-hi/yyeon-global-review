@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useRef, useEffect } from "react";
 import { motion } from "motion/react";
-import { Star, ArrowRight, BarChart3, MessageSquare, ChevronDown } from "lucide-react";
+import { Star, ArrowRight, BarChart3, MessageSquare, ChevronDown, Instagram } from "lucide-react";
 import { Language, Review } from "../types";
 import { HomeHeader, OfficialSiteBanner } from "./Header";
 import { BagCatalogSection, ReviewList } from "./ReviewList";
@@ -286,9 +286,10 @@ export function HomeScreen({
           )}
 
           {/* Action Button */}
+          <div className="flex items-center gap-3 shrink-0">
           <button
             onClick={() => setIsReviewView(true)}
-            className="w-full py-5 bg-gray-900 text-white rounded-[2rem] font-black text-xs shadow-2xl shadow-gray-200 active:scale-[0.98] transition-all flex items-center justify-center space-x-3 group relative overflow-hidden shrink-0"
+            className="flex-1 py-5 bg-gray-900 text-white rounded-[2rem] font-black text-xs shadow-2xl shadow-gray-200 active:scale-[0.98] transition-all flex items-center justify-center space-x-3 group relative overflow-hidden shrink-0"
           >
             <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
             <span className="tracking-[0.2em]">{t.home.view_reviews}</span>
@@ -297,6 +298,16 @@ export function HomeScreen({
               className="group-hover:translate-x-1 transition-transform"
             />
           </button>
+          <a
+            href="https://www.instagram.com/yyeon.kr/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="w-14 h-14 shrink-0 rounded-full bg-white border border-gray-100 text-gray-900 shadow-sm flex items-center justify-center active:scale-95 transition-all"
+          >
+            <Instagram size={22} />
+          </a>
+          </div>
         </motion.div>
       ) : (
         <motion.div
