@@ -166,9 +166,9 @@ export function HomeScreen({
                     ),
                   )}
                 </p>
-                {i === 0 && (
+                {i <= 2 && (
                   <img
-                    src="/images/yyeon_story_2.jpg"
+                    src={`/images/yyeon_story_${i + 2}.jpg`}
                     alt=""
                     className="w-1/2 mx-auto rounded-2xl object-cover"
                   />
