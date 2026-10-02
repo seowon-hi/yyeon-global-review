@@ -140,7 +140,15 @@ export function HomeScreen({
                   key={i}
                   className="text-[12px] text-gray-700 font-medium leading-loose whitespace-pre-line"
                 >
-                  {p}
+                  {p.split(/(「縁」)/).map((part, j) =>
+                    part === "「縁」" ? (
+                      <span key={j} className="block text-[28px] font-serif text-gray-900 leading-tight my-1">
+                        {part}
+                      </span>
+                    ) : (
+                      <React.Fragment key={j}>{part.replace(/^\n|\n$/g, "")}</React.Fragment>
+                    ),
+                  )}
                 </p>
               ))}
             </div>
