@@ -29,7 +29,7 @@ export function ProfileScreen({
   );
   const [isEditing, setIsEditing] = useState(false);
   const [userProfile, setUserProfile] = useState({
-    name: "게스트 리비어",
+    name: "yyeon",
     nickname: "human_01",
   });
 
