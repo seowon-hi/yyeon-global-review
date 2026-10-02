@@ -286,6 +286,9 @@ export function HomeScreen({
           )}
 
           {/* Action Button */}
+          <p className="text-center text-[11px] font-bold text-gray-500 tracking-tight shrink-0">
+            {t.home.joined_by.replace("{n}", String(reviews.length))}
+          </p>
           <div className="flex items-center gap-3 shrink-0">
           <a
             href="https://www.instagram.com/yyeon.kr/"

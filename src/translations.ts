@@ -219,6 +219,7 @@ export const translations: Record<Language, TranslationSet> = {
       ai_summary: "리뷰 3초 요약",
       view_photo: "포토 후기",
       trust_description: "실제 리뷰자 기반 AI 데이터 분석",
+      joined_by: "{n}분이 함께해줬어요",
       brand_story: [
         "Be my yeon의 'yeon'은\n한국어로 {{인연}}을 뜻하는 말이에요.",
         "당신과 오래도록 이어질 인연을 맺고 싶다는 마음을\nBe my yeon이라는 이름에 담았어요.",
@@ -361,6 +362,7 @@ export const translations: Record<Language, TranslationSet> = {
       ai_summary: "AI要約",
       view_photo: "写真を見る",
       trust_description: "実際のレビュアーに基づくAIデータ分析",
+      joined_by: "{n}名の方が一緒に歩んでくれました",
       brand_story: [
         "Be my yeonの「yeon」は、\n韓国語で{{縁}}を意味する言葉です。",
         "あなたと、長く続くご縁を結びたい。\nそんな願いを、\nBe my yeonという名前に込めました。",
@@ -507,6 +509,7 @@ export const translations: Record<Language, TranslationSet> = {
       ai_summary: "3s AI Summary",
       view_photo: "Photo Reviews",
       trust_description: "AI Data Analysis Based on Actual Reviewers",
+      joined_by: "{n} people have joined us",
       brand_story: [
         "The \"yeon\" in Be my yeon\nis a Korean word meaning\n{{connection}}\nthe kind that ties two people together.",
         "We want to build a lasting connection with you,\nand that wish is the name we chose: Be my yeon.",
