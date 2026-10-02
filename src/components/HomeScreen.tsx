@@ -170,7 +170,7 @@ export function HomeScreen({
                   <img
                     src="/images/yyeon_story_2.jpg"
                     alt=""
-                    className="w-full rounded-2xl object-cover"
+                    className="w-1/2 mx-auto rounded-2xl object-cover"
                   />
                 )}
                 </React.Fragment>
