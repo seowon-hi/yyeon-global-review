@@ -287,6 +287,15 @@ export function HomeScreen({
 
           {/* Action Button */}
           <div className="flex items-center gap-3 shrink-0">
+          <a
+            href="https://www.instagram.com/yyeon.kr/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="w-14 h-14 shrink-0 rounded-full bg-white border border-gray-100 text-gray-900 shadow-sm flex items-center justify-center active:scale-95 transition-all"
+          >
+            <Instagram size={22} />
+          </a>
           <button
             onClick={() => setIsReviewView(true)}
             className="flex-1 py-5 bg-gray-900 text-white rounded-[2rem] font-black text-xs shadow-2xl shadow-gray-200 active:scale-[0.98] transition-all flex items-center justify-center space-x-3 group relative overflow-hidden shrink-0"
@@ -298,15 +307,6 @@ export function HomeScreen({
               className="group-hover:translate-x-1 transition-transform"
             />
           </button>
-          <a
-            href="https://www.instagram.com/yyeon.kr/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            className="w-14 h-14 shrink-0 rounded-full bg-white border border-gray-100 text-gray-900 shadow-sm flex items-center justify-center active:scale-95 transition-all"
-          >
-            <Instagram size={22} />
-          </a>
           </div>
         </motion.div>
       ) : (
