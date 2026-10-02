@@ -291,7 +291,7 @@ export const translations: Record<Language, TranslationSet> = {
     nav: {
       home: "홈",
       data: "데이터",
-      wishlist: "원하는 제품",
+      wishlist: "취향 남기기",
       guide: "상담",
       profile: "마이",
       inquiry: "문의",
@@ -302,7 +302,7 @@ export const translations: Record<Language, TranslationSet> = {
     wishlist: {
       title: "의견을 들려주세요",
       description:
-        "「be my yyeon」의 「yeon」은 한국어로 '인연(緣)'을 뜻해요.\n일본에서 선보일 신제품에 여러분의 의견을 담고 싶어요.\n잠시만 시간을 내어 설문에 참여해주세요.",
+        "「be my yyeon」의 「yeon」은 한국어로 '인연(緣)'을 뜻해요.\n일본에서 선보일 신제품에 여러분의 의견을 담고 싶어요.\n여러분의 취향을 들려주세요.",
       gift_note: "끝까지 답변해주신 분께는 작은 선물을 드려요.",
       cta: "설문 참여하기",
     },
@@ -437,7 +437,7 @@ export const translations: Record<Language, TranslationSet> = {
     nav: {
       home: "ホーム",
       data: "データ",
-      wishlist: "ウィッシュリスト",
+      wishlist: "好みを残す",
       guide: "案内",
       profile: "マイ",
       inquiry: "問い合わせ",
@@ -448,7 +448,7 @@ export const translations: Record<Language, TranslationSet> = {
     wishlist: {
       title: "ご意見をお聞かせください",
       description:
-        "「be my yyeon」の「yeon」は、韓国語で「縁（ヨン）」を意味します。\n日本で発売する新商品に、皆さまのお声を反映したいと考えています。\n少しだけお時間をいただけますと幸いです。",
+        "「be my yyeon」の「yeon」は、韓国語で「縁（ヨン）」を意味します。\n日本で発売する新商品に、皆さまのお声を反映したいと考えています。\n皆さまの好みをお聞かせください。",
       gift_note:
         "最後までご回答いただいた方には、ささやかなプレゼントをご用意しております。",
       cta: "アンケートに回答する",
@@ -583,7 +583,7 @@ export const translations: Record<Language, TranslationSet> = {
     nav: {
       home: "Home",
       data: "Data",
-      wishlist: "Wishlist",
+      wishlist: "Share Your Taste",
       guide: "Guide",
       profile: "Profile",
       inquiry: "Inquiry",
@@ -594,7 +594,7 @@ export const translations: Record<Language, TranslationSet> = {
     wishlist: {
       title: "Share your thoughts",
       description:
-        'The "yeon" in "be my yyeon" means "connection (緣)" in Korean.\nWe\'d love to reflect your voice in the new products we launch in Japan.\nPlease take a moment to answer our short survey.',
+        'The "yeon" in "be my yyeon" means "connection (緣)" in Korean.\nWe\'d love to reflect your voice in the new products we launch in Japan.\nPlease tell us about your taste.',
       gift_note: "Everyone who completes it will receive a small gift.",
       cta: "Take the survey",
     },
