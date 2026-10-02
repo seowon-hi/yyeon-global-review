@@ -156,10 +156,10 @@ export function HomeScreen({
               {t.home.brand_story.map((p: string, i: number) => (
                 <React.Fragment key={i}>
                 <p className="text-[12px] text-gray-700 font-medium leading-loose whitespace-pre-line">
-                  {p.split(/(「縁」)/).map((part, j) =>
-                    part === "「縁」" ? (
+                  {p.split(/\{\{(.+?)\}\}/).map((part, j) =>
+                    j % 2 === 1 ? (
                       <span key={j} className="block text-[28px] font-serif text-gray-900 leading-tight my-1">
-                        縁
+                        {part}
                       </span>
                     ) : (
                       <React.Fragment key={j}>{part.replace(/^\n|\n$/g, "")}</React.Fragment>
