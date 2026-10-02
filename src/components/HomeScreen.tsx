@@ -151,7 +151,7 @@ export function HomeScreen({
             <div
               ref={storyRef}
               onScroll={updateScrollHint}
-              className="h-full overflow-y-auto bg-[#FAF9F6] px-6 py-8 rounded-[2.5rem] text-center border border-gray-50/50 shadow-inner space-y-5"
+              className="h-full overflow-y-auto no-scrollbar bg-[#FAF9F6] px-6 py-8 rounded-[2.5rem] text-center border border-gray-50/50 shadow-inner space-y-5"
             >
               {t.home.brand_story.map((p: string, i: number) => (
                 <p
