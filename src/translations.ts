@@ -63,9 +63,49 @@ export const BAG_CATALOG: Record<string, { name: string; image: string }[]> = {
 
   henne: [
     {
-      name: "mini Dusty Blue",
+      name: "large caramel brown",
       image:
-        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260220/dafe3a8fa22a23d75e67f02e5c30892d.jpg",
+        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20250110/56327fb6bd76372d0898703273731c16.jpg",
+    },
+    {
+      name: "large soft black",
+      image:
+        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20250110/243a01de622c75c4dae01ce7c4ef5833.jpg",
+    },
+    {
+      name: "large deep brown",
+      image:
+        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20250113/27a62bdbcdda7914bc651c4e72c0ed61.jpg",
+    },
+    {
+      name: "large vanila",
+      image:
+        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260107/e48e492eb384ddb52d027da0032d7b95.jpg",
+    },
+    {
+      name: "medium caramel brown",
+      image:
+        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20250717/7e2e9b6edd25f679a5be510f6daf87b4.jpg",
+    },
+    {
+      name: "medium soft black",
+      image:
+        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20250717/ea8ae12489afbfe2c25190a70153090b.jpg",
+    },
+    {
+      name: "medium taupe mocha",
+      image:
+        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20250717/9394c9821ea7d416544a5382e797db74.jpg",
+    },
+    {
+      name: "medium butter",
+      image:
+        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20250717/348b0856e00c5898e7d75829d1573c6f.jpg",
+    },
+    {
+      name: "mini caramel brown",
+      image:
+        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260220/0942bb313a1802790acbe577b2f60274.jpg",
     },
     {
       name: "mini Soft Black",
@@ -78,54 +118,14 @@ export const BAG_CATALOG: Record<string, { name: string; image: string }[]> = {
         "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260220/92b539d1dc9f8ebbd11802ee5c7dce72.jpg",
     },
     {
+      name: "mini Dusty Blue",
+      image:
+        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260220/dafe3a8fa22a23d75e67f02e5c30892d.jpg",
+    },
+    {
       name: "mini olive",
       image:
         "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260220/0b13b5669258cd4e75133061bb51bb1e.jpg",
-    },
-    {
-      name: "mini caramel brown",
-      image:
-        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260220/0942bb313a1802790acbe577b2f60274.jpg",
-    },
-    {
-      name: "medium butter",
-      image:
-        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20250717/348b0856e00c5898e7d75829d1573c6f.jpg",
-    },
-    {
-      name: "medium soft black",
-      image:
-        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20250717/ea8ae12489afbfe2c25190a70153090b.jpg",
-    },
-    {
-      name: "medium caramel brown",
-      image:
-        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20250717/7e2e9b6edd25f679a5be510f6daf87b4.jpg",
-    },
-    {
-      name: "medium taupe mocha",
-      image:
-        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20250717/9394c9821ea7d416544a5382e797db74.jpg",
-    },
-    {
-      name: "large deep brown",
-      image:
-        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20250113/27a62bdbcdda7914bc651c4e72c0ed61.jpg",
-    },
-    {
-      name: "large caramel brown",
-      image:
-        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20250110/56327fb6bd76372d0898703273731c16.jpg",
-    },
-    {
-      name: "large soft black",
-      image:
-        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20250110/243a01de622c75c4dae01ce7c4ef5833.jpg",
-    },
-    {
-      name: "large vanila",
-      image:
-        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260107/e48e492eb384ddb52d027da0032d7b95.jpg",
     },
   ],
   aro: [
@@ -162,9 +162,9 @@ export const BAG_CATALOG: Record<string, { name: string; image: string }[]> = {
         "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260518/49a8b74e01d469f919701d142803f923.jpg",
     },
     {
-      name: "large deep brown",
+      name: "large vanilla",
       image:
-        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260518/32dc05eddfb3d4e2f07259f6c2e507c4.jpg",
+        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260820/7b50e2d0c382daf31588bb3a340fc392.jpg",
     },
     {
       name: "large soft black",
@@ -172,9 +172,9 @@ export const BAG_CATALOG: Record<string, { name: string; image: string }[]> = {
         "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260518/6fad83dfe644b14a82f7d08d378c8444.jpg",
     },
     {
-      name: "large vanilla",
+      name: "large deep brown",
       image:
-        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260820/7b50e2d0c382daf31588bb3a340fc392.jpg",
+        "https://ecimg.cafe24img.com/pg1240b55797764052/bemyyeons2/web/product/big/20260518/32dc05eddfb3d4e2f07259f6c2e507c4.jpg",
     },
   ],
 };
