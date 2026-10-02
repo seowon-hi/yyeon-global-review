@@ -355,6 +355,12 @@ export const translations: Record<Language, TranslationSet> = {
       ai_summary: "AI要約",
       view_photo: "写真を見る",
       trust_description: "実際のレビュアーに基づくAIデータ分析",
+      brand_story: [
+        "Be my yeonの「yeon」は、\n韓国語で「縁」を意味する言葉です。",
+        "あなたと、長く続くご縁を結びたい。\nそんな願いを、\nBe my yeonという名前に込めました。",
+        "ひとつのバッグとの出会いが、\n一度きりではなく、\n日々にそっと寄り添いながら、\n何度でも手に取りたくなる関係へ。",
+        "Be my yeonが、\nあなたの毎日に寄り添う、\nかけがえのないご縁になりますように。",
+      ],
       highlight_1: "16インチMacBookも余裕の収納",
       highlight_2: "肩に負担のない軽量ヴィーガンレザー",
       highlight_3: "Wadiz累計ファンディング11億突破",

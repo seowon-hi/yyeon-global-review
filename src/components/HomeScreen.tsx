@@ -133,6 +133,19 @@ export function HomeScreen({
           animate={{ y: 0, opacity: 1 }}
           className="flex-1 flex flex-col justify-start px-6 pt-0 pb-16 space-y-3 overflow-hidden"
         >
+          {t.home.brand_story ? (
+            <div className="bg-[#FAF9F6] px-6 py-8 rounded-[2.5rem] text-center border border-gray-50/50 shadow-inner shrink-0 space-y-5">
+              {t.home.brand_story.map((p: string, i: number) => (
+                <p
+                  key={i}
+                  className="text-[12px] text-gray-700 font-medium leading-loose whitespace-pre-line"
+                >
+                  {p}
+                </p>
+              ))}
+            </div>
+          ) : (
+          <>
           {/* Trust Card */}
           <div className="bg-[#FAF9F6] p-6 rounded-[2.5rem] text-center relative overflow-hidden group border border-gray-50/50 shadow-inner shrink-0">
             <div className="relative z-10">
@@ -225,6 +238,8 @@ export function HomeScreen({
             </span>
             <div className="h-[1px] w-8 bg-gray-100" />
           </motion.div>
+          </>
+          )}
 
           {/* Action Button */}
           <button
