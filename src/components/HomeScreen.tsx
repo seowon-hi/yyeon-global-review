@@ -1,6 +1,6 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useRef, useEffect } from "react";
 import { motion } from "motion/react";
-import { Star, ArrowRight, BarChart3, MessageSquare } from "lucide-react";
+import { Star, ArrowRight, BarChart3, MessageSquare, ChevronDown } from "lucide-react";
 import { Language, Review } from "../types";
 import { HomeHeader, OfficialSiteBanner } from "./Header";
 import { BagCatalogSection, ReviewList } from "./ReviewList";
@@ -41,6 +41,19 @@ export function HomeScreen({
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
   const [selectedKeywords, setSelectedKeywords] = useState<string[]>([]);
   const [isKeywordsExpanded, setIsKeywordsExpanded] = useState(false);
+
+  const storyRef = useRef<HTMLDivElement>(null);
+  const [showScrollHint, setShowScrollHint] = useState(false);
+  const updateScrollHint = () => {
+    const el = storyRef.current;
+    if (!el) return;
+    setShowScrollHint(el.scrollHeight - el.scrollTop - el.clientHeight > 8);
+  };
+  useEffect(() => {
+    updateScrollHint();
+    window.addEventListener("resize", updateScrollHint);
+    return () => window.removeEventListener("resize", updateScrollHint);
+  }, [currentLang, isReviewView]);
 
   const normalizeProduct = (name: string) => normalizeProductBase(name) ?? name;
 
@@ -134,7 +147,12 @@ export function HomeScreen({
           className="flex-1 flex flex-col justify-start px-6 pt-0 pb-16 space-y-3 overflow-hidden"
         >
           {t.home.brand_story ? (
-            <div className="bg-[#FAF9F6] px-6 py-8 rounded-[2.5rem] text-center border border-gray-50/50 shadow-inner shrink-0 space-y-5">
+            <div className="relative flex-1 min-h-0">
+            <div
+              ref={storyRef}
+              onScroll={updateScrollHint}
+              className="h-full overflow-y-auto bg-[#FAF9F6] px-6 py-8 rounded-[2.5rem] text-center border border-gray-50/50 shadow-inner space-y-5"
+            >
               {t.home.brand_story.map((p: string, i: number) => (
                 <p
                   key={i}
@@ -151,6 +169,16 @@ export function HomeScreen({
                   )}
                 </p>
               ))}
+            </div>
+            {showScrollHint && (
+              <motion.div
+                animate={{ y: [0, 4, 0] }}
+                transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-3 left-1/2 -translate-x-1/2 pointer-events-none text-gray-400"
+              >
+                <ChevronDown size={16} />
+              </motion.div>
+            )}
             </div>
           ) : (
           <>
