@@ -154,8 +154,8 @@ export function HomeScreen({
               style={
                 showScrollHint
                   ? {
-                      WebkitMaskImage: "linear-gradient(to bottom, #000 calc(100% - 56px), transparent)",
-                      maskImage: "linear-gradient(to bottom, #000 calc(100% - 56px), transparent)",
+                      WebkitMaskImage: "linear-gradient(to bottom, #000 calc(100% - 40px), transparent)",
+                      maskImage: "linear-gradient(to bottom, #000 calc(100% - 40px), transparent)",
                     }
                   : undefined
               }
@@ -178,6 +178,7 @@ export function HomeScreen({
                   <img
                     src={`/images/yyeon_story_${[2, 1, 4][i]}.jpg`}
                     alt=""
+                    onLoad={updateScrollHint}
                     className="w-1/2 mx-auto rounded-2xl object-cover"
                   />
                 )}
@@ -294,7 +295,7 @@ export function HomeScreen({
           )}
 
           {/* Action Button */}
-          <p className="text-center text-[11px] font-bold text-gray-500 tracking-tight shrink-0">
+          <p className="text-center text-[10px] leading-none font-bold text-gray-500 tracking-tight shrink-0 -my-0.5">
             {t.home.joined_by.replace("{n}", String(reviews.length))}
           </p>
           <div className="flex items-center gap-3 shrink-0">
@@ -309,7 +310,7 @@ export function HomeScreen({
           </a>
           <button
             onClick={() => setIsReviewView(true)}
-            className="flex-1 py-5 bg-gray-900 text-white rounded-[2rem] font-black text-xs shadow-2xl shadow-gray-200 active:scale-[0.98] transition-all flex items-center justify-center space-x-3 group relative overflow-hidden shrink-0"
+            className="flex-1 py-4 bg-gray-900 text-white rounded-[2rem] font-black text-xs shadow-2xl shadow-gray-200 active:scale-[0.98] transition-all flex items-center justify-center space-x-3 group relative overflow-hidden shrink-0"
           >
             <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
             <span className="tracking-[0.2em]">{t.home.view_reviews}</span>
