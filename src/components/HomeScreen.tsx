@@ -171,13 +171,15 @@ export function HomeScreen({
               ))}
             </div>
             {showScrollHint && (
-              <motion.div
-                animate={{ y: [0, 4, 0] }}
-                transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-3 left-1/2 -translate-x-1/2 pointer-events-none text-gray-400"
-              >
-                <ChevronDown size={16} />
-              </motion.div>
+              <div className="absolute bottom-0 inset-x-0 h-16 rounded-b-[2.5rem] bg-gradient-to-t from-white/30 to-transparent pointer-events-none flex items-end justify-center pb-3">
+                <motion.div
+                  animate={{ y: [0, 4, 0] }}
+                  transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
+                  className="text-gray-400"
+                >
+                  <ChevronDown size={16} />
+                </motion.div>
+              </div>
             )}
             </div>
           ) : (
