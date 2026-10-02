@@ -154,10 +154,8 @@ export function HomeScreen({
               className="h-full overflow-y-auto no-scrollbar bg-[#FAF9F6] px-6 py-8 rounded-[2.5rem] text-center border border-gray-50/50 shadow-inner space-y-5"
             >
               {t.home.brand_story.map((p: string, i: number) => (
-                <p
-                  key={i}
-                  className="text-[12px] text-gray-700 font-medium leading-loose whitespace-pre-line"
-                >
+                <React.Fragment key={i}>
+                <p className="text-[12px] text-gray-700 font-medium leading-loose whitespace-pre-line">
                   {p.split(/(「縁」)/).map((part, j) =>
                     part === "「縁」" ? (
                       <span key={j} className="block text-[28px] font-serif text-gray-900 leading-tight my-1">
@@ -168,6 +166,14 @@ export function HomeScreen({
                     ),
                   )}
                 </p>
+                {i === 0 && (
+                  <img
+                    src="/images/yyeon_story_2.jpg"
+                    alt=""
+                    className="w-full rounded-2xl object-cover"
+                  />
+                )}
+                </React.Fragment>
               ))}
             </div>
             {showScrollHint && (
