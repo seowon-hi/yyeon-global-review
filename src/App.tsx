@@ -219,7 +219,7 @@ export default function App() {
               />
             )}
             {activeTab === "data" && (
-              <div className="h-full overflow-y-auto pb-[calc(5rem+env(safe-area-inset-bottom))] pt-16">
+              <div className="h-full overflow-y-auto pb-tabbar pt-16">
                 <DataScreen
                   key="data"
                   t={t}
@@ -230,7 +230,7 @@ export default function App() {
               </div>
             )}
             {activeTab === "compare" && (
-              <div className="h-full overflow-y-auto pb-[calc(5rem+env(safe-area-inset-bottom))]">
+              <div className="h-full overflow-y-auto pb-tabbar">
                 <BagComparison
                   reviews={reviews}
                   onBagClick={openBagProductPage}
@@ -239,22 +239,22 @@ export default function App() {
               </div>
             )}
             {activeTab === "recommend" && (
-              <div className="h-full overflow-y-auto pb-[calc(5rem+env(safe-area-inset-bottom))]">
+              <div className="h-full overflow-y-auto pb-tabbar">
                 <BagRecommendation currentLang={currentLang} />
               </div>
             )}
             {activeTab === "wishlist" && (
-              <div className="h-full overflow-y-auto pb-[calc(5rem+env(safe-area-inset-bottom))] pt-16">
+              <div className="h-full overflow-y-auto pb-tabbar pt-16">
                 <WishlistScreen key="wishlist" t={t} lang={currentLang} />
               </div>
             )}
             {activeTab === "guide" && (
-              <div className="h-full pb-[calc(5rem+env(safe-area-inset-bottom))]">
+              <div className="h-full pb-tabbar">
                 <GuideScreen key="guide" t={t} currentLang={currentLang} />
               </div>
             )}
             {activeTab === "profile" && (
-              <div className="h-full overflow-y-auto pb-[calc(5rem+env(safe-area-inset-bottom))]">
+              <div className="h-full overflow-y-auto pb-tabbar">
                 <ProfileScreen
                   key="profile"
                   t={t}
@@ -295,7 +295,7 @@ export default function App() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setActiveTab("guide")}
-            className="absolute bottom-36 right-5 z-[60] w-14 h-14 bg-gray-900 text-white rounded-full flex flex-col items-center justify-center shadow-[0_15px_30px_rgba(0,0,0,0.3)] group active:bg-brand-primary transition-colors"
+            className="absolute bottom-[calc(var(--tabbar-h)_+_6.5rem)] right-5 z-[60] w-14 h-14 bg-gray-900 text-white rounded-full flex flex-col items-center justify-center shadow-[0_15px_30px_rgba(0,0,0,0.3)] group active:bg-brand-primary transition-colors"
           >
             <MessageCircle size={20} className="mb-0.5" />
             <span className="text-[7px] font-black uppercase tracking-tighter opacity-60 group-hover:opacity-100">

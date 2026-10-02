@@ -144,7 +144,7 @@ export function HomeScreen({
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="flex-1 flex flex-col justify-start px-6 pt-0 pb-16 space-y-3 overflow-hidden"
+          className="flex-1 flex flex-col justify-start px-6 pt-0 pb-tabbar space-y-3 overflow-hidden"
         >
           {t.home.brand_story ? (
             <div className="relative flex-1 min-h-0">

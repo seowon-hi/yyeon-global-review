@@ -12,6 +12,15 @@
   --color-brand-dark: #1A2E35;
 }
 
+:root {
+  /* Bottom tab bar height; shared by BottomNav and every screen's bottom padding. */
+  --tabbar-h: calc(4rem + env(safe-area-inset-bottom, 0px));
+}
+
+@utility pb-tabbar {
+  padding-bottom: calc(var(--tabbar-h) + 1.5rem);
+}
+
 @utility no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;

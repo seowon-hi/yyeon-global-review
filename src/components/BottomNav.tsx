@@ -41,7 +41,7 @@ export function BottomNav({
   return (
     <nav
       className="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-100 flex items-center justify-around z-50 px-2"
-      style={{ paddingBottom: "env(safe-area-inset-bottom, 0px)", height: "calc(4rem + env(safe-area-inset-bottom, 0px))" }}
+      style={{ paddingBottom: "env(safe-area-inset-bottom, 0px)", height: "var(--tabbar-h)" }}
     >
       <TabButton
         active={activeTab === "home"}
