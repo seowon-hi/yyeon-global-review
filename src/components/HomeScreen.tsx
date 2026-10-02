@@ -151,6 +151,10 @@ export function HomeScreen({
             <div
               ref={storyRef}
               onScroll={updateScrollHint}
+              style={{
+                WebkitMaskImage: "linear-gradient(to bottom, #000 calc(100% - 56px), transparent)",
+                maskImage: "linear-gradient(to bottom, #000 calc(100% - 56px), transparent)",
+              }}
               className="h-full overflow-y-auto no-scrollbar bg-[#FAF9F6] px-6 py-8 rounded-[2.5rem] text-center border border-gray-50/50 shadow-inner space-y-5"
             >
               {t.home.brand_story.map((p: string, i: number) => (
@@ -177,7 +181,7 @@ export function HomeScreen({
               ))}
             </div>
             {showScrollHint && (
-              <div className="absolute bottom-0 inset-x-0 h-16 rounded-b-[2.5rem] bg-gradient-to-t from-white/60 to-transparent pointer-events-none flex items-end justify-center pb-3">
+              <div className="absolute bottom-0 inset-x-0 h-16 pointer-events-none flex items-end justify-center pb-3">
                 <motion.div
                   animate={{ y: [0, 4, 0] }}
                   transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
@@ -286,11 +290,9 @@ export function HomeScreen({
           )}
 
           {/* Action Button */}
-          <div className="flex justify-center shrink-0">
-            <p className="px-4 py-1.5 rounded-full bg-white/60 backdrop-blur-sm text-[11px] font-bold text-gray-500 tracking-tight">
-              {t.home.joined_by.replace("{n}", String(reviews.length))}
-            </p>
-          </div>
+          <p className="text-center text-[11px] font-bold text-gray-500 tracking-tight shrink-0">
+            {t.home.joined_by.replace("{n}", String(reviews.length))}
+          </p>
           <div className="flex items-center gap-3 shrink-0">
           <a
             href="https://www.instagram.com/yyeon.kr/"
