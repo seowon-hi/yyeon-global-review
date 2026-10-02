@@ -171,7 +171,7 @@ export function HomeScreen({
               ))}
             </div>
             {showScrollHint && (
-              <div className="absolute bottom-0 inset-x-0 h-16 rounded-b-[2.5rem] bg-gradient-to-t from-white/30 to-transparent pointer-events-none flex items-end justify-center pb-3">
+              <div className="absolute bottom-0 inset-x-0 h-16 rounded-b-[2.5rem] bg-gradient-to-t from-white/60 to-transparent pointer-events-none flex items-end justify-center pb-3">
                 <motion.div
                   animate={{ y: [0, 4, 0] }}
                   transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
