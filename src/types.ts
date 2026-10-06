@@ -40,6 +40,7 @@ export interface TranslationSet {
     view_photo: string;
     trust_description: string;
     brand_story?: string[];
+    director_letter?: string[];
     joined_by: string;
     highlight_1: string;
     highlight_2: string;

@@ -5,8 +5,8 @@ import { HomeHeader, OfficialSiteBanner } from "./Header";
 import { BagCatalogSection, ReviewList } from "./ReviewList";
 import { SearchFilter } from "./SearchFilter";
 import { HomeTiles, homeFont } from "./HomeTiles";
-import { LettersScreen } from "./HomeSubScreens";
-import { LetterPaper } from "./LetterPaper";
+import { LetterPaper, MEANING_THEME, DIRECTOR_THEME } from "./LetterPaper";
+import { homeTilesText } from "../i18n/homeTiles";
 import { CATEGORY_FULL_NAMES, MAIN_CATEGORIES, normalizeProduct as normalizeProductBase } from "../lib/categories";
 
 export function HomeScreen({
@@ -48,10 +48,9 @@ export function HomeScreen({
   const [selectedKeywords, setSelectedKeywords] = useState<string[]>([]);
   const [isKeywordsExpanded, setIsKeywordsExpanded] = useState(false);
 
-  const [homeView, setHomeView] = useState<"main" | "meaning" | "letters">("main");
-  const [selectedLetterNo, setSelectedLetterNo] = useState<number | null>(null);
+  const [homeView, setHomeView] = useState<"main" | "meaning" | "director">("main");
 
-  const letterOpen = homeView === "meaning" && !isReviewView;
+  const letterOpen = homeView !== "main" && !isReviewView;
 
   // Letter paper is a full-screen layer: hide the dock while it is open.
   useEffect(() => {
@@ -60,16 +59,16 @@ export function HomeScreen({
   useEffect(() => () => onImmersiveChange?.(false), []);
 
   // Browser/device back closes the letter: opening pushes a history entry, popstate closes.
-  const openLetter = () => {
+  const openLetter = (view: "meaning" | "director") => {
     window.history.pushState({ yyeonLetter: true }, "");
-    setHomeView("meaning");
+    setHomeView(view);
   };
   const closeLetter = () => {
     if (window.history.state?.yyeonLetter) window.history.back();
     else setHomeView("main");
   };
   useEffect(() => {
-    const onPop = () => setHomeView((v) => (v === "meaning" ? "main" : v));
+    const onPop = () => setHomeView("main");
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);
   }, []);
@@ -77,7 +76,6 @@ export function HomeScreen({
   // Tapping the Home tab while already on Home returns to the tile screen.
   useEffect(() => {
     setHomeView("main");
-    setSelectedLetterNo(null);
   }, [resetSignal]);
 
   const normalizeProduct = (name: string) => normalizeProductBase(name) ?? name;
@@ -153,36 +151,26 @@ export function HomeScreen({
       className={`relative h-full flex flex-col ${!isReviewView ? "overflow-hidden bg-[#FBF3DC]" : ""}`}
       style={!isReviewView ? { fontFamily: homeFont(currentLang) } : undefined}
     >
-      {(isReviewView || homeView === "main" || homeView === "meaning") && (
-        <HomeHeader
-          t={t}
-          currentLang={currentLang}
-          setCurrentLang={setCurrentLang}
-          isReviewView={isReviewView}
-          reviewCount={reviews.length}
-          onBackFromReview={() => {
-            setIsReviewView(false);
-            setSelectedCategory(null);
-            setSelectedKeywords([]);
-          }}
-        />
-      )}
+      <HomeHeader
+        t={t}
+        currentLang={currentLang}
+        setCurrentLang={setCurrentLang}
+        isReviewView={isReviewView}
+        reviewCount={reviews.length}
+        onBackFromReview={() => {
+          setIsReviewView(false);
+          setSelectedCategory(null);
+          setSelectedKeywords([]);
+        }}
+      />
 
-      {!isReviewView && homeView === "letters" ? (
-        <LettersScreen
-          t={t}
-          lang={currentLang}
-          selectedNo={selectedLetterNo}
-          onSelect={setSelectedLetterNo}
-          onBack={() => setHomeView("main")}
-        />
-      ) : !isReviewView ? (
+      {!isReviewView ? (
         <HomeTiles
           t={t}
           lang={currentLang}
           reviewCount={reviews.length}
-          onMeaning={openLetter}
-          onLetters={() => setHomeView("letters")}
+          onMeaning={() => openLetter("meaning")}
+          onDirector={() => openLetter("director")}
           onStory={() => setIsReviewView(true)}
           onAsk={() => setActiveTab("guide")}
         />
@@ -239,7 +227,41 @@ export function HomeScreen({
           />
         </motion.div>
       )}
-      {letterOpen && <LetterPaper t={t} lang={currentLang} onClose={closeLetter} />}
+      {letterOpen && homeView === "meaning" && (
+        <LetterPaper
+          lang={currentLang}
+          title={homeTilesText[currentLang].meaningTitle}
+          // "{{word}}" markers were emphasis hints for the old layout; show the word without braces.
+          paragraphs={(t.home.brand_story ?? []).map((p: string) => p.replace(/\{\{(.+?)\}\}/g, "$1"))}
+          signature={
+            <div className="font-serif italic font-medium leading-none text-[#22262D]" style={{ fontSize: 24 }}>
+              yyeon,
+            </div>
+          }
+          theme={MEANING_THEME}
+          onClose={closeLetter}
+        />
+      )}
+      {letterOpen && homeView === "director" && (
+        <LetterPaper
+          lang={currentLang}
+          title="Brand Letter"
+          paragraphs={t.home.director_letter ?? []}
+          joinLines
+          signature={
+            <>
+              <div className="text-[#22262D] leading-none" style={{ fontFamily: '"Pinyon Script", cursive', fontSize: 30 }}>
+                Be my yeon
+              </div>
+              <div className="mt-2 text-[12px] tracking-[2px] text-[#4A4E56]" style={{ fontFamily: '"Noto Sans KR", "Noto Sans JP", sans-serif' }}>
+                Director
+              </div>
+            </>
+          }
+          theme={DIRECTOR_THEME}
+          onClose={closeLetter}
+        />
+      )}
     </motion.div>
   );
 }

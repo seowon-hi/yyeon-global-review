@@ -2,7 +2,6 @@ import React, { useLayoutEffect, useRef, useState } from "react";
 import { ArrowUpRight, ArrowRight, Instagram, MessageCircle } from "lucide-react";
 import { Language } from "../types";
 import { homeTilesText } from "../i18n/homeTiles";
-import { formatLetterNo, getLatestLetter } from "../data/letters";
 
 export const homeFont = (lang: Language) =>
   lang === "JA"
@@ -23,7 +22,7 @@ export function HomeTiles({
   lang,
   reviewCount,
   onMeaning,
-  onLetters,
+  onDirector,
   onStory,
   onAsk,
 }: {
@@ -31,7 +30,7 @@ export function HomeTiles({
   lang: Language;
   reviewCount: number;
   onMeaning: () => void;
-  onLetters: () => void;
+  onDirector: () => void;
   onStory: () => void;
   onAsk: () => void;
 }) {
@@ -42,7 +41,6 @@ export function HomeTiles({
     String(t.home.brand_story?.[0] ?? "")
       .replace(/\{\{(.+?)\}\}/g, "$1")
       .replace(/\n/g, " ");
-  const latest = getLatestLetter();
 
   // Scale the whole tile block uniformly (same proportions, just smaller) so it fits one screen.
   const outerRef = useRef<HTMLDivElement>(null);
@@ -88,22 +86,17 @@ export function HomeTiles({
 
         {/* (2) Brand Letter / Our Story */}
         <div className="grid grid-cols-2 gap-[14px]">
-          <button type="button" onClick={onLetters} className={tileButton}>
+          <button type="button" onClick={onDirector} className={tileButton}>
             <div
               className={`h-[170px] rounded-[26px] border border-[#DDD4C2] bg-[#FFFDF6] p-4 flex flex-col justify-between ${SOFT_SHADOW}`}
             >
-              <span className="text-[20px] font-medium leading-tight text-[#22262D]">Brand Letter</span>
+              <div className="flex items-start justify-between">
+                <span className="text-[20px] font-medium leading-tight text-[#22262D]">Brand Letter</span>
+                <ArrowUpRight size={22} strokeWidth={1.25} className="text-[#44568C] shrink-0" />
+              </div>
               <div className="border-t border-[#DDD4C2] pt-3">
-                {latest ? (
-                  <>
-                    <div className="text-[12px] tracking-[2px] text-[#44568C]">{formatLetterNo(latest.no)}</div>
-                    <div className="mt-1 text-[13px] leading-snug text-[#22262D] line-clamp-2">
-                      {latest.title[lang]}
-                    </div>
-                  </>
-                ) : (
-                  <div className="text-[13px] text-[#5A5E66]">{tx.letterEmpty}</div>
-                )}
+                <div className="text-[12px] tracking-[2px] text-[#44568C]">{tx.directorKicker}</div>
+                <div className="mt-1 text-[13px] leading-snug text-[#22262D] line-clamp-2">{tx.directorName}</div>
               </div>
             </div>
             <TileLabel>{tx.letterLabel}</TileLabel>
