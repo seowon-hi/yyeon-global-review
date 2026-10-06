@@ -16,7 +16,7 @@
 
 :root {
   /* Bottom tab bar height; shared by BottomNav and every screen's bottom padding. */
-  --tabbar-h: calc(96px + env(safe-area-inset-bottom, 0px));
+  --tabbar-h: calc(84px + env(safe-area-inset-bottom, 0px));
 }
 
 @utility pb-tabbar {
