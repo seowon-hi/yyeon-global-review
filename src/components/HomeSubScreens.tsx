@@ -20,29 +20,6 @@ function SubHeader({ title, onBack, backLabel }: { title: string; onBack: () => 
   );
 }
 
-export function MeaningScreen({ t, lang, onBack }: { t: any; lang: Language; onBack: () => void }) {
-  const paragraphs: string[] = (t.home.brand_story ?? []).map((p: string) =>
-    p.replace(/\{\{(.+?)\}\}/g, "$1").replace(/\n/g, " "),
-  );
-  return (
-    <div className="h-full flex flex-col">
-      <SubHeader title={homeTilesText[lang].meaningTitle} onBack={onBack} backLabel={t.profile.back} />
-      <div className="flex-1 overflow-y-auto no-scrollbar px-5 pb-tabbar">
-        <div className="rounded-[26px] bg-[#7391BA] px-6 py-8">
-          <div className="text-[80px] leading-none text-[#FBF3DC]">緣</div>
-        </div>
-        <div className="mt-6 space-y-5">
-          {paragraphs.map((p, i) => (
-            <p key={i} className="text-[14px] leading-[1.9] text-[#22262D]">
-              {p}
-            </p>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export function LettersScreen({
   t,
   lang,

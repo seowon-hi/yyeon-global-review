@@ -5,7 +5,8 @@ import { HomeHeader, OfficialSiteBanner } from "./Header";
 import { BagCatalogSection, ReviewList } from "./ReviewList";
 import { SearchFilter } from "./SearchFilter";
 import { HomeTiles, homeFont } from "./HomeTiles";
-import { MeaningScreen, LettersScreen } from "./HomeSubScreens";
+import { LettersScreen } from "./HomeSubScreens";
+import { LetterPaper } from "./LetterPaper";
 import { CATEGORY_FULL_NAMES, MAIN_CATEGORIES, normalizeProduct as normalizeProductBase } from "../lib/categories";
 
 export function HomeScreen({
@@ -22,6 +23,7 @@ export function HomeScreen({
   reviews,
   stats,
   resetSignal,
+  onImmersiveChange,
 }: {
   t: any;
   currentLang: Language;
@@ -36,6 +38,7 @@ export function HomeScreen({
   reviews: Review[];
   stats: any;
   resetSignal?: number;
+  onImmersiveChange?: (v: boolean) => void;
   key?: string;
 }) {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(
@@ -47,6 +50,29 @@ export function HomeScreen({
 
   const [homeView, setHomeView] = useState<"main" | "meaning" | "letters">("main");
   const [selectedLetterNo, setSelectedLetterNo] = useState<number | null>(null);
+
+  const letterOpen = homeView === "meaning" && !isReviewView;
+
+  // Letter paper is a full-screen layer: hide the dock while it is open.
+  useEffect(() => {
+    onImmersiveChange?.(letterOpen);
+  }, [letterOpen]);
+  useEffect(() => () => onImmersiveChange?.(false), []);
+
+  // Browser/device back closes the letter: opening pushes a history entry, popstate closes.
+  const openLetter = () => {
+    window.history.pushState({ yyeonLetter: true }, "");
+    setHomeView("meaning");
+  };
+  const closeLetter = () => {
+    if (window.history.state?.yyeonLetter) window.history.back();
+    else setHomeView("main");
+  };
+  useEffect(() => {
+    const onPop = () => setHomeView((v) => (v === "meaning" ? "main" : v));
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
 
   // Tapping the Home tab while already on Home returns to the tile screen.
   useEffect(() => {
@@ -127,7 +153,7 @@ export function HomeScreen({
       className={`relative h-full flex flex-col ${!isReviewView ? "overflow-hidden bg-[#FBF3DC]" : ""}`}
       style={!isReviewView ? { fontFamily: homeFont(currentLang) } : undefined}
     >
-      {(isReviewView || homeView === "main") && (
+      {(isReviewView || homeView === "main" || homeView === "meaning") && (
         <HomeHeader
           t={t}
           currentLang={currentLang}
@@ -142,9 +168,7 @@ export function HomeScreen({
         />
       )}
 
-      {!isReviewView && homeView === "meaning" ? (
-        <MeaningScreen t={t} lang={currentLang} onBack={() => setHomeView("main")} />
-      ) : !isReviewView && homeView === "letters" ? (
+      {!isReviewView && homeView === "letters" ? (
         <LettersScreen
           t={t}
           lang={currentLang}
@@ -157,7 +181,7 @@ export function HomeScreen({
           t={t}
           lang={currentLang}
           reviewCount={reviews.length}
-          onMeaning={() => setHomeView("meaning")}
+          onMeaning={openLetter}
           onLetters={() => setHomeView("letters")}
           onStory={() => setIsReviewView(true)}
           onAsk={() => setActiveTab("guide")}
@@ -215,6 +239,7 @@ export function HomeScreen({
           />
         </motion.div>
       )}
+      {letterOpen && <LetterPaper t={t} lang={currentLang} onClose={closeLetter} />}
     </motion.div>
   );
 }

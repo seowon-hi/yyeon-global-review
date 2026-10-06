@@ -28,7 +28,7 @@ export const homeTilesText: Record<Language, HomeTilesText> = {
     instagramSub: "더 많은 소식",
     askSub: "무엇이든 물어보세요",
     lettersTitle: "Brand Letter",
-    meaningTitle: "the meaning of yeon",
+    meaningTitle: "Meaning of yyeon",
   },
   JA: {
     meaningDesc: "",
@@ -41,7 +41,7 @@ export const homeTilesText: Record<Language, HomeTilesText> = {
     instagramSub: "もっと見る",
     askSub: "何でもご相談ください",
     lettersTitle: "Brand Letter",
-    meaningTitle: "the meaning of yeon",
+    meaningTitle: "Meaning of yyeon",
   },
   EN: {
     meaningDesc: "",
@@ -54,6 +54,6 @@ export const homeTilesText: Record<Language, HomeTilesText> = {
     instagramSub: "More updates",
     askSub: "Ask us anything",
     lettersTitle: "Brand Letter",
-    meaningTitle: "the meaning of yeon",
+    meaningTitle: "Meaning of yyeon",
   },
 };

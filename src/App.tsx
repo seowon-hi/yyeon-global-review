@@ -28,6 +28,7 @@ export default function App() {
   >("home");
   const [isReviewView, setIsReviewView] = useState(false);
   const [homeResetSignal, setHomeResetSignal] = useState(0);
+  const [dockHidden, setDockHidden] = useState(false);
   const [likedReviews, setLikedReviews] = useState<number[]>([]);
   const [recentReviews, setRecentReviews] = useState<number[]>([]);
   const [selectedGallery, setSelectedGallery] = useState<{
@@ -218,6 +219,7 @@ export default function App() {
                 reviews={reviews}
                 stats={stats}
                 resetSignal={homeResetSignal}
+                onImmersiveChange={setDockHidden}
               />
             )}
             {activeTab === "data" && (
@@ -277,6 +279,7 @@ export default function App() {
         </main>
 
         {/* Bottom Tab Bar */}
+        {!dockHidden && (
         <BottomNav
           activeTab={activeTab}
           t={t}
@@ -292,6 +295,7 @@ export default function App() {
           onWishlist={() => setActiveTab("wishlist")}
           onProfile={() => setActiveTab("profile")}
         />
+        )}
 
         {/* Floating Action Button - Inquiry */}
         {activeTab !== "guide" && activeTab !== "home" && (
