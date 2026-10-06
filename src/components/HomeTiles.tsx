@@ -15,7 +15,15 @@ function TileLabel({ children }: { children: React.ReactNode }) {
   return <span className="mt-1.5 block text-center text-[11px] leading-tight text-[#5A5E66]">{children}</span>;
 }
 
-const tileButton = "block w-full min-h-[44px] text-left active:opacity-80 transition-opacity";
+const tileButton = "flex flex-col w-full h-full min-h-[44px] text-left active:opacity-80 transition-opacity";
+
+// Rows share the available height (weights = original tile heights) so everything fits one screen;
+// each row never grows past its design height and never shrinks below its min.
+const row = (design: number, min: number): React.CSSProperties => ({
+  flex: `${design} 1 0`,
+  minHeight: min,
+  maxHeight: design + 22,
+});
 
 export function HomeTiles({
   t,
@@ -44,11 +52,11 @@ export function HomeTiles({
   const latest = getLatestLetter();
 
   return (
-    <div className="flex-1 overflow-y-auto no-scrollbar px-5 pt-3 pb-tabbar">
-      <div className="flex flex-col gap-[14px]">
+    <div className="flex-1 overflow-y-auto no-scrollbar px-5 pt-2 pb-tabbar">
+      <div className="min-h-full flex flex-col gap-[14px]">
         {/* (1) Meaning */}
-        <button type="button" onClick={onMeaning} className={tileButton}>
-          <div className={`h-[208px] rounded-[26px] bg-[#7391BA] p-5 flex flex-col justify-between ${SOFT_SHADOW}`}>
+        <div style={row(208, 156)} className="min-h-0"><button type="button" onClick={onMeaning} className={tileButton}>
+          <div className={`flex-1 min-h-0 rounded-[26px] bg-[#7391BA] p-5 flex flex-col justify-between ${SOFT_SHADOW}`}>
             <div className="flex items-start justify-between">
               <span className="text-[20px] font-medium leading-tight text-[#FBF3DC]">{tx.meaningTitle}</span>
               <ArrowUpRight size={22} strokeWidth={1.25} className="text-[#FBF3DC] shrink-0" />
@@ -59,13 +67,13 @@ export function HomeTiles({
             </div>
           </div>
           <TileLabel>{tx.meaningLabel}</TileLabel>
-        </button>
+        </button></div>
 
         {/* (2) Brand Letter / Our Story */}
-        <div className="grid grid-cols-2 gap-[14px]">
+        <div style={row(170, 132)} className="grid grid-cols-2 gap-[14px] min-h-0">
           <button type="button" onClick={onLetters} className={tileButton}>
             <div
-              className={`h-[170px] rounded-[26px] border border-[#DDD4C2] bg-[#FFFDF6] p-4 flex flex-col justify-between ${SOFT_SHADOW}`}
+              className={`flex-1 min-h-0 rounded-[26px] border border-[#DDD4C2] bg-[#FFFDF6] p-4 flex flex-col justify-between ${SOFT_SHADOW}`}
             >
               <span className="text-[20px] font-medium leading-tight text-[#22262D]">Brand Letter</span>
               <div className="border-t border-[#DDD4C2] pt-3">
@@ -85,7 +93,7 @@ export function HomeTiles({
           </button>
 
           <button type="button" onClick={onStory} className={tileButton}>
-            <div className={`h-[170px] rounded-[26px] bg-[#E3E8F6] p-4 flex flex-col justify-between ${SOFT_SHADOW}`}>
+            <div className={`flex-1 min-h-0 rounded-[26px] bg-[#E3E8F6] p-4 flex flex-col justify-between ${SOFT_SHADOW}`}>
               <div className="flex items-start justify-between">
                 <span className="text-[20px] font-medium leading-tight text-[#22262D]">Our Story</span>
                 <ArrowRight size={20} strokeWidth={1.25} className="text-[#44568C] shrink-0 mt-0.5" />
@@ -100,7 +108,7 @@ export function HomeTiles({
         </div>
 
         {/* (3) Instagram / Ask */}
-        <div className="grid grid-cols-2 gap-[14px]">
+        <div style={row(84, 72)} className="grid grid-cols-2 gap-[14px] min-h-0">
           <a
             href="https://www.instagram.com/yyeon.kr/"
             target="_blank"
@@ -108,7 +116,7 @@ export function HomeTiles({
             className={tileButton}
           >
             <div
-              className={`h-[84px] rounded-[24px] border border-[#DDD4C2] bg-[#FFFDF6] px-3.5 flex items-center gap-2.5 ${SOFT_SHADOW}`}
+              className={`flex-1 min-h-0 rounded-[24px] border border-[#DDD4C2] bg-[#FFFDF6] px-3.5 flex items-center gap-2.5 ${SOFT_SHADOW}`}
             >
               <Instagram size={28} strokeWidth={1.1} className="text-[#22262D] shrink-0" />
               <div className="min-w-0">
@@ -121,7 +129,7 @@ export function HomeTiles({
 
           <button type="button" onClick={onAsk} className={tileButton}>
             <div
-              className={`h-[84px] rounded-[24px] border border-[#DDD4C2] bg-[#FFFDF6] px-3.5 flex items-center gap-2.5 ${SOFT_SHADOW}`}
+              className={`flex-1 min-h-0 rounded-[24px] border border-[#DDD4C2] bg-[#FFFDF6] px-3.5 flex items-center gap-2.5 ${SOFT_SHADOW}`}
             >
               <MessageCircle size={28} strokeWidth={1.1} className="text-[#22262D] shrink-0" />
               <div className="min-w-0">
