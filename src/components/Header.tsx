@@ -20,40 +20,44 @@ export function HomeHeader({
 }) {
   return (
     <header
-      className={`px-5 pt-10 pb-2 transition-all duration-700 shrink-0 ${!isReviewView ? "bg-white" : "bg-[#FAF9F6] border-b border-gray-100 z-10"}`}
+      className={`px-5 pt-8 pb-1 transition-all duration-700 shrink-0 ${!isReviewView ? "bg-[#FBF3DC]" : "bg-[#FAF9F6] border-b border-gray-100 z-10"}`}
     >
       {!isReviewView ? (
-        <>
-          <div className="flex flex-col items-center mb-3">
-            <h1 className="text-3xl font-serif italic text-gray-900 tracking-tighter mb-0.5 select-none transition-all group cursor-default">
-              yyeon,
-            </h1>
-            <p className="text-[8px] text-brand-primary font-black uppercase tracking-[0.4em] opacity-40">
-              {t.home.header_subtitle}
-            </p>
-          </div>
-
-          {/* Language Switcher moved between logo and content */}
-          <div className="mb-2 flex justify-center">
-            <div className="flex p-0.5 bg-[#F5F5F3] rounded-full border border-gray-100 w-full max-w-[150px]">
-              {(["JA", "KO", "EN"] as Language[]).map((lang) => (
+        <div className="flex flex-col items-center">
+          <h1 className="text-3xl font-serif italic font-medium text-[#22262D] tracking-tighter select-none cursor-default leading-none">
+            yyeon,
+          </h1>
+          <p className="mt-2 text-[10px] font-medium uppercase tracking-[4px] text-[#44568C]">
+            {t.home.header_subtitle}
+          </p>
+          <div className="mt-1 flex items-center justify-center" role="group" aria-label="Language">
+            {(["JA", "KO", "EN"] as Language[]).map((lang, i) => (
+              <React.Fragment key={lang}>
+                {i > 0 && (
+                  <span aria-hidden="true" className="text-[13px] text-[#A2977F]">
+                    ·
+                  </span>
+                )}
                 <button
-                  key={lang}
+                  type="button"
                   onClick={() => setCurrentLang(lang)}
-                  className={`flex-1 py-1 text-[9px] font-bold rounded-full transition-all flex items-center justify-center space-x-1 ${
-                    currentLang === lang
-                      ? "bg-white text-gray-900 shadow-sm border border-gray-200"
-                      : "text-gray-400 hover:text-gray-600"
-                  }`}
+                  aria-pressed={currentLang === lang}
+                  className="w-12 h-11 flex items-center justify-center"
                 >
-                  <span className="text-xs">
-                    {lang === "JA" ? "🇯🇵" : lang === "KO" ? "🇰🇷" : "🇺🇸"}
+                  <span
+                    className={`text-[13px] tracking-[3px] pl-[3px] pb-0.5 border-b ${
+                      currentLang === lang
+                        ? "text-[#22262D] font-medium border-[#44568C]"
+                        : "text-[#5A5E66] font-normal border-transparent"
+                    }`}
+                  >
+                    {lang === "JA" ? "JP" : lang === "KO" ? "KR" : "US"}
                   </span>
                 </button>
-              ))}
-            </div>
+              </React.Fragment>
+            ))}
           </div>
-        </>
+        </div>
       ) : (
         <motion.div
           initial={{ opacity: 0 }}

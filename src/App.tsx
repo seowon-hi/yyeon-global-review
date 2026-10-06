@@ -27,6 +27,7 @@ export default function App() {
     "home" | "data" | "compare" | "recommend" | "wishlist" | "guide" | "profile"
   >("home");
   const [isReviewView, setIsReviewView] = useState(false);
+  const [homeResetSignal, setHomeResetSignal] = useState(0);
   const [likedReviews, setLikedReviews] = useState<number[]>([]);
   const [recentReviews, setRecentReviews] = useState<number[]>([]);
   const [selectedGallery, setSelectedGallery] = useState<{
@@ -216,6 +217,7 @@ export default function App() {
                 onImageClick={openGallery}
                 reviews={reviews}
                 stats={stats}
+                resetSignal={homeResetSignal}
               />
             )}
             {activeTab === "data" && (
@@ -278,8 +280,12 @@ export default function App() {
         <BottomNav
           activeTab={activeTab}
           t={t}
+          lang={currentLang}
           onHome={() => {
-            if (activeTab === "home") setIsReviewView(false);
+            if (activeTab === "home") {
+              setIsReviewView(false);
+              setHomeResetSignal((n) => n + 1);
+            }
             setActiveTab("home");
           }}
           onCompare={() => setActiveTab("compare")}
@@ -288,7 +294,7 @@ export default function App() {
         />
 
         {/* Floating Action Button - Inquiry */}
-        {activeTab !== "guide" && (
+        {activeTab !== "guide" && activeTab !== "home" && (
           <motion.button
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}

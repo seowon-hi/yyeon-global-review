@@ -1,10 +1,11 @@
-import React, { useState, useMemo, useRef, useEffect } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion } from "motion/react";
-import { Star, ArrowRight, BarChart3, MessageSquare, ChevronDown, Instagram } from "lucide-react";
 import { Language, Review } from "../types";
 import { HomeHeader, OfficialSiteBanner } from "./Header";
 import { BagCatalogSection, ReviewList } from "./ReviewList";
 import { SearchFilter } from "./SearchFilter";
+import { HomeTiles, homeFont } from "./HomeTiles";
+import { MeaningScreen, LettersScreen } from "./HomeSubScreens";
 import { CATEGORY_FULL_NAMES, MAIN_CATEGORIES, normalizeProduct as normalizeProductBase } from "../lib/categories";
 
 export function HomeScreen({
@@ -20,6 +21,7 @@ export function HomeScreen({
   onImageClick,
   reviews,
   stats,
+  resetSignal,
 }: {
   t: any;
   currentLang: Language;
@@ -33,6 +35,7 @@ export function HomeScreen({
   onImageClick: (images: string[], index: number) => void;
   reviews: Review[];
   stats: any;
+  resetSignal?: number;
   key?: string;
 }) {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(
@@ -42,18 +45,14 @@ export function HomeScreen({
   const [selectedKeywords, setSelectedKeywords] = useState<string[]>([]);
   const [isKeywordsExpanded, setIsKeywordsExpanded] = useState(false);
 
-  const storyRef = useRef<HTMLDivElement>(null);
-  const [showScrollHint, setShowScrollHint] = useState(false);
-  const updateScrollHint = () => {
-    const el = storyRef.current;
-    if (!el) return;
-    setShowScrollHint(el.scrollHeight - el.scrollTop - el.clientHeight > 8);
-  };
+  const [homeView, setHomeView] = useState<"main" | "meaning" | "letters">("main");
+  const [selectedLetterNo, setSelectedLetterNo] = useState<number | null>(null);
+
+  // Tapping the Home tab while already on Home returns to the tile screen.
   useEffect(() => {
-    updateScrollHint();
-    window.addEventListener("resize", updateScrollHint);
-    return () => window.removeEventListener("resize", updateScrollHint);
-  }, [currentLang, isReviewView]);
+    setHomeView("main");
+    setSelectedLetterNo(null);
+  }, [resetSignal]);
 
   const normalizeProduct = (name: string) => normalizeProductBase(name) ?? name;
 
@@ -125,201 +124,44 @@ export function HomeScreen({
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className={`relative h-full flex flex-col ${!isReviewView ? "overflow-hidden" : ""}`}
+      className={`relative h-full flex flex-col ${!isReviewView ? "overflow-hidden bg-[#FBF3DC]" : ""}`}
+      style={!isReviewView ? { fontFamily: homeFont(currentLang) } : undefined}
     >
-      <HomeHeader
-        t={t}
-        currentLang={currentLang}
-        setCurrentLang={setCurrentLang}
-        isReviewView={isReviewView}
-        reviewCount={reviews.length}
-        onBackFromReview={() => {
-          setIsReviewView(false);
-          setSelectedCategory(null);
-          setSelectedKeywords([]);
-        }}
-      />
+      {(isReviewView || homeView === "main") && (
+        <HomeHeader
+          t={t}
+          currentLang={currentLang}
+          setCurrentLang={setCurrentLang}
+          isReviewView={isReviewView}
+          reviewCount={reviews.length}
+          onBackFromReview={() => {
+            setIsReviewView(false);
+            setSelectedCategory(null);
+            setSelectedKeywords([]);
+          }}
+        />
+      )}
 
-      {!isReviewView ? (
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          className="flex-1 flex flex-col justify-start px-6 pt-0 pb-tabbar space-y-3 overflow-hidden"
-        >
-          {t.home.brand_story ? (
-            <div className="relative flex-1 min-h-0">
-            <div
-              ref={storyRef}
-              onScroll={updateScrollHint}
-              style={
-                showScrollHint
-                  ? {
-                      WebkitMaskImage: "linear-gradient(to bottom, #000 calc(100% - 56px), transparent)",
-                      maskImage: "linear-gradient(to bottom, #000 calc(100% - 56px), transparent)",
-                    }
-                  : undefined
-              }
-              className="h-full overflow-y-auto no-scrollbar bg-[#FAF9F6] px-6 py-8 rounded-[2.5rem] text-center border border-gray-50/50 shadow-inner space-y-5"
-            >
-              {t.home.brand_story.map((p: string, i: number) => (
-                <React.Fragment key={i}>
-                <p className="text-[12px] text-gray-700 font-medium leading-loose whitespace-pre-line">
-                  {p.split(/\{\{(.+?)\}\}/).map((part, j) =>
-                    j % 2 === 1 ? (
-                      <span key={j} className="block text-[28px] font-serif text-gray-900 leading-tight my-1">
-                        {part}
-                      </span>
-                    ) : (
-                      <React.Fragment key={j}>{part.replace(/^\n|\n$/g, "")}</React.Fragment>
-                    ),
-                  )}
-                </p>
-                {i <= 2 && (
-                  <img
-                    src={`/images/yyeon_story_${[2, 1, 4][i]}.jpg`}
-                    alt=""
-                    className="w-1/2 mx-auto rounded-2xl object-cover"
-                  />
-                )}
-                </React.Fragment>
-              ))}
-            </div>
-            {showScrollHint && (
-              <div className="absolute bottom-0 inset-x-0 h-16 pointer-events-none flex items-end justify-center pb-3">
-                <motion.div
-                  animate={{ y: [0, 4, 0] }}
-                  transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
-                  className="text-gray-400"
-                >
-                  <ChevronDown size={16} />
-                </motion.div>
-              </div>
-            )}
-            </div>
-          ) : (
-          <>
-          {/* Trust Card */}
-          <div className="bg-[#FAF9F6] p-6 rounded-[2.5rem] text-center relative overflow-hidden group border border-gray-50/50 shadow-inner shrink-0">
-            <div className="relative z-10">
-              <div className="flex justify-center mb-2">
-                <div className="flex items-center space-x-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={8} fill="#000" stroke="none" />
-                  ))}
-                </div>
-              </div>
-              <div className="text-[9px] text-brand-primary font-black uppercase tracking-[0.2em] mb-1">
-                {t.home.metrics.avg_rating}
-              </div>
-              <div className="text-[42px] font-serif italic text-gray-900 tracking-tighter leading-none mb-3">
-                {stats?.totalAvgRating || "4.9"} / 5.0
-              </div>
-
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setActiveTab("data")}
-                className="inline-flex items-center space-x-2 bg-white border border-gray-100 text-gray-900 px-4 py-2 rounded-full text-[9px] font-black tracking-wider uppercase mb-3 shadow-sm active:bg-gray-50 transition-all"
-              >
-                <div className="w-1.5 h-1.5 rounded-full bg-brand-primary animate-pulse" />
-                <span>{t.home.metrics.review_analysis}</span>
-              </motion.button>
-
-              <p className="text-[11px] text-gray-500 font-bold max-w-[200px] mx-auto leading-relaxed mb-4 uppercase tracking-tighter">
-                "{t.home.trust_description}"
-              </p>
-
-              <div className="flex items-center justify-center space-x-4">
-                <div className="flex items-center space-x-1.5 opacity-60">
-                  <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                  <span className="text-[8px] font-black text-gray-900 uppercase tracking-tight">
-                    {t.home.review_source.mall}
-                  </span>
-                </div>
-                <div className="flex items-center space-x-1.5 opacity-60">
-                  <div className="w-1.5 h-1.5 rounded-full bg-orange-400" />
-                  <span className="text-[8px] font-black text-gray-900 uppercase tracking-tight">
-                    {t.home.review_source.wadiz}
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="absolute top-0 right-0 w-24 h-24 bg-brand-primary/5 rounded-full -mr-12 -mt-12 blur-3xl opacity-60" />
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-blue-500/10 rounded-full -ml-12 -mb-12 blur-3xl opacity-40" />
-          </div>
-
-          {/* Metrics Grid */}
-          <div className="grid grid-cols-2 gap-3 shrink-0">
-            {[
-              {
-                label: t.home.metrics.total_reviews,
-                value: reviews.length,
-                icon: <MessageSquare size={10} className="text-gray-900" />,
-              },
-              {
-                label: t.home.metrics.review_analysis,
-                value: t.home.metrics.review_analysis,
-                icon: <BarChart3 size={10} className="text-brand-primary" />,
-                isText: true,
-              },
-            ].map((m, i) => (
-              <div
-                key={i}
-                className="bg-white py-3 px-4 rounded-[1.5rem] border border-gray-100 text-center shadow-sm flex flex-col items-center justify-center min-h-[85px]"
-              >
-                <div className="mb-2 p-1.5 bg-[#FAF9F6] rounded-full">{m.icon}</div>
-                <div className="text-[8px] text-gray-400 font-black uppercase mb-1 tracking-widest leading-tight">
-                  {m.label}
-                </div>
-                <div className={`${m.isText ? "text-[10px]" : "text-xs"} font-black text-gray-900 leading-tight`}>
-                  {m.value}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* AI Satisfaction Badge */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="flex items-center justify-center space-x-2 py-1"
-          >
-            <div className="h-[1px] w-8 bg-gray-100" />
-            <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest">
-              {stats?.trustScore || "98"}.2% AI Satisfaction
-            </span>
-            <div className="h-[1px] w-8 bg-gray-100" />
-          </motion.div>
-          </>
-          )}
-
-          {/* Action Button */}
-          <p className="text-center text-[11px] font-bold text-gray-500 tracking-tight shrink-0">
-            {t.home.joined_by.replace("{n}", String(reviews.length))}
-          </p>
-          <div className="flex items-center gap-3 shrink-0">
-          <a
-            href="https://www.instagram.com/yyeon.kr/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            className="w-14 h-14 shrink-0 rounded-full bg-white border border-gray-100 text-gray-900 shadow-sm flex items-center justify-center active:scale-95 transition-all"
-          >
-            <Instagram size={22} />
-          </a>
-          <button
-            onClick={() => setIsReviewView(true)}
-            className="flex-1 py-5 bg-gray-900 text-white rounded-[2rem] font-black text-xs shadow-2xl shadow-gray-200 active:scale-[0.98] transition-all flex items-center justify-center space-x-3 group relative overflow-hidden shrink-0"
-          >
-            <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-            <span className="tracking-[0.2em]">{t.home.view_reviews}</span>
-            <ArrowRight
-              size={16}
-              className="group-hover:translate-x-1 transition-transform"
-            />
-          </button>
-          </div>
-        </motion.div>
+      {!isReviewView && homeView === "meaning" ? (
+        <MeaningScreen t={t} lang={currentLang} onBack={() => setHomeView("main")} />
+      ) : !isReviewView && homeView === "letters" ? (
+        <LettersScreen
+          t={t}
+          lang={currentLang}
+          selectedNo={selectedLetterNo}
+          onSelect={setSelectedLetterNo}
+          onBack={() => setHomeView("main")}
+        />
+      ) : !isReviewView ? (
+        <HomeTiles
+          t={t}
+          lang={currentLang}
+          reviewCount={reviews.length}
+          onMeaning={() => setHomeView("meaning")}
+          onLetters={() => setHomeView("letters")}
+          onStory={() => setIsReviewView(true)}
+          onAsk={() => setActiveTab("guide")}
+        />
       ) : (
         <motion.div
           key="review-content"
