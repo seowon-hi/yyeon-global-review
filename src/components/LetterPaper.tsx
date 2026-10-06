@@ -82,7 +82,7 @@ export function LetterPaper({ t, lang, onClose }: { t: any; lang: Language; onCl
               className="whitespace-nowrap text-[#22262D] font-normal leading-tight"
               style={{ fontFamily: '"Pinyon Script", cursive', fontSize: "min(38px, 9.8vw)" }}
             >
-              Meaning of yyeon
+              Meaning of yeon
             </h2>
             <div className="mx-auto mt-4 mb-[22px] h-px w-7 bg-[#B9AE98]" />
             <div
