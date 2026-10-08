@@ -20,7 +20,7 @@ export function HomeHeader({
 }) {
   return (
     <header
-      className={`px-5 pt-8 pb-1 transition-all duration-700 shrink-0 ${!isReviewView ? "bg-[#FBF3DC]" : "bg-[#FAF9F6] border-b border-gray-100 z-10"}`}
+      className={`px-5 pt-8 pb-1 transition-all duration-700 shrink-0 ${!isReviewView ? "bg-app-bg" : "bg-app-bg border-b border-gray-100 z-10"}`}
     >
       {!isReviewView ? (
         <div className="flex flex-col items-center">

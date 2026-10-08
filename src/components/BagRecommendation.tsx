@@ -44,7 +44,7 @@ export function BagRecommendation({
         </p>
       </header>
 
-      <main className="flex-1 px-6 py-6 bg-[#FAFAFA]">
+      <main className="flex-1 px-6 py-6 bg-app-bg">
         {/* Buttons at the top: 포인트 / 부드러움·따뜻함 / 고급·시크 / 빈티지 / 클래식 */}
         <div className="flex flex-wrap gap-2 mb-6 justify-start">
           {CATEGORIES.map((cat) => {

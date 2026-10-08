@@ -31,7 +31,7 @@ export function BagComparison({ reviews = [], onBagClick, currentLang = 'KO' }: 
   const filteredBags = BAG_DATA.filter((bag) => bag.personas.includes(selectedPersona));
 
   return (
-    <div className="flex flex-col bg-[#FAFAFA] min-h-full font-sans text-gray-900 leading-relaxed selection:bg-gray-100">
+    <div className="flex flex-col bg-app-bg min-h-full font-sans text-gray-900 leading-relaxed selection:bg-gray-100">
       {/* Tab Navigation header */}
       <div className="bg-white border-b border-gray-100 px-5 pt-7 pb-4">
         <h1 className="text-lg font-black tracking-tight mb-4 text-center text-gray-800 uppercase">

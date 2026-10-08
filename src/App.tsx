@@ -199,7 +199,7 @@ export default function App() {
 
   return (
     <div className="min-h-[100dvh] bg-brand-editorial-bg flex justify-center items-center font-sans tracking-tight md:p-6">
-      <div className="w-full h-[100dvh] md:max-w-md md:h-[100dvh] bg-white relative overflow-hidden flex flex-col md:shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
+      <div className="w-full h-[100dvh] md:max-w-md md:h-[100dvh] bg-app-bg relative overflow-hidden flex flex-col md:shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
         {/* Main Content Area */}
         <main className="flex-1 overflow-hidden relative">
           <AnimatePresence mode="wait">
@@ -293,7 +293,6 @@ export default function App() {
           }}
           onCompare={() => setActiveTab("compare")}
           onWishlist={() => setActiveTab("wishlist")}
-          onProfile={() => setActiveTab("profile")}
         />
         )}
 

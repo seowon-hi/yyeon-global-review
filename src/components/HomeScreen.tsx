@@ -148,7 +148,7 @@ export function HomeScreen({
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className={`relative h-full flex flex-col ${!isReviewView ? "overflow-hidden bg-[#FBF3DC]" : ""}`}
+      className={`relative h-full flex flex-col ${!isReviewView ? "overflow-hidden bg-app-bg" : ""}`}
       style={!isReviewView ? { fontFamily: homeFont(currentLang) } : undefined}
     >
       <HomeHeader
@@ -179,7 +179,7 @@ export function HomeScreen({
           key="review-content"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="flex-1 overflow-y-auto bg-[#FAF9F6]"
+          className="flex-1 overflow-y-auto bg-app-bg pb-tabbar"
         >
           <OfficialSiteBanner />
 

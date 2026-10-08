@@ -1,5 +1,5 @@
 import React from "react";
-import { Trophy, Heart, User } from "lucide-react";
+import { Trophy, Heart } from "lucide-react";
 import { Language } from "../types";
 import { homeFont } from "./HomeTiles";
 
@@ -46,7 +46,6 @@ export function BottomNav({
   onHome,
   onCompare,
   onWishlist,
-  onProfile,
 }: {
   activeTab: string;
   t: any;
@@ -54,12 +53,18 @@ export function BottomNav({
   onHome: () => void;
   onCompare: () => void;
   onWishlist: () => void;
-  onProfile: () => void;
 }) {
   return (
     <nav
-      className="absolute left-4 right-4 z-50 rounded-[26px] bg-[#F1E6C6] grid grid-cols-4 pt-2 px-2 pb-1.5"
-      style={{ bottom: "calc(14px + env(safe-area-inset-bottom, 0px))", fontFamily: homeFont(lang) }}
+      className="absolute left-4 right-4 z-50 rounded-[26px] grid grid-cols-3 pt-2 px-2 pb-1.5 border border-white/70"
+      style={{
+        bottom: "calc(14px + env(safe-area-inset-bottom, 0px))",
+        fontFamily: homeFont(lang),
+        background: "rgba(var(--app-bg-rgb), 0.6)",
+        backdropFilter: "blur(16px) saturate(1.2)",
+        WebkitBackdropFilter: "blur(16px) saturate(1.2)",
+        boxShadow: "0 8px 24px rgba(34,38,45,0.10)",
+      }}
     >
       <TabButton
         active={activeTab === "home"}
@@ -78,12 +83,6 @@ export function BottomNav({
         onClick={onWishlist}
         icon={<Heart {...ICON_PROPS} />}
         label={t.nav.wishlist}
-      />
-      <TabButton
-        active={activeTab === "profile"}
-        onClick={onProfile}
-        icon={<User {...ICON_PROPS} />}
-        label={t.nav.profile}
       />
     </nav>
   );

@@ -48,7 +48,7 @@ export function ProfileScreen({
       animate={{ opacity: 1 }}
       className="p-6 pb-24 relative"
     >
-      <header className="mb-6 sticky top-0 bg-[#FAF9F6] pt-10 pb-3 z-40 -mx-6 px-6 shadow-sm shadow-gray-100/50">
+      <header className="mb-6 sticky top-0 bg-app-bg pt-10 pb-3 z-40 -mx-6 px-6 shadow-sm shadow-gray-100/50">
         <div className="flex items-center justify-between mb-2">
           <h1 className="text-2xl font-serif italic text-gray-900">
             {t.profile.title}
