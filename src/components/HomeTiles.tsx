@@ -63,7 +63,11 @@ export function HomeTiles({
   }, [lang]);
 
   return (
-    <div ref={outerRef} className="flex-1 overflow-hidden px-5 pt-2 pb-tabbar">
+    <div
+      ref={outerRef}
+      className="flex-1 overflow-hidden pt-2 pb-tabbar"
+      style={{ paddingInline: "var(--screen-gutter)" }}
+    >
       <div
         ref={innerRef}
         className="flex flex-col gap-[14px] origin-top"

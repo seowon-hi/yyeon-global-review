@@ -19,6 +19,8 @@
 :root {
   /* Bottom tab bar height; shared by BottomNav and every screen's bottom padding. */
   --app-bg-rgb: 250, 249, 246; /* = --color-app-bg, for translucent surfaces */
+  /* Horizontal gutter shared by the home tile grid and the bottom dock. */
+  --screen-gutter: 1.25rem;
   --tabbar-h: calc(84px + env(safe-area-inset-bottom, 0px));
 }
 

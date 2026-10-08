@@ -56,8 +56,10 @@ export function BottomNav({
 }) {
   return (
     <nav
-      className="absolute left-4 right-4 z-50 rounded-[26px] grid grid-cols-3 pt-2 px-2 pb-1.5 border border-white/70"
+      className="absolute z-50 rounded-[26px] grid grid-cols-3 pt-2 px-2 pb-1.5 border border-white/70"
       style={{
+        left: "var(--screen-gutter)",
+        right: "var(--screen-gutter)",
         bottom: "calc(14px + env(safe-area-inset-bottom, 0px))",
         fontFamily: homeFont(lang),
         background: "rgba(var(--app-bg-rgb), 0.6)",
