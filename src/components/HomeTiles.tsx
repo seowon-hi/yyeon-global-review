@@ -61,7 +61,7 @@ export function HomeTiles({
       >
         {/* (1) Meaning */}
         <button type="button" onClick={onMeaning} className={tileButton}>
-          <div className={`h-[208px] rounded-[26px] bg-[#7391BA] p-5 flex flex-col justify-between ${SOFT_SHADOW}`}>
+          <div className={`h-[208px] rounded-[26px] bg-[#8FBDD5] p-5 flex flex-col justify-between ${SOFT_SHADOW}`}>
             <div className="flex items-start justify-between">
               <span className="text-[20px] font-medium leading-tight text-[#FBF3DC]">{tx.meaningTitle}</span>
               <ArrowUpRight size={22} strokeWidth={1.25} className="text-[#FBF3DC] shrink-0" />
@@ -93,12 +93,12 @@ export function HomeTiles({
           </button>
 
           <button type="button" onClick={onStory} className={tileButton}>
-            <div className={`h-[170px] rounded-[26px] bg-[#E3E8F6] p-4 flex flex-col justify-between ${SOFT_SHADOW}`}>
+            <div className={`h-[170px] rounded-[26px] border border-[#E6DFBF] bg-[#FFFCDB] p-4 flex flex-col justify-between ${SOFT_SHADOW}`}>
               <div className="flex items-start justify-between">
                 <span className="text-[20px] font-medium leading-tight text-[#22262D]">Our Story</span>
                 <ArrowRight size={20} strokeWidth={1.25} className="text-[#44568C] shrink-0 mt-0.5" />
               </div>
-              <div className="border-t border-[#BCC6E2] pt-3">
+              <div className="border-t border-[#E6DFBF] pt-3">
                 <div className="text-[28px] font-medium leading-none text-[#44568C]">{reviewCount}</div>
                 <div className="mt-1.5 text-[11.5px] leading-snug text-[#22262D]">{tx.storyCountSuffix}</div>
               </div>
