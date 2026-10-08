@@ -161,8 +161,8 @@ export default function App() {
 
   if (loading) {
     return (
-      <div className="min-h-[100dvh] bg-brand-editorial-bg flex justify-center items-center font-sans tracking-tight md:p-6">
-        <div className="w-full h-[100dvh] md:max-w-md bg-white relative overflow-hidden flex flex-col items-center justify-center">
+      <div className="min-h-[100dvh] bg-app-bg flex justify-center items-center font-sans tracking-tight md:p-6">
+        <div className="w-full h-[100dvh] md:max-w-md bg-app-bg relative overflow-hidden flex flex-col items-center justify-center">
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
@@ -198,7 +198,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-[100dvh] bg-brand-editorial-bg flex justify-center items-center font-sans tracking-tight md:p-6">
+    <div className="min-h-[100dvh] bg-app-bg flex justify-center items-center font-sans tracking-tight md:p-6">
       <div className="w-full h-[100dvh] md:max-w-md md:h-[100dvh] bg-app-bg relative overflow-hidden flex flex-col md:shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
         {/* Main Content Area */}
         <main className="flex-1 overflow-hidden relative">

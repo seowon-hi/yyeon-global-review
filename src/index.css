@@ -13,15 +13,21 @@
   --color-brand-editorial-bg: #F5FAFF;
   --color-brand-dark: #1A2E35;
   /* App-wide screen background (taken from the review archive). Letter papers keep their own colors. */
-  --color-app-bg: #FAF9F6;
+  --color-app-bg: #FAF9F4;
 }
 
 :root {
-  --app-bg-rgb: 250, 249, 246; /* = --color-app-bg, for translucent surfaces */
+  --app-bg-rgb: 250, 249, 244; /* = --color-app-bg, for translucent surfaces */
   /* Horizontal gutter shared by the home tile grid and the bottom dock. */
   --screen-gutter: 1.25rem;
   /* Bottom tab bar height; shared by BottomNav and every screen's bottom padding. */
   --tabbar-h: calc(84px + env(safe-area-inset-bottom, 0px));
+}
+
+html,
+body,
+#root {
+  background-color: var(--color-app-bg);
 }
 
 @utility pb-tabbar {

@@ -36,7 +36,7 @@ export function BagRecommendation({
     RECOM_LABELS[key]?.[lang] || RECOM_LABELS[key]?.["KO"] || "";
 
   return (
-    <div className="flex flex-col bg-white min-h-full font-sans">
+    <div className="flex flex-col bg-app-bg min-h-full font-sans">
       <header className="px-6 pt-10 pb-6 bg-[#0B1530] text-white rounded-b-[2.5rem] shadow-xl">
         <h1 className="text-2xl font-serif italic mb-1">{t("title")}</h1>
         <p className="text-[10px] text-white/40 font-black uppercase tracking-widest">

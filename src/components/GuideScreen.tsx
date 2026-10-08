@@ -76,9 +76,9 @@ export function GuideScreen({
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="flex flex-col h-full bg-white overflow-hidden"
+      className="flex flex-col h-full bg-app-bg overflow-hidden"
     >
-      <header className="px-5 pt-10 pb-6 border-b border-gray-100 shrink-0 bg-white sticky top-0 z-40 shadow-sm mb-4">
+      <header className="px-5 pt-10 pb-6 border-b border-gray-100 shrink-0 bg-app-bg sticky top-0 z-40 shadow-sm mb-4">
         <div className="flex items-center space-x-3 mb-2">
           <div className="w-10 h-10 rounded-2xl bg-gray-900 flex items-center justify-center text-white shrink-0 shadow-lg shadow-gray-200">
             <Sparkles size={16} />
@@ -97,7 +97,7 @@ export function GuideScreen({
       {/* Message Area */}
       <div
         ref={scrollRef}
-        className="flex-1 overflow-y-auto px-5 py-6 space-y-6 no-scrollbar bg-[#FAF9F6]/50"
+        className="flex-1 overflow-y-auto px-5 py-6 space-y-6 no-scrollbar bg-app-bg"
       >
         {messages.map((msg, idx) => (
           <motion.div
@@ -132,7 +132,7 @@ export function GuideScreen({
       </div>
 
       {/* Fixed Options Area */}
-      <div className="px-5 py-4 bg-white border-t border-gray-100 shrink-0">
+      <div className="px-5 py-4 bg-app-bg border-t border-gray-100 shrink-0">
         <div className="mb-3 flex items-center space-x-2">
           <input
             type="text"
