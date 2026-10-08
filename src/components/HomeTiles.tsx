@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React from "react";
 import { ArrowUpRight, ArrowRight, Instagram, MessageCircle } from "lucide-react";
 import { Language } from "../types";
 import { homeTilesText } from "../i18n/homeTiles";
@@ -42,40 +42,16 @@ export function HomeTiles({
       .replace(/\{\{(.+?)\}\}/g, "$1")
       .replace(/\n/g, " ");
 
-  // Scale the whole tile block uniformly (same proportions, just smaller) so it fits one screen.
-  const outerRef = useRef<HTMLDivElement>(null);
-  const innerRef = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState(1);
-  useLayoutEffect(() => {
-    const fit = () => {
-      const outer = outerRef.current;
-      const inner = innerRef.current;
-      if (!outer || !inner) return;
-      const cs = getComputedStyle(outer);
-      const avail = outer.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
-      setScale(Math.min(1, avail / inner.offsetHeight));
-    };
-    fit();
-    const ro = new ResizeObserver(fit);
-    if (outerRef.current) ro.observe(outerRef.current);
-    if (innerRef.current) ro.observe(innerRef.current);
-    return () => ro.disconnect();
-  }, [lang]);
-
   return (
+    // Width is fixed (frame - gutters, same as the dock); only heights/gaps shrink on short screens, then it scrolls.
     <div
-      ref={outerRef}
-      className="flex-1 overflow-hidden pt-2 pb-tabbar"
+      className="flex-1 min-h-0 overflow-y-auto no-scrollbar pt-2 pb-tabbar"
       style={{ paddingInline: "var(--screen-gutter)" }}
     >
-      <div
-        ref={innerRef}
-        className="flex flex-col gap-[14px] origin-top"
-        style={{ transform: `scale(${scale})` }}
-      >
+      <div className="flex flex-col gap-[var(--tile-gap)]">
         {/* (1) Meaning */}
         <button type="button" onClick={onMeaning} className={tileButton}>
-          <div className={`h-[208px] rounded-[26px] bg-[#7391BA] p-5 flex flex-col justify-between ${SOFT_SHADOW}`}>
+          <div className={`h-[var(--tile-h-lg)] rounded-[26px] bg-[#7391BA] p-5 flex flex-col justify-between ${SOFT_SHADOW}`}>
             <div className="flex items-start justify-between">
               <span className="text-[20px] font-medium leading-tight text-[#FBF3DC]">{tx.meaningTitle}</span>
               <ArrowUpRight size={22} strokeWidth={1.25} className="text-[#FBF3DC] shrink-0" />
@@ -89,10 +65,10 @@ export function HomeTiles({
         </button>
 
         {/* (2) Brand Letter / Our Story */}
-        <div className="grid grid-cols-2 gap-[14px]">
+        <div className="grid grid-cols-2 gap-[var(--tile-gap)]">
           <button type="button" onClick={onDirector} className={tileButton}>
             <div
-              className={`h-[170px] rounded-[26px] border border-[#DDD4C2] bg-[#FFFDF6] p-4 flex flex-col justify-between ${SOFT_SHADOW}`}
+              className={`h-[var(--tile-h-md)] rounded-[26px] border border-[#DDD4C2] bg-[#FFFDF6] p-4 flex flex-col justify-between ${SOFT_SHADOW}`}
             >
               <div className="flex items-start justify-between">
                 <span className="text-[20px] font-medium leading-tight text-[#22262D]">Brand Letter</span>
@@ -107,7 +83,7 @@ export function HomeTiles({
           </button>
 
           <button type="button" onClick={onStory} className={tileButton}>
-            <div className={`h-[170px] rounded-[26px] bg-[#E3E8F6] p-4 flex flex-col justify-between ${SOFT_SHADOW}`}>
+            <div className={`h-[var(--tile-h-md)] rounded-[26px] bg-[#E3E8F6] p-4 flex flex-col justify-between ${SOFT_SHADOW}`}>
               <div className="flex items-start justify-between">
                 <span className="text-[20px] font-medium leading-tight text-[#22262D]">Our Story</span>
                 <ArrowRight size={20} strokeWidth={1.25} className="text-[#44568C] shrink-0 mt-0.5" />
@@ -122,7 +98,7 @@ export function HomeTiles({
         </div>
 
         {/* (3) Instagram / Ask */}
-        <div className="grid grid-cols-2 gap-[14px]">
+        <div className="grid grid-cols-2 gap-[var(--tile-gap)]">
           <a
             href="https://www.instagram.com/yyeon.kr/"
             target="_blank"
@@ -130,7 +106,7 @@ export function HomeTiles({
             className={tileButton}
           >
             <div
-              className={`h-[84px] rounded-[24px] border border-[#DDD4C2] bg-[#FFFDF6] px-3.5 flex items-center gap-2.5 ${SOFT_SHADOW}`}
+              className={`h-[var(--tile-h-sm)] rounded-[24px] border border-[#DDD4C2] bg-[#FFFDF6] px-3.5 flex items-center gap-2.5 ${SOFT_SHADOW}`}
             >
               <Instagram size={28} strokeWidth={1.1} className="text-[#22262D] shrink-0" />
               <div className="min-w-0">
@@ -143,7 +119,7 @@ export function HomeTiles({
 
           <button type="button" onClick={onAsk} className={tileButton}>
             <div
-              className={`h-[84px] rounded-[24px] border border-[#DDD4C2] bg-[#FFFDF6] px-3.5 flex items-center gap-2.5 ${SOFT_SHADOW}`}
+              className={`h-[var(--tile-h-sm)] rounded-[24px] border border-[#DDD4C2] bg-[#FFFDF6] px-3.5 flex items-center gap-2.5 ${SOFT_SHADOW}`}
             >
               <MessageCircle size={28} strokeWidth={1.1} className="text-[#22262D] shrink-0" />
               <div className="min-w-0">

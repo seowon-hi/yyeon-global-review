@@ -21,6 +21,11 @@
   --app-bg-rgb: 250, 249, 246; /* = --color-app-bg, for translucent surfaces */
   /* Horizontal gutter shared by the home tile grid and the bottom dock. */
   --screen-gutter: 1.25rem;
+  /* Home tile heights shrink with viewport height (never the width). */
+  --tile-h-lg: clamp(120px, 28dvh, 208px);
+  --tile-h-md: clamp(100px, 22dvh, 170px);
+  --tile-h-sm: clamp(64px, 11dvh, 84px);
+  --tile-gap: clamp(8px, 1.8dvh, 14px);
   --tabbar-h: calc(84px + env(safe-area-inset-bottom, 0px));
 }
 
