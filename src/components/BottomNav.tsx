@@ -2,6 +2,7 @@ import React from "react";
 import { Trophy, Heart } from "lucide-react";
 import { Language } from "../types";
 import { homeFont } from "./HomeTiles";
+import { useHomeScale } from "../lib/homeScale";
 
 const ICON_PROPS = { size: 18, strokeWidth: 1.1 } as const;
 
@@ -54,14 +55,17 @@ export function BottomNav({
   onCompare: () => void;
   onWishlist: () => void;
 }) {
+  const scale = useHomeScale();
   return (
     <nav
       className="absolute z-50 rounded-[26px] grid grid-cols-3 pt-2 px-2 pb-1.5 border border-white/70"
       style={{
-        left: "var(--screen-gutter)",
-        right: "var(--screen-gutter)",
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "calc((100% - var(--screen-gutter) * 2) * var(--home-scale, 1))",
         bottom: "calc(14px + env(safe-area-inset-bottom, 0px))",
         fontFamily: homeFont(lang),
+        ["--home-scale" as string]: scale,
         background: "rgba(var(--app-bg-rgb), 0.6)",
         backdropFilter: "blur(16px) saturate(1.2)",
         WebkitBackdropFilter: "blur(16px) saturate(1.2)",
